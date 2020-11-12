@@ -1,0 +1,45 @@
+/* add - this */
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+header, footer, #side-menu section {
+    margin: 2px;
+    padding: 4px;
+    border: 2px solid blue;
+}
+#content {
+    margin: 2px;
+    padding: 4px;
+    border: 2px solid red;
+}
+#side-menu, #main {
+    margin: 2px;
+    padding: 4px;
+    border: 2px solid green;
+}
+header {
+    flex: 1;
+}
+#content {
+    flex: 4;
+    display: flex;
+    flex-direction: row;
+}
+#side-menu {
+    flex: 1;
+}
+#main {
+    flex: 4;
+}
+footer {
+    flex: 1;
+    min-height: 20px;
+}

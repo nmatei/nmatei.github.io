@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Nicolae Matei CV</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <!-- <h1>CV</h1> -->
+            <h2>Matei Nicolae</h2>
+            <img src="seflie.jpg" width="50" alt="Nicolae">
+
+            <p id="job-title">WebDeveloper & Trainer @ <span>FastTrackIT</span></p>
+        </div>
+
+        <ul id="top-menu-bar">
+            <li><a href="#" onclick="showHome()">Home</a></li>
+            <li><a href="#" onclick="showSkills()">Skills</a></li>
+            <li><a href="#" onclick="showProjects()">Projects</a></li>
+            <li><a href="#" onclick="showLanguages()">Languages</a></li>
+        </ul>
+    </header>
+    <section id="content">
+        <div id="side-menu">
+            <section>
+                <form action="">
+                    <label for="e">Email</label>
+                    <input type="email" id="e" name="em">
+                    <input type="text" id="name" name="nume" placeholder="Your name">
+                    <button>
+                        Contact Us
+                    </button>
+                </form>
+            </section>
+            <section>...</section>
+        </div>
+        <div id="main">
+            <div id="home" class="page">
+                <h2>Home</h2>
+                Bine ai venit. aici poate este despre mine... 
+                dar poate fi si despre tine.
+            </div>
+
+            <div id="skills" class="page" style="display: none;">
+                <h2>Skills & Endorcements</h2>
+                <ul>
+                    <li class="favorite">HTML</li>
+                    <li>CSS</li>
+                    <li class="favorite">JS</li>
+                </ul>
+            </div>
+
+            <div id="projects" class="page" style="display: none;">
+                <h2>Projects</h2>
+                multe... iti zic dupa.
+            </div>
+            
+            <div id="languages" class="page" style="display: none;">
+                <h2>Known Languages</h2>
+                <table border="1">
+                    <tr>
+                        <td>Romanian</td>
+                        <td>nativ</td>
+                    </tr>
+                    <tr>
+                        <td>English</td>
+                        <td>good</td>
+                    </tr>
+                </table>
+            </div>
+
+
+        </div>
+    </section>
+    <footer>
+        <a target="_blank" href="https://fasttrackit.org/curs-web-cluj-napoca/">Curs Web</a>
+    </footer>
+
+    <script src="functions.js"></script>
+    <script>
+       /*
+        console.info(2 + 4);
+        var name = 'Matei Nicolae';
+        console.info(name);
+        console.info('Matei Nicolae');
+        var x = 44;
+        var y = 135 - x;
+        console.info("y");
+        console.info(y);
+        var skills = ["html", "css", "js"];
+        console.info(skills);
+        */
+    </script>
+</body>
+
+</html>
