@@ -23,11 +23,26 @@ body {
     display: flex;
     flex-direction: column;
 }
-header {
-    flex: 1;
+h1 {
+    margin: 5px 0;
 }
-header > div {
+#header-wraper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#header-info {
+    flex: 1;
+    padding: 10px;
+}
+#my-picture {
     padding: 5px;
+    width: 108px;
+    height: 108px;
+}
+#my-picture img {
+    border-radius: 50%;
+    border: 4px solid #fff;
 }
 #content {
     flex: 4;
@@ -61,11 +76,14 @@ body {
 }
 
 #job-title {
-    color: blue;
-    text-align: right;
+    color: #334455;
+    margin: 5px 0;
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
 #top-menu-bar {
+    margin: 0;
     text-align: center;
     background-color: #334455;
     color: #fff;
