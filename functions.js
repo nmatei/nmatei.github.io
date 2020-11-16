@@ -16,22 +16,23 @@ function hideAllPages() {
     }
 }
 
-function showHome() {
+function showPage(pageId) {
     hideAllPages();
-    document.getElementById('home').style.display = '';
+    document.getElementById(pageId).style.display = "";
+}
+
+function showHome() {
+    showPage('home');
 }
 
 function showSkills() {
-    hideAllPages();
-    document.getElementById('skills').style.display = '';
+    showPage('skills');
 }
 
 function showProjects() {
-    hideAllPages();
-    document.getElementById("projects").style.display = "";
+    showPage("projects");
 }
 
 function showLanguages() {
-    hideAllPages();
-    document.getElementById("languages").style.display = "";
+    showPage("languages");
 }
