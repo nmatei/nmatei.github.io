@@ -20,19 +20,3 @@ function showPage(pageId) {
     hideAllPages();
     document.getElementById(pageId).style.display = "";
 }
-
-function showHome() {
-    showPage('home');
-}
-
-function showSkills() {
-    showPage('skills');
-}
-
-function showProjects() {
-    showPage("projects");
-}
-
-function showLanguages() {
-    showPage("languages");
-}
