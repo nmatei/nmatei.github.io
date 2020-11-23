@@ -11,11 +11,15 @@ function hide(id) {
 
 function hidePreviousPage () {
     hide(activePage);
+    var link = document.querySelector(`#top-menu-bar a[data-page="${activePage}"]`);
+    link.classList.remove("active");
 }
 
 function showPage(pageId) {
     hidePreviousPage();
     document.getElementById(pageId).style.display = "";
+    var link = document.querySelector(`#top-menu-bar a[data-page="${pageId}"]`);
+    link.classList.add("active");
     activePage = pageId;
 }
 
@@ -23,7 +27,7 @@ function initMenu() {
     document.addEventListener("click", function(e){
         var link = e.target;
         if (link.matches("#top-menu-bar a")) {
-            var id = link.innerHTML.toLowerCase();
+            var id = link.getAttribute("data-page");
             showPage(id);
         }
     })
