@@ -117,8 +117,12 @@ body {
     border-radius: 2px;
 }
 
-li {
-    color: blue; 
+#skills li {
+    font-weight: 800;
+}
+#skills li span {
+    font-weight: 200;
+    color: gray;
 }
 
 .favorite {
