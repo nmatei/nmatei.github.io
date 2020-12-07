@@ -44,6 +44,7 @@ function showSkills(skills) {
     });
     
     // TODO add "favorite" skill
+    // TODO sort by endorsements
     var ul = document.querySelector("#skills ul");
     ul.innerHTML = skillsLi.join("");
 }
