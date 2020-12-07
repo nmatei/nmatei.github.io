@@ -117,16 +117,12 @@ body {
     border-radius: 2px;
 }
 
-#skills li {
-    font-weight: 800;
-}
 #skills li span {
     font-weight: 200;
     color: gray;
 }
 
 .favorite {
-    background-color: yellowgreen; 
-    font-style: italic;
-    color: blueviolet;
+    font-weight: 800;
+    color: #0b5808;
 }
