@@ -43,7 +43,7 @@ function getHTMLSkills(skills) {
             ${skill.name} <span>&middot; ${skill.endorsements}</span>
         </li>`;
     });
-    return skillsLi.join("")*1;
+    return skillsLi.join("");
 }
 
 function showSkills(skills) {
@@ -56,7 +56,6 @@ fetch("data/skills.json").then(function(r) {
 }).then(function(allSkills) {
     allSkills.sort(function(s1, s2) {
         return s2.endorsements - s1.endorsements;
-        //return s1.name < s2.name ? -1 : 1;
     });
 
     showSkills(allSkills);
