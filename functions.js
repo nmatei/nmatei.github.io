@@ -1,38 +1,18 @@
-function hide(id) {
-    //document.getElementById(id).style.display = "none";
-    var el = document.getElementById(id);
-    console.info("hide:" + id, el);
-    if (el) {
-        el.style.display = "none";
-    } else {
-        console.error("elementul nu exista");
-    }
+console.debug('inside functions.js');
+
+function getInfo(name) {
+  var mess = "Salut " + name + ", bine ai venit!";
+  console.warn('inside get info', mess);
+  return mess;
 }
 
-function showHome() {
-    hide("skills");
-    hide("projects");
-    hide("languages");
-    document.getElementById('home').style.display = '';
-}
+console.info(getInfo("Nick " + "Matei"));
+
+// var myName = "Nick " + "Matei";
+// var wellcome = getInfo(myName);
+// console.info(wellcome);
 
 function showSkills() {
-    hide("home");
-    hide("projects");
-    hide("languages");
-    document.getElementById('skills').style.display = '';
-}
-
-function showProjects() {
-    document.getElementById("home").style.display = "none";
-    document.getElementById("skills").style.display = "none";
-    document.getElementById("languages").style.display = "none";
-    document.getElementById("projects").style.display = "";
-}
-
-function showLanguages() {
-    document.getElementById("home").style.display = "none";
-    document.getElementById("skills").style.display = "none";
-    document.getElementById("projects").style.display = "none";
-    document.getElementById("languages").style.display = "";
+  document.getElementById('home').style.display = 'none';
+  document.getElementById('skills').style.display = 'block';
 }
