@@ -19,10 +19,10 @@
     <p id="motto" title="Click to see all..."><strong>WebDeveloper</strong> @ <i>RWS</i></p>
     
     <ul id="top-menu-bar">
-      <li><a href="#">Home</a></li>
+      <li><a href="#" onclick="showHome()">Home</a></li>
       <li><a href="#" onclick="showSkills()">Skills</a></li>
-      <li><a href="#">Projects</a></li>
-      <li><a href="#">Languages</a></li>
+      <li><a href="#" onclick="showProjects()">Projects</a></li>
+      <li><a href="#" onclick="showLanguages()">Languages</a></li>
     </ul>
   </header>
   
@@ -54,12 +54,12 @@
         </ul>
       </div>
 
-      <div class="page">
+      <div class="page" id="projects">
         <h3>Projects</h3>
         many projects... soon
       </div>
       
-      <div class="page">
+      <div class="page" id="languages">
         <h3>Known Languages</h3>
         <table border="1">
           <tr>
