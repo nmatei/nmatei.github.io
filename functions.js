@@ -1,5 +1,4 @@
 function hidePage(id) {
-  console.info('hide page', id);
   document.getElementById(id).style.display = 'none';
 }
 
@@ -17,9 +16,7 @@ function highlight(el) {
 }
 
 function showPage(id) {
-  console.info('show page', id);
   var page = document.getElementById(id);
-  console.info('show', page);
   if (page) {
     page.style.display = 'block';
     highlight(page);
@@ -29,12 +26,9 @@ function showPage(id) {
 }
 
 function hideAllPages() {
-  var pageIds = [
-    'home', 'skills', 'projects', 'languages'
-  ];
-
-  pageIds.forEach(function(pageId){
-    hidePage(pageId);
+  var pages = Array.from(document.getElementsByClassName('page'));
+  pages.forEach(function(page){
+    hidePage(page.id);
   });
 }
 
