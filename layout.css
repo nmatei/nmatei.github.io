@@ -26,9 +26,6 @@ body {
   display: flex;
   flex-direction: column;
 }
-header, body > section {
-  flex: 1;
-}
 
 #content {
   flex: 4;
