@@ -1,4 +1,4 @@
-function hidePage(id) {
+function hide(id) {
   document.getElementById(id).style.display = 'none';
 }
 
@@ -15,7 +15,7 @@ function highlight(el) {
   }, 300);
 }
 
-function showPage(id) {
+function show(id) {
   var page = document.getElementById(id);
   if (page) {
     page.style.display = 'block';
@@ -28,28 +28,13 @@ function showPage(id) {
 function hideAllPages() {
   var pages = Array.from(document.getElementsByClassName('page'));
   pages.forEach(function(page){
-    hidePage(page.id);
+    hide(page.id);
   });
 }
 
-function showHome() {
+function showPage(id) {
   hideAllPages();
-  showPage('home');
+  show(id);
 }
 
-function showSkills() {
-  hideAllPages();
-  showPage('skills');
-}
-
-function showProjects() {
-  hideAllPages();
-  showPage('projects');
-}
-
-function showLanguages() {
-  hideAllPages();
-  showPage('languages');
-}
-
-showSkills();
+show('home');
