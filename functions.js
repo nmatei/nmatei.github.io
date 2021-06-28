@@ -33,9 +33,9 @@ function hideAllPages() {
     'home', 'skills', 'projects', 'languages'
   ];
 
-  for (var i = 0; i < pageIds.length; i++) {
-    hidePage(pageIds[i]);
-  }
+  pageIds.forEach(function(pageId){
+    hidePage(pageId);
+  });
 }
 
 function showHome() {
