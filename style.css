@@ -64,7 +64,6 @@ h1 {
   padding: 10px;
   margin-bottom: 10px;
   display: none;
-  transition: border-color 1s ease;  
 }
 .page h3 {
   margin: 0 0 5px 0;

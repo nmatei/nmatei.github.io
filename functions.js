@@ -29,10 +29,14 @@ function showPage(id) {
 }
 
 function hideAllPages() {
-  hidePage('home');
-  hidePage('skills');
-  hidePage('projects');
-  hidePage('languages');
+  var pageIds = [
+    'home', 'skills', 'projects', 'languages'
+  ];
+  var i = 0;
+
+  while(i < pageIds.length) {
+    hidePage(pageIds[i++]);
+  }
 }
 
 function showHome() {
@@ -54,3 +58,5 @@ function showLanguages() {
   hideAllPages();
   showPage('languages');
 }
+
+showSkills();
