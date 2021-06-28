@@ -3,6 +3,8 @@ function hide(id) {
 }
 
 function highlight(el) {
+  //var oldBorderColor = el.style.borderColor;
+  //console.warn('oldBorderColor %o', oldBorderColor)
   el.style.borderColor = '#00df00';
   setTimeout(function () {
     el.style.borderColor = '#55df44';
@@ -11,7 +13,7 @@ function highlight(el) {
     el.style.borderColor = '#99df88';
   }, 200);
   setTimeout(function () {
-    el.style.borderColor = '#e0dfdc';
+    el.style.borderColor = '';
   }, 300);
 }
 
