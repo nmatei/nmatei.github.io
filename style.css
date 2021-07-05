@@ -82,6 +82,20 @@ h1 {
   font-weight: bold;
   font-style: italic;
 }
+
+#skills li span {
+  font-weight: normal;
+  color: white;
+  font-style: normal;
+  font-size: 0.8em;
+  background-color: gray;
+  border-radius: 4px;
+  display: inline-block;
+  padding: 1px 5px;
+  min-width: 15px;
+  text-align: center;
+}
+
 td {
   padding: 3px 10px;
   color: darkblue;
