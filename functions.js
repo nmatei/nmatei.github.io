@@ -61,12 +61,15 @@ var skills = [
   { name: "css", favorit: false, endorsements: 4 }
 ];
 
-var skillsHtml = skills.map(function(skill){
-  console.info(skill.name, skill.endorsements);
-  var favorit = skill.favorit ? 'class="favorit"' : '';
-  var endorsements = skill.endorsements > 5 ? `<span>${skill.endorsements}</span>` : '';
-  console.warn('f', favorit, endorsements);
-  return `<li ${favorit}>${skill.name} ${endorsements}</li>`;
-}).join('');
+function showSkills(skills){
+  var skillsHtml = skills.map(function (skill) {
+    var favorit = skill.favorit ? 'class="favorit"' : '';
+    var endorsements = skill.endorsements > 5 ? `<span>${skill.endorsements}</span>` : '';
+    return `<li ${favorit}>${skill.name} ${endorsements}</li>`;
+  }).join('');
 
-document.querySelector("#skills ul").innerHTML = skillsHtml;
+  document.querySelector("#skills ul").innerHTML = skillsHtml;
+}
+
+showSkills(skills);
+
