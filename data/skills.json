@@ -1,5 +1,5 @@
 [
-  { "name": "html", "favorit": false, "endorsements": 8 },
-  { "name": "js", "favorit": true, "endorsements": 11 },
-  { "name": "css", "endorsements": 4 }
+  { "name": "HTML", "favorit": false, "endorsements": 8 },
+  { "name": "JavaScript", "favorit": true, "endorsements": 12 },
+  { "name": "CSS", "endorsements": 4 }
 ]
