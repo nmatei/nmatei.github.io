@@ -1,0 +1,87 @@
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #f6f5ff;
+}
+#content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+#side-menu {
+  flex: 2;
+}
+#main {
+  flex: 3;
+}
+
+#header-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+#header-info {
+  flex: 1;
+}
+h1 {
+  margin-bottom: 10px;
+}
+
+p {
+  color: red;
+}
+
+#motto {
+  margin: 0;
+  text-align: right;
+}
+
+#motto span {
+  font-weight: bold;
+}
+
+.favorite {
+  font-weight: bold;
+  color: darkgreen;
+}
+
+#top-menu-bar {
+  text-align: center;
+  background-color: #334455;
+  color: #fff;
+}
+
+#top-menu-bar li {
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+#top-menu-bar a {
+  text-decoration: none;
+  padding: 0 15px;
+  /* margin: 0 15px; */
+  color: #fff;
+}
+#top-menu-bar a:visited {
+  color: #fff;
+}
+#top-menu-bar a:hover {
+  color: #334455;
+  background: #fff;
+}
+
+.page {
+  background: #fff;
+  border-radius: 0.5rem;
+  margin-bottom: 1.6rem;
+  padding: 1.6rem;
+  border: 1px solid gray;
+  box-shadow: 0 4px 8px rgb(151 127 200 / 9%);
+}
+.page h2 {
+  margin-top: 0;
+}
