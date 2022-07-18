@@ -27,31 +27,30 @@ function showPage(id) {
   document.getElementById(id).style.display = "block";
 }
 
-function showHomePage() {
+function hideAllPages() {
+  hidePage("home");
   hidePage("skills");
   hidePage("projects");
   hidePage("languages");
+}
+
+function showHomePage() {
+  hideAllPages();
   showPage("home");
 }
 
 function showSkillsPage() {
-  hidePage("home");
-  hidePage("projects");
-  hidePage("languages");
+  hideAllPages();
   showPage("skills");
 }
 
 function showProjectsPage() {
-  hidePage("home");
-  hidePage("skills");
-  hidePage("languages");
+  hideAllPages();
   showPage("projects");
 }
 
 function showLanguagesPage() {
-  hidePage("home");
-  hidePage("skills");
-  hidePage("projects");
+  hideAllPages();
   showPage("languages");
 }
 
