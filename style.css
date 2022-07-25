@@ -73,6 +73,10 @@ p {
   color: #334455;
   background: #fff;
 }
+#top-menu-bar a.active {
+  color: #334455;
+  background: #ff0;
+}
 
 .page {
   display: none;
