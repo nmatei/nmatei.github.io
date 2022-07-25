@@ -38,4 +38,17 @@ function showPage(nextPage) {
   activePage = nextPage;
 }
 
+function initEvents() {
+  document
+    .getElementById("top-menu-bar")
+    .addEventListener("click", function (e) {
+      if (e.target.matches("a")) {
+        var id = e.target.id.substring(5);
+        console.warn("click pe menu", id);
+        showPage(id);
+      }
+    });
+}
+
 showPage(activePage);
+initEvents();
