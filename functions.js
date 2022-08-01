@@ -61,7 +61,7 @@ fetch("data/skills.json")
     showSkills(allSkills);
   });
 
-const rubikColors = ["#f1efe2", "#07f104", "#FFFF00", "#ffc107", "#ff2c0a", "#0082df"];
+const rubikColors = ["#f1efe2", "#07f104", "#FFFF00", "#ffa500", "#ff2c0a", "#0082df"];
 function scrambleRubikFace() {
   // const colors = new Array(9).fill(0).map((z, i) => rubikColors[i]); // show all 6 colors
   const colors = new Array(9).fill(0).map(() => rubikColors[Math.floor(Math.random() * 6)]);
