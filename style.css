@@ -181,10 +181,11 @@ li {
   display: grid;
   grid-template-columns: auto auto auto;
   background-color: #0d0d0a;
-  padding: 5px;
-  grid-gap: 6px;
+  padding: 4px;
+  grid-gap: 4px;
   border-radius: 0.2em;
   max-width: 200px;
+  border: 1px solid #898983;
 }
 
 .rubik-face > div {
@@ -192,6 +193,7 @@ li {
   padding-top: 100%;
   border-radius: 0.2em;
   transition: 1s;
+  border: 1px solid #0d0d0a33;
 }
 .rubik-face > div:nth-child(5) {
   border-radius: 1em;
