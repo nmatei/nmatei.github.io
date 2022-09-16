@@ -5,6 +5,7 @@ My personal CV made with `HTML`, `CSS` and `JS`.
 ## Live Preview
 
 - [nmatei.github.io](https://nmatei.github.io/)
+- [https://nmatei.github.io/layout](https://nmatei.github.io/layout.html)
 
 The repo name must be in the following format: **UserName**.github.io
 
