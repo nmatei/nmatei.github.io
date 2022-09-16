@@ -31,7 +31,7 @@ git commit -m "Initial commit"
 git push origin won9
 ```
 
-Change between branches commands
+Switch branches commands
 
 ```sh
 git checkout master
