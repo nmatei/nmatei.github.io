@@ -137,7 +137,8 @@ li {
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
 }
-.page > h2, .page > h3 {
+.page > h2,
+.page > h3 {
   margin: 0 0 10px 0;
   color: #057988;
 }
@@ -147,6 +148,9 @@ li {
   color: gray;
 }
 
+th {
+  background: #d1e7ea;
+}
 #languages table {
   width: 50%;
   border-collapse: collapse;
