@@ -102,6 +102,7 @@ li {
 
 #top-menu-bar {
   margin: 0;
+  padding: 0;
   text-align: center;
   background-color: #0798ab;
   color: #fff;
@@ -153,6 +154,7 @@ th {
 }
 #languages table {
   width: 50%;
+  min-width: 350px;
   border-collapse: collapse;
 }
 #languages table th,
