@@ -8,92 +8,100 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div id="my-picture">
-      <img src="images/seflie.jpg" alt="my picture" height="100" />
-    </div>
+    <header>
+      <div id="my-picture">
+        <img src="images/seflie.jpg" alt="my picture" height="100" />
+      </div>
 
-    <h1>Matei Nicolae</h1>
+      <h1>Matei Nicolae</h1>
 
-    <h2 id="job-title">Trainer @ FastTrackIT & Udemy</h2>
+      <h2 id="job-title">Trainer @ FastTrackIT & Udemy</h2>
 
-    <ul id="top-menu-bar">
-      <li><a href="#" class="active">Home</a></li>
-      <li><a href="#">Skills</a></li>
-      <li><a href="#">Projects</a></li>
-      <li><a href="#">Languages</a></li>
-    </ul>
-
-    <div class="page">
-      <h2>Home</h2>
-      <p>Hello, <strong>welcome</strong> to my site.</p>
-      <p>This page is about me...</p>
-      <p>
-        I want <strong>this</strong> text to have both
-        <strong>Bold <i>and</i></strong> <i>Italic</i>
-      </p>
-    </div>
-
-    <div class="page">
-      <h2>Skills & Endorcements</h2>
-      <ul>
-        <li class="favorite">HTML - 2</li>
-        <li class="favorite">CSS - 0</li>
-        <li>JavaScript - 0</li>
+      <ul id="top-menu-bar">
+        <li><a href="#" class="active">Home</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Projects</a></li>
+        <li><a href="#">Languages</a></li>
       </ul>
-    </div>
+    </header>
+    <section id="content">
+      <div id="side-menu">
+        <section>
+          <h2>Contact Form</h2>
+          <form action="images/seflie.jpg" method="post">
+            <label for="contact-email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="contact-email"
+              required
+              placeholder="hr@company.com"
+            />
+            <br />
+            <label for="contact-name">Name</label>
+            <input
+              type="text"
+              name="name"
+              id="contact-name"
+              required
+              placeholder="Enter your Name"
+            />
+            <br />
+            <label for="contact-reason">Reason</label>
+            <input
+              type="text"
+              name="reason"
+              id="contact-reason"
+              required
+              placeholder="Reason for contacting me"
+            />
+            <br />
+            <button type="submit">Contact Us</button>
+          </form>
+        </section>
+        <section>M2</section>
+      </div>
+      <div id="main">
+        <div class="page">
+          <h2>Home</h2>
+          <p>Hello, <strong>welcome</strong> to my site.</p>
+          <p>This page is about me...</p>
+          <p>
+            I want <strong>this</strong> text to have both
+            <strong>Bold <i>and</i></strong> <i>Italic</i>
+          </p>
+        </div>
 
-    <div class="page">
-      <h2>Known Languages</h2>
-      <table border="1">
-        <tr>
-          <th>Language</th>
-          <th>Level</th>
-        </tr>
-        <tr>
-          <td>Romanian</td>
-          <td>Native</td>
-        </tr>
-        <tr>
-          <td>English</td>
-          <td>Professional</td>
-        </tr>
-      </table>
-    </div>
+        <div class="page">
+          <h2>Skills & Endorcements</h2>
+          <ul>
+            <li class="favorite">HTML - 2</li>
+            <li class="favorite">CSS - 0</li>
+            <li>JavaScript - 0</li>
+          </ul>
+        </div>
 
-    <br />
-    <h2>Contact Form</h2>
-    <form action="images/seflie.jpg" method="post">
-      <label for="contact-email">Email</label>
-      <input
-        type="email"
-        name="email"
-        id="contact-email"
-        required
-        placeholder="hr@company.com"
-      />
-      <br />
-      <label for="contact-name">Name</label>
-      <input
-        type="text"
-        name="name"
-        id="contact-name"
-        required
-        placeholder="Enter your Name"
-      />
-      <br />
-      <label for="contact-reason">Reason</label>
-      <input
-        type="text"
-        name="reason"
-        id="contact-reason"
-        required
-        placeholder="Reason for contacting me"
-      />
-      <br />
-      <button type="submit">Contact Us</button>
-    </form>
-
-    <br />
-    <a href="https://www.linkedin.com/in/nicolaematei">LinkedIn</a>
+        <div class="page">
+          <h2>Known Languages</h2>
+          <table border="1">
+            <tr>
+              <th>Language</th>
+              <th>Level</th>
+            </tr>
+            <tr>
+              <td>Romanian</td>
+              <td>Native</td>
+            </tr>
+            <tr>
+              <td>English</td>
+              <td>Professional</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <a href="https://www.linkedin.com/in/nicolaematei">LinkedIn</a>
+    </footer>
   </body>
 </html>
