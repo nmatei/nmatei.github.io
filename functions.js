@@ -1,5 +1,18 @@
 let activePage = "home";
 
+(function () {
+  const hash = window.location.hash.substring(1);
+  console.warn("hash", hash);
+
+  if (hash) {
+    page = document.querySelector("#" + hash);
+    if (page && page.classList.contains("page")) {
+      console.warn("activePage", activePage);
+      activePage = hash;
+    }
+  }
+})();
+
 function hide(id) {
   const el = document.getElementById(id);
   if (el) {
