@@ -3,7 +3,6 @@ html {
 }
 body {
   min-height: 100%;
-  /* height: 100%; */
   display: flex;
   flex-direction: column;
 }
@@ -57,7 +56,6 @@ h1 {
 }
 
 footer {
-  /* flex: 1; */
   min-height: 20px;
   padding: 10px 10px 8px 10px;
   text-align: center;
@@ -126,7 +124,6 @@ li {
 }
 #top-menu-bar a:hover,
 #top-menu-bar a.active {
-  /* color: #334455; */
   background-color: #057988;
 }
 
@@ -183,14 +180,17 @@ th {
 .scrambleFace {
   padding: 5px 10px;
 }
+#rubikSize {
+  width: 35px;
+}
+
 .rubik-face {
   display: grid;
   grid-template-columns: auto auto auto;
-  background-color: #0d0d0a;
-  padding: 4px;
-  grid-gap: 4px;
+  background-color: #0d0d0d;
+  padding: 2px;
+  grid-gap: 2px;
   border-radius: 0.2em;
-  max-width: 200px;
   border: 1px solid #898983;
 }
 
@@ -199,24 +199,43 @@ th {
   padding-top: 100%;
   border-radius: 0.2em;
   transition: 1s;
-  border: 1px solid #0d0d0a33;
+  border: 1px solid #0d0d0d33;
 }
-.rubik-face > div:nth-child(5) {
-  border-radius: 1em;
+.rubik-face > div.center {
+  border-radius: 30%;
 }
-.rubik-face > div:nth-child(2) {
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
+
+.rubik-face.rubik-size-2,
+.rubik-face.rubik-size-3 {
+  padding: 4px;
+  grid-gap: 4px;
+  max-width: 200px;
 }
-.rubik-face > div:nth-child(4) {
-  border-top-right-radius: 1em;
-  border-bottom-right-radius: 1em;
+.rubik-face.rubik-size-4 {
+  padding: 3px;
+  grid-gap: 3px;
+  max-width: 300px;
 }
-.rubik-face > div:nth-child(6) {
-  border-top-left-radius: 1em;
-  border-bottom-left-radius: 1em;
+/* .rubik-face.rubik-size-5 {
+  max-width: 350px;
 }
-.rubik-face > div:nth-child(8) {
-  border-top-left-radius: 1em;
-  border-top-right-radius: 1em;
+.rubik-face.rubik-size-6 {
+  max-width: 400px;
+} */
+
+.rubik-face > div.top-edge {
+  border-bottom-left-radius: 30%;
+  border-bottom-right-radius: 30%;
+}
+.rubik-face > div.left-edge {
+  border-top-right-radius: 30%;
+  border-bottom-right-radius: 30%;
+}
+.rubik-face > div.right-edge {
+  border-top-left-radius: 30%;
+  border-bottom-left-radius: 30%;
+}
+.rubik-face > div.bottom-edge {
+  border-top-left-radius: 30%;
+  border-top-right-radius: 30%;
 }

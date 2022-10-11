@@ -29,6 +29,7 @@
         <li><a href="#" data-page="skills">Skills</a></li>
         <li><a href="#" data-page="projects">Projects</a></li>
         <li><a href="#" data-page="languages">Languages</a></li>
+        <li><a href="#" data-page="big-rubik">💠Rubik's</a></li>
       </ul>
     </header>
     <section id="content">
@@ -52,20 +53,13 @@
 
         <section>
           <h2>Rubik face challange</h2>
-          <div class="top-toolbar">
-            <button class="scrambleFace" onclick="scrambleRubikFace()">🔃 Scramble</button>
-          </div>
-          <div id="rubik-face" class="rubik-face">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+          <form action="" id="rubikChallange">
+            <div class="top-toolbar">
+              <input type="number" name="size" value="3" min="1" max="10" required />
+              <button class="scrambleFace" type="submit">🔃 Scramble</button>
+            </div>
+            <div class="rubik-face"></div>
+          </form>
         </section>
       </div>
 
@@ -73,15 +67,16 @@
         <div id="home" class="page" style="display: none">
           <h2>Home</h2>
           <p>
-            Hey there... 👋! <br>
-            This page is about me... but can be and about you... if you learn with me 😉.
-            I hope I can make a difference and help you re-start your career in programming.
+            Hey there... 👋! <br />
+            This page is about me... but can be and about you... if you learn with me 😉. I hope I can make a difference
+            and help you re-start your career in programming.
           </p>
 
           <h3>Linkedin recommendations</h3>
           <ol>
             <li>
-              Create and fill your linkedin profile. And you can also <a
+              Create and fill your linkedin profile. And you can also
+              <a
                 href="https://www.linkedin.com/help/linkedin/answer/87/customizing-your-public-profile-url?lang=en"
                 target="_blank"
                 >Personalize the URL for your profile</a
@@ -89,9 +84,7 @@
             </li>
             <li>Link your linkedin and github accounts, post them here as well.</li>
             <li>Find and join with your colegues / friends.</li>
-            <li>
-              In your profile picture you should be serious and "rememberable".
-            </li>
+            <li>In your profile picture you should be serious and "rememberable".</li>
           </ol>
         </div>
 
@@ -157,6 +150,16 @@
               <td>Full professional proficiency</td>
             </tr>
           </table>
+        </div>
+
+        <div id="big-rubik" class="page" style="display: none">
+          <form action="" id="rubikChallangePage">
+            <div class="top-toolbar">
+              <input type="number" name="size" value="5" min="1" max="20" required />
+              <button class="scrambleFace" type="submit">🔃 Scramble</button>
+            </div>
+            <div class="rubik-face"></div>
+          </form>
         </div>
       </div>
     </section>
