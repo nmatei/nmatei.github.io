@@ -18,6 +18,7 @@ The repo name must be in the following format: **UserName**.github.io
 - [x] basic `git` commands and usage
 - [x] deploy your site on **github**
 - [ ] Theme switch (dark / light) [example1](https://infinite-table.com/docs#what-is-infinite), [example2](https://tpiros.dev/)
+- [x] Theme [grayscale](https://www.w3docs.com/snippets/css/how-to-convert-an-image-into-a-grayscale-image-using-html-css.html) - test for color blind people
 
 ## DEV notes
 

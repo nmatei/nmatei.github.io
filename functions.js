@@ -2,12 +2,10 @@ let activePage = "home";
 
 (function () {
   const hash = window.location.hash.substring(1);
-  console.warn("hash", hash);
 
   if (hash) {
     page = document.querySelector("#" + hash);
     if (page && page.classList.contains("page")) {
-      console.warn("activePage", activePage);
       activePage = hash;
     }
   }
@@ -43,6 +41,10 @@ function initMenu() {
       const id = link.getAttribute("data-page");
       showPage(id);
     }
+  });
+
+  document.querySelector("#colorblind").addEventListener("click", () => {
+    document.body.classList.toggle("grayscale");
   });
 }
 

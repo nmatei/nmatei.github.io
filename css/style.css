@@ -6,6 +6,15 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+.grayscale {
+  -webkit-filter: grayscale(1);
+  filter: grayscale(1);
+}
+.link {
+  cursor: pointer;
+}
+
 h1 {
   margin: 5px 0;
 }
