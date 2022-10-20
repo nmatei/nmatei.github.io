@@ -18,7 +18,7 @@ body {
 h1 {
   margin: 5px 0;
 }
-#header-wraper {
+#header-wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
