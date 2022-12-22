@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matei's CV</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Matei Nicolae</h1>
+      <img src="seflie.jpg" height="50" />
+      <h2 id="job-title">Trainer @ FastTrackIT & Web Developer @ RWS</h2>
+
+      <p style="color: red; text-align: right">
+        <strong>Welcome</strong> to my site
+      </p>
+
+      <ul id="top-menu-bar">
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#">Known Languages</a></li>
+        <li><a href="#">Projects</a></li>
+      </ul>
+    </header>
+
+    <section id="content">
+      <div id="side-menu">
+        <section>
+          <form action="">
+            <div>
+              <label for="subscriberEmail">Enter your Email</label>
+              <input
+                type="email"
+                required
+                name="email"
+                id="subscriberEmail"
+                placeholder="your@email.com"
+              />
+            </div>
+            <div>
+              <label for="subscriber">Name:</label>
+              <input
+                type="text"
+                required
+                name="nume"
+                id="subscriber"
+                placeholder="Full Name"
+              />
+            </div>
+            <button type="submit">Subscribe</button>
+          </form>
+        </section>
+        <section>Menu 2</section>
+      </div>
+
+      <div id="main">
+        <div class="page">
+          <h2>Skills</h2>
+
+          <ul id="skills-list"></ul>
+        </div>
+
+        <div class="page">
+          <h2>Known Languages</h2>
+          <table border="1">
+            <tr>
+              <th>Language</th>
+              <th>Level</th>
+            </tr>
+            <tr>
+              <td>Romanian</td>
+              <td>Native</td>
+            </tr>
+            <tr>
+              <td>English</td>
+              <td>Proficient</td>
+            </tr>
+            <tr>
+              <td>Russian</td>
+              <td>So so</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <a target="_blank" href="https://www.google.com">Google</a>
+    </footer>
+
+    <script src="index.js"></script>
+    <script>
+      // asa vreau eu!
+      console.info("page loaded");
+      console.debug(2 * 3 + 1);
+      2 * (3 + 1);
+
+      var employed = true;
+      console.error(employed);
+
+      var age = 24; // number
+
+      var user = "Matei";
+      console.info(user);
+      user = user + " Nicolae";
+      console.info(user);
+
+      var skills = ["html", "css", "js"];
+
+      var dan = {
+        age: 26,
+        employed: true,
+      };
+      var gulia = {
+        age: 25,
+        employed: true,
+      };
+
+      var jobTitle = document.getElementById("job-title");
+    </script>
+  </body>
+</html>
