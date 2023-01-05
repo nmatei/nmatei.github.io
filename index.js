@@ -17,21 +17,25 @@ function hideAllPages() {
   document.getElementById("projects").style.display = "none";
 }
 
+function show(id) {
+  document.getElementById(id).style.display = "block";
+}
+
 function displayHome() {
   hideAllPages();
-  document.getElementById("home").style.display = "block";
+  show("home");
 }
 function displaySkills() {
   hideAllPages();
-  document.getElementById("skills").style.display = "block";
+  show("skills");
 }
 function displayLanguages() {
   hideAllPages();
-  document.getElementById("languages").style.display = "block";
+  show("languages");
 }
 function displayProjects() {
   hideAllPages();
-  document.getElementById("projects").style.display = "block";
+  show("projects");
 }
 
 displayHome();
