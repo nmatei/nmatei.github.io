@@ -42,6 +42,7 @@ td {
 }
 
 .page {
+  display: none;
   border-radius: 0.8rem;
   border: 2px solid #e0dfdc;
   background: #ffffff;
