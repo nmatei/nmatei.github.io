@@ -10,11 +10,10 @@ for (var i = 0; i < skills.length; i++) {
 
 skillsEl.innerHTML = skillsHTML;
 
-var pageIds = ["home", "skills", "languages", "projects"];
-
 function hideAllPages() {
-  pageIds.forEach(function (pageId) {
-    hide(pageId);
+  var pages = document.querySelectorAll(".page");
+  pages.forEach(function (page) {
+    hide(page.id);
   });
 }
 
