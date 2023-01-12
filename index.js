@@ -25,13 +25,6 @@ function hide(id) {
   document.getElementById(id).style.display = "none";
 }
 
-function displayLanguages() {
-  displayPage("languages");
-}
-function displayProjects() {
-  displayPage("projects");
-}
-
 function displayPage(id) {
   hideAllPages();
   show(id);
