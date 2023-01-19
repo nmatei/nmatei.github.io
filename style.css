@@ -31,6 +31,21 @@ td {
   background: yellow;
 }
 
+#header-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+#header-wrapper h1 {
+  margin: 5px;
+}
+#header-wrapper h2 {
+  margin: 5px;
+}
+#header-wrapper img {
+  border-radius: 50%;
+  border: 5px solid #057988;
+}
+
 #job-title {
   text-align: center;
   color: #0c29e6;
