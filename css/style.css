@@ -46,11 +46,6 @@ header {
   display: flex;
   flex-direction: row;
 }
-@media (max-width: 500px) {
-  #content {
-    flex-direction: column-reverse;
-  }
-}
 #side-menu {
   flex: 1;
   padding: 10px 5px 5px 10px;
@@ -136,11 +131,6 @@ li {
   display: inline-block;
   border-radius: 0.2em;
   transition: 0.5s;
-}
-@media (max-width: 500px) {
-  #top-menu-bar a {
-    padding: 5px 10px 5px 10px;
-  }
 }
 #top-menu-bar a:visited {
   color: #fff;
@@ -280,4 +270,20 @@ th {
   white-space: nowrap;
   transition: 2s all ease;
   margin-left: 0;
+}
+
+@media (max-width: 500px) {
+  #top-menu-bar a {
+    padding: 5px 10px 5px 10px;
+  }
+  #content {
+    flex-direction: column-reverse;
+  }
+  #text-carousel {
+    min-height: 42px;
+  }
+  .text-carousel-wrap {
+    font-size: 10px;
+    line-height: 14px;
+  }
 }
