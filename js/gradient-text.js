@@ -1,6 +1,7 @@
 function createGradientTextSlider(options) {
   var min = 200;
   var width = Math.max(document.body.clientWidth, 1500) - min;
+  var minMarginLeft = -3500;
 
   function createLine(text) {
     var slides = text.split(/\s*\.\s*/i);
@@ -20,8 +21,8 @@ function createGradientTextSlider(options) {
       var marginLeft = left - add * dir;
       if (marginLeft > 5) {
         marginLeft = 5;
-      } else if (marginLeft < -4000) {
-        marginLeft = -4000;
+      } else if (marginLeft < minMarginLeft) {
+        marginLeft = minMarginLeft;
       }
       e.style.marginLeft = marginLeft + "px";
     });
