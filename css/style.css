@@ -18,11 +18,15 @@ body {
 h1 {
   margin: 5px 0;
 }
+header {
+  background: linear-gradient(45deg, #0798ab99, transparent);
+}
 #header-wrapper {
+  min-height: 120px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  background: linear-gradient(45deg, #0798ab99, transparent);
+  position: relative;
 }
 #header-info {
   flex: 1;
@@ -247,4 +251,23 @@ th {
 .rubik-face > div.bottom-edge {
   border-top-left-radius: 30%;
   border-top-right-radius: 30%;
+}
+
+#text-carousel {
+  min-height: 60px;
+  padding: 3px 0;
+  border-top: 2px solid #ffffff33;
+}
+.text-carousel-wrap {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #0798ab;
+  overflow: hidden;
+  width: 100%;
+}
+.text-carousel-line {
+  white-space: nowrap;
+  transition: 2s all ease;
+  margin-left: 0;
 }

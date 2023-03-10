@@ -4,7 +4,7 @@ let activePage = "home";
   const hash = window.location.hash.substring(1);
 
   if (hash) {
-    page = document.querySelector("#" + hash);
+    const page = document.querySelector("#" + hash);
     if (page && page.classList.contains("page")) {
       activePage = hash;
     }
