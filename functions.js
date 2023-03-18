@@ -142,6 +142,6 @@ function initRubik(form) {
 }
 
 setTimeout(() => {
-  initRubik(document.getElementById("rubikChallange"));
-  initRubik(document.getElementById("rubikChallangePage"));
+  initRubik(document.getElementById("rubikChallenge"));
+  initRubik(document.getElementById("rubikChallengePage"));
 }, 10);
