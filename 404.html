@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <title>Nicolae Matei's CV</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body>
+    <header>
+      <div id="header-wrapper">
+        <div id="my-picture">
+          <img src="images/seflie.jpg" width="100" alt="Nicolae" />
+        </div>
+        <div id="header-info">
+          <h1>Matei Nicolae</h1>
+          <h2 id="job-title">
+            Web Technical Lead @
+            <a href="https://www.rws.com/" target="_blank">RWS</a> & Trainer @
+            <a href="https://fasttrackit.org/" target="_blank">FastTrackIT</a>
+          </h2>
+        </div>
+        <div>
+          <img
+            id="colorblind"
+            src="images/colorblind.png"
+            alt="colorblind"
+            height="24"
+            class="link"
+            title="Check Site for colorblind people"
+          />
+        </div>
+      </div>
+
+      <div id="text-carousel"></div>
+
+      <ul id="top-menu-bar">
+        <li><a href="#home" data-page="home">Home</a></li>
+        <li><a href="#skills" data-page="skills">Skills</a></li>
+        <li><a href="#projects" data-page="projects">Projects</a></li>
+        <li><a href="#languages" data-page="languages">Languages</a></li>
+        <li><a href="#rubik" data-page="rubik">💠Rubik's</a></li>
+      </ul>
+    </header>
+    <section id="content">
+      <div id="side-menu">
+        <section>
+          <h2>Contact Form</h2>
+          <form action="" id="contact-form">
+            <div class="form-row">
+              <label for="e">Email</label>
+              <input type="email" id="e" name="em" placeholder="example@job.com" />
+            </div>
+            <div class="form-row">
+              <label for="contactName">Name</label>
+              <input type="text" id="contactName" name="nume" placeholder="Your name" />
+            </div>
+            <div class="actions">
+              <button type="submit">Contact Us</button>
+            </div>
+          </form>
+        </section>
+
+        <section>
+          <h2>Rubik face challenge</h2>
+          <form action="" id="rubikChallenge">
+            <div class="top-toolbar">
+              <input type="number" name="size" value="3" min="1" max="10" required />
+              <button class="scrambleFace" type="submit">🔃 Scramble</button>
+            </div>
+            <div class="rubik-face"></div>
+          </form>
+        </section>
+      </div>
+
+      <div id="main">
+        <div id="home" class="page" style="display: none">
+          <h2>Home</h2>
+          <p>
+            Hey there... 👋! <br />
+            This page is about me... but can be and about you... if you learn with me 😉. I hope I can make a difference
+            and help you re-start your career in programming.
+          </p>
+
+          <h3>Linkedin recommendations</h3>
+          <ol>
+            <li>
+              Create and fill your linkedin profile. And you can also
+              <a
+                href="https://www.linkedin.com/help/linkedin/answer/87/customizing-your-public-profile-url?lang=en"
+                target="_blank"
+                >Personalize the URL for your profile</a
+              >.
+            </li>
+            <li>Link your linkedin and github accounts, post them here as well.</li>
+            <li>Find and join with your colegues / friends.</li>
+            <li>In your profile picture you should be serious and "rememberable".</li>
+          </ol>
+        </div>
+
+        <div id="skills" class="page" style="display: none">
+          <h2>Skills & Endorcements</h2>
+          <ul></ul>
+        </div>
+
+        <div id="projects" class="page" style="display: none">
+          <h2>Projects</h2>
+          <ul>
+            <li>
+              <a href="https://github.com/RWS/Testy" target="_blank"
+                >Testy Framework (for Automated Acceptance Testing)</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/nmatei/simple-quiz-app" target="_blank">JS/HTML/CSS Quiz</a>
+            </li>
+            <li>
+              <a href="https://github.com/nmatei/web-intro-presentation" target="_blank">Web Presentation</a>
+            </li>
+            <li>
+              <a href="https://github.com/nmatei/chrome-bible-utilities" target="_blank"
+                >Chrome extension to for Bible.com</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/nmatei/speedcubing-algoritms" target="_blank">SpeedCubing Algorithms</a>
+            </li>
+            <li>
+              <a href="https://github.com/nmatei/warranties-list" target="_blank">Warranties List</a>
+            </li>
+            <li>
+              <a href="https://github.com/nmatei/teams-networking" target="_blank">Teams Networking</a>
+            </li>
+            <li>
+              <a href="https://github.com/nmatei/salus-logs" target="_blank">Salus Logs</a>
+            </li>
+            <li>
+              <a href="https://technopilot.ro/" target="_blank">TechnoPilot.ro</a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="languages" class="page" style="display: none">
+          <h2>Known Languages</h2>
+          <table>
+            <tr>
+              <th>Language</th>
+              <th>Level</th>
+            </tr>
+            <tr>
+              <td>Romanian</td>
+              <td>Native or bilingual proficiency</td>
+            </tr>
+            <tr>
+              <td>English</td>
+              <td>Professional working proficiency</td>
+            </tr>
+            <tr>
+              <td>Russian</td>
+              <td>Elementary proficiency</td>
+            </tr>
+            <tr>
+              <td>Italian</td>
+              <td>Elementary proficiency</td>
+            </tr>
+            <tr>
+              <td>"Java Script"</td>
+              <td>Full professional proficiency</td>
+            </tr>
+          </table>
+        </div>
+
+        <div id="rubik" class="page" style="display: none">
+          <form action="" id="rubikChallengePage">
+            <div class="top-toolbar">
+              <input type="number" name="size" value="5" min="1" max="20" required />
+              <button class="scrambleFace" type="submit">🔃 Scramble</button>
+            </div>
+            <div class="rubik-face"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <a href="https://www.linkedin.com/in/nicolaematei" target="_blank">
+        <svg
+          style="vertical-align: top"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          data-supported-dps="24x24"
+          fill="currentColor"
+          class="mercado-match"
+          width="17"
+          height="17"
+          focusable="false"
+        >
+          <path
+            d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"
+          ></path>
+        </svg>
+        LinkedIn
+      </a>
+      |
+      <a target="_blank" href="https://fasttrackit.org/curs-web-cluj-napoca/">🏤 Trainings</a>
+      |
+      <a target="_blank" href="https://www.youtube.com/c/mateinick" style="padding: 0 5px; line-height: inherit"
+        ><img height="20" src="images/youtube.png"
+      /></a>
+    </footer>
+
+    <script src="functions.js"></script>
+    <script src="js/gradient-text.js"></script>
+  </body>
+</html>
