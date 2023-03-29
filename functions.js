@@ -68,7 +68,7 @@ function showSkills(skills) {
   ul.innerHTML = getHTMLSkills(skills);
 }
 
-fetch("data/skills.json")
+fetch("/data/skills.json")
   .then(r => r.json())
   .then(allSkills => {
     allSkills.sort((s1, s2) => s2.endorsements - s1.endorsements);
