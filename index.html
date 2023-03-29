@@ -15,22 +15,22 @@
         </div>
         <div>
           <h1>Matei Nicolae</h1>
-          <h2>Web Tehnical Lead @ RWS</h2>
+          <h2 id="job-title">Web Tehnical Lead @ RWS</h2>
         </div>
       </div>
 
       <ul id="top-menu-bar">
         <li>
-          <a href="">Home</a>
+          <a href="#">Home</a>
         </li>
         <li>
-          <a href="">Skills</a>
+          <a href="#" onclick="showSkills()">Skills</a>
         </li>
         <li>
-          <a href="">Projects</a>
+          <a href="#">Projects</a>
         </li>
         <li>
-          <a href="">Languages</a>
+          <a href="#">Languages</a>
         </li>
       </ul>
     </header>
@@ -53,12 +53,17 @@
         </section>
         <section>M2</section>
       </div>
-      <div id="main">Main</div>
+      <div id="main">
+        <div class="page" id="home">HOME content...</div>
+        <div class="page" id="skills">Skills content...</div>
+        <div class="page" id="projects">Projects content...</div>
+        <div class="page" id="languages">Languages content...</div>
+      </div>
     </section>
 
     <footer>
       <a href="">Linkedin</a>
     </footer>
-    <script src="examples.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
