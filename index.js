@@ -21,3 +21,10 @@ function showPage(id) {
   hideAllPages();
   show(id);
 }
+
+document.querySelector("#top-menu-bar").addEventListener("click", function (e) {
+  if (e.target.matches("a")) {
+    var id = e.target.dataset.page;
+    showPage(id);
+  }
+});
