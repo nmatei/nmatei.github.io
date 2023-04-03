@@ -69,17 +69,24 @@ header {
 }
 
 footer {
-  min-height: 20px;
   padding: 10px 10px 8px 10px;
-  text-align: center;
   background-color: #057988;
   color: #f5f5f5;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  gap: 5px;
+}
+footer .item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
 }
 footer a {
   color: #f5f5f5;
-  vertical-align: top;
-  line-height: 20px;
-  display: inline-block;
   padding: 2px 5px;
   border-radius: 0.2em;
   transition: 0.5s;
