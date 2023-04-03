@@ -30,12 +30,13 @@ document.querySelector("#top-menu-bar").addEventListener("click", function (e) {
 
 function showSkills() {
   var skills = ["HTML", "CSS", "JS"];
-  var skillsHtml = "";
-  skills.forEach(function (skill) {
-    skillsHtml += `<li>${skill}</li>`;
+  var html = skills.map(function (skill) {
+    return `<li>${skill}</li>`;
   });
+  console.warn(html);
+
   var container = document.querySelector("#skills ul");
-  container.innerHTML = skillsHtml;
+  container.innerHTML = html.join("");
 }
 
 showSkills();
