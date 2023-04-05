@@ -10,5 +10,9 @@
   {
     "name": "JS",
     "endorcements": 16
+  },
+  {
+    "name": "TypeScript",
+    "endorcements": 0
   }
 ]

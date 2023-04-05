@@ -36,10 +36,11 @@ function showSkills(skills) {
   //   return a.name.localeCompare(b.name);
   // });
   var html = skills.map(function (skill) {
+    var cls = "";
     if (skill.endorcements > 4) {
-      return `<li class="important">${skill.name} - <span class="endorcements">${skill.endorcements}</span></li>`;
+      cls = 'class="important"';
     }
-    return `<li>${skill.name} - <span class="endorcements">${skill.endorcements}</span></li>`;
+    return `<li ${cls}>${skill.name} - <span class="endorcements">${skill.endorcements}</span></li>`;
   });
 
   var container = document.querySelector("#skills ul");
