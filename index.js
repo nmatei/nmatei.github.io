@@ -1,6 +1,6 @@
 var activePage = "skills";
 
-show(activePage);
+showPage(activePage);
 
 function hide(id) {
   document.getElementById(id).style.display = "none";
@@ -14,11 +14,18 @@ function hideAllPages() {
   pages.forEach(function (page) {
     hide(page.id);
   });
+  var link = document.querySelector(
+    `#top-menu-bar a[data-page="${activePage}"]`
+  );
+  link.classList.remove("active");
 }
 
 function showPage(id) {
   hideAllPages();
   show(id);
+  var link = document.querySelector(`#top-menu-bar a[data-page="${id}"]`);
+  link.classList.add("active");
+  activePage = id;
 }
 
 document.querySelector("#top-menu-bar").addEventListener("click", function (e) {

@@ -60,6 +60,7 @@ h1 {
   padding: 5px 15px;
   margin: 2px 0;
 }
+#top-menu-bar a.active,
 #top-menu-bar a:hover {
   color: #334455;
   background: #fff;
