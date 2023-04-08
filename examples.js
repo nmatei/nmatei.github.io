@@ -38,6 +38,29 @@ function updateTitle(title) {
   console.info(jobTitle.innerHTML);
 }
 
-variablesExample();
+function jsonWithFunctions() {
+  var person = {
+    age: 29,
+    name: "Nick",
+    learn: function () {
+      console.info("I'm learning JS, I love it!");
+    },
+    play: function () {
+      console.info("I'm playing. My name is ", this.name);
+    },
+  };
+  console.log(typeof variablesExample);
+  console.log(typeof document);
+  console.log(typeof document.getElementById);
+
+  person.learn();
+  person.play();
+  var action = "learn"; // learn
+  person[action]();
+}
+
+// variablesExample();
 
 updateTitle("Trainer @ Udemy");
+
+//jsonWithFunctions();
