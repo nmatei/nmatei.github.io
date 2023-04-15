@@ -33,6 +33,8 @@ echo "# nmatei.github.io" >> README.md
 git add .
 git commit -m "Initial commit"
 git push origin demo
+git status
+
 ```
 
 Switch branches commands
