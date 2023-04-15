@@ -76,6 +76,7 @@ footer a {
 }
 
 .page {
+  display: none;
   padding: 24px;
   background: #fff;
   margin-bottom: 10px;

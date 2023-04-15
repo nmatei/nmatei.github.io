@@ -21,7 +21,7 @@
 
       <ul id="top-menu-bar">
         <li><a href="#" class="active">Home</a></li>
-        <li><a href="#">Skills</a></li>
+        <li><a href="#" onclick="showSkillsPage()">Skills</a></li>
         <li><a href="#">Projects</a></li>
         <li><a href="#">Languages</a></li>
       </ul>
@@ -77,7 +77,7 @@
         </section>
       </div>
       <div id="main">
-        <div class="page">
+        <div class="page" id="home">
           <h2>Home</h2>
           <p>Hello, <strong>welcome</strong> to my site.</p>
           <p>This page is about me...</p>
@@ -87,7 +87,7 @@
           </p>
         </div>
 
-        <div class="page">
+        <div class="page" id="skills">
           <h2>Skills & Endorcements</h2>
           <ul>
             <li class="favorite">HTML - 2</li>
@@ -96,7 +96,12 @@
           </ul>
         </div>
 
-        <div class="page">
+        <div class="page" id="projects">
+          <h2>Projects</h2>
+          <p>This are the projects I've been working on...</p>
+        </div>
+
+        <div class="page" id="languages">
           <h2>Known Languages</h2>
           <table border="1">
             <tr>
@@ -119,6 +124,6 @@
       <a href="https://www.linkedin.com/in/nicolaematei">LinkedIn</a>
     </footer>
 
-    <script src="examples.js"></script>
+    <script src="index.js"></script>
   </body>
 </html>
