@@ -25,12 +25,14 @@ The repo name must be in the following format: **UserName**.github.io
 For each Team **create new branch** from scrath (make sure to change name).
 
 ```sh
-git switch --orphan won9
+git switch --orphan demo
 touch .gitignore
 echo /.vscode >> .gitignore
+touch README.md
+echo "# nmatei.github.io" >> README.md
 git add .
 git commit -m "Initial commit"
-git push origin won9
+git push origin demo
 ```
 
 Switch branches commands
@@ -38,5 +40,5 @@ Switch branches commands
 ```sh
 git checkout master
 
-git checkout won8
+git checkout demo
 ```
