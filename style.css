@@ -45,6 +45,10 @@ body {
   margin: 0 0 10px 0;
 }
 
+#skills li span {
+  color: green;
+}
+
 #main {
   flex: 2;
   padding: 10px 10px 10px 5px;

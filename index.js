@@ -30,10 +30,13 @@ $("#top-menu-bar").addEventListener("click", function (e) {
   }
 });
 
-var skills = ["HTML - 3", "CSS - 1", "JavaScript - 4"];
+var skills = [
+  { name: "HTML", endorcements: 3, favorite: true },
+  { name: "CSS", endorcements: 1 },
+  { name: "JavaScript", endorcements: 5, favorite: true },
+];
 var skillsMapResult = skills.map(function (skill) {
-  console.info("inside map", skill);
-  return `<li>${skill}</li>`;
+  var cls = skill.favorite ? "favorite" : "";
+  return `<li class="${cls}">${skill.name} <span>- ${skill.endorcements}</span></li>`;
 });
-//console.warn("result", skillsMapResult);
 $("#skills ul").innerHTML = skillsMapResult.join("");
