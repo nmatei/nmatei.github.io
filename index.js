@@ -1,4 +1,4 @@
-var activePage = "home";
+var activePage = "skills";
 
 function $(selector) {
   return document.querySelector(selector);
@@ -29,3 +29,11 @@ $("#top-menu-bar").addEventListener("click", function (e) {
     showPage(id);
   }
 });
+
+var skills = ["HTML - 3", "CSS - 1", "JavaScript - 4"];
+var skillsMapResult = skills.map(function (skill) {
+  console.info("inside map", skill);
+  return `<li>${skill}</li>`;
+});
+//console.warn("result", skillsMapResult);
+$("#skills ul").innerHTML = skillsMapResult.join("");
