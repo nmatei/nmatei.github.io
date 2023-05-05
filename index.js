@@ -40,9 +40,22 @@ fetch("skills.json")
   });
 
 function printSkills(skills) {
+  skills = sortSkillsByEndorcements(skills);
   var skillsMapResult = skills.map(function (skill) {
     var cls = skill.favorite ? "favorite" : "";
     return `<li class="${cls}">${skill.name} <span>- ${skill.endorcements}</span></li>`;
   });
   $("#skills ul").innerHTML = skillsMapResult.join("");
+}
+
+function sortSkillsByEndorcements(skills) {
+  return skills.sort(function (a, b) {
+    return b.endorcements - a.endorcements;
+  });
+}
+
+function sortSkillsByName(skills) {
+  return skills.sort(function (a, b) {
+    return a.name.localeCompare(b.name);
+  });
 }
