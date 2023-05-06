@@ -21,7 +21,7 @@ function showPage(id) {
 }
 
 function initEvents() {
-  $("#top-menu-bar").addEventListener("click", function (e) {
+  $("#top-menu-bar").addEventListener("click", (e) => {
     const id = e.target.dataset.page;
     console.info("click on menu-bar", id);
     if (id) {
@@ -32,18 +32,18 @@ function initEvents() {
 
 function loadSkills() {
   fetch("skills.json")
-    .then(function (response) {
+    .then((response) => {
       console.info("done?");
       return response.json();
     })
-    .then(function (skills) {
+    .then((skills) => {
       printSkills(skills);
     });
 }
 
 function printSkills(skills) {
   skills = sortSkillsByEndorcements(skills);
-  const skillsMapResult = skills.map(function (skill) {
+  const skillsMapResult = skills.map((skill) => {
     const cls = skill.favorite ? "favorite" : "";
     return `<li class="${cls}">${skill.name} <span>- ${skill.endorcements}</span></li>`;
   });
@@ -51,13 +51,13 @@ function printSkills(skills) {
 }
 
 function sortSkillsByEndorcements(skills) {
-  return skills.sort(function (a, b) {
+  return skills.sort((a, b) => {
     return b.endorcements - a.endorcements;
   });
 }
 
 function sortSkillsByName(skills) {
-  return skills.sort(function (a, b) {
+  return skills.sort((a, b) => {
     return a.name.localeCompare(b.name);
   });
 }
