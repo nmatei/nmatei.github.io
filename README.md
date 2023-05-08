@@ -28,6 +28,7 @@ For each Team **create new branch** from scrath (make sure to change name).
 git switch --orphan demo
 touch .gitignore
 echo /.vscode >> .gitignore
+echo /node_modules >> .gitignore
 touch README.md
 echo "# nmatei.github.io" >> README.md
 git add .
