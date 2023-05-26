@@ -9,7 +9,7 @@ My personal CV made with `HTML`, `CSS` and `JS`.
 
 The repo name must be in the following format: **UserName**.github.io
 
-## 📚 What you could lean
+## 📚 What you could learn
 
 - [x] use `HTML` with `CSS`
 - [x] create **layouts**
