@@ -30,6 +30,7 @@ bname=demo
 git switch --orphan $bname
 touch .gitignore
 echo /.vscode >> .gitignore
+echo /.idea >> .gitignore
 echo /node_modules >> .gitignore
 touch README.md
 echo "# nmatei.github.io" >> README.md
