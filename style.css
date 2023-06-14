@@ -28,6 +28,7 @@ body {
   padding: 10px 10px 5px 5px;
 }
 .page {
+  display: none;
   background-color: #ffffff;
   margin: 0 0 10px 0;
   padding: 24px;
@@ -39,7 +40,6 @@ h2 {
   color: #057988;
 }
 #job-title {
-  font-style: italic;
   font-weight: bold;
 }
 .favorite {
