@@ -40,8 +40,8 @@ function showSkillsList() {
 
   var ul = $("#skills ul");
   var skillsHTML = skills.map(function (skill) {
-    // <li class="favorite">HTML</li>
-    return `<li>${skill.name}</li>`;
+    const cls = skill.favorite ? "favorite" : "";
+    return `<li class="${cls}">${skill.name}</li>`;
   });
   ul.innerHTML = skillsHTML.join("");
 }
