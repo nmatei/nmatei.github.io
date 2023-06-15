@@ -92,6 +92,7 @@ li.favorite {
 #top-menu-bar a:visited {
   color: #fff;
 }
+#top-menu-bar a.active,
 #top-menu-bar a:hover {
   color: #334455;
   background-color: #0ff;
