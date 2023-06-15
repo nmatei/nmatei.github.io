@@ -1,4 +1,4 @@
-var activePage = "home";
+var activePage = "skills";
 
 function hide(id) {
   $("#" + id).style.display = "none";
@@ -20,8 +20,6 @@ function displayPage(id) {
   $(`#top-menu-bar a[data-page="${id}"]`).classList.add("active");
 }
 
-displayPage(activePage);
-
 function clickOnMenu(e) {
   if (e.target.matches("a")) {
     var id = e.target.dataset.page;
@@ -33,4 +31,16 @@ function clickOnMenu(e) {
   }
 }
 
+function showSkillsList() {
+  var ul = $("#skills ul");
+  var skills = ["HTML", "CSS", "JS"];
+  var skillsHTML = skills.map(function (skill) {
+    // <li class="favorite">HTML</li>
+    return `<li>${skill}</li>`;
+  });
+  ul.innerHTML = skillsHTML.join("");
+}
+
+displayPage(activePage);
 $("#top-menu-bar").addEventListener("click", clickOnMenu);
+showSkillsList();
