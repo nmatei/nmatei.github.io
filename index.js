@@ -1,8 +1,13 @@
+function hide(id) {
+  console.info("hide %o element", id);
+  document.getElementById(id).style.display = "none";
+}
+
 function hideAllPages() {
-  document.getElementById("home").style.display = "none";
-  document.getElementById("skills").style.display = "none";
-  document.getElementById("languages").style.display = "none";
-  document.getElementById("projects").style.display = "none";
+  hide("home");
+  hide("skills");
+  hide("languages");
+  hide("projects");
 }
 
 function showPage(id) {
