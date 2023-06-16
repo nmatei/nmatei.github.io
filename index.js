@@ -5,18 +5,10 @@ function hideAllPages() {
   document.getElementById("projects").style.display = "none";
 }
 
-function showLanguages() {
-  showPage("languages");
-}
-
-function showProjects() {
-  showPage("projects");
-}
-
 function showPage(id) {
   hideAllPages();
   var page = document.getElementById(id);
-  console.info("show", page);
+  console.info("show", id, page);
   page.style.display = "block";
 }
 
