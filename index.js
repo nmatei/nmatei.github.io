@@ -1,10 +1,10 @@
-var activePage = "skills";
+let activePage = "skills";
 
 function hide(id) {
   $("#" + id).style.display = "none";
 }
 function show(id) {
-  var page = $(`#${id}`);
+  const page = $(`#${id}`);
   page.style.display = "block";
 }
 
@@ -22,7 +22,7 @@ function displayPage(id) {
 
 function clickOnMenu(e) {
   if (e.target.matches("a")) {
-    var id = e.target.dataset.page;
+    const id = e.target.dataset.page;
     if (id) {
       displayPage(id);
     } else {
@@ -32,11 +32,12 @@ function clickOnMenu(e) {
 }
 
 function showSkillsList(skills) {
-  var ul = $("#skills ul");
-  var skillsHTML = skills.map(function (skill) {
+  const ul = $("#skills ul");
+  const skillsHTML = skills.map(function (skill) {
     const cls = skill.favorite ? "favorite" : "";
     return `<li class="${cls}">${skill.name} <span>· ${skill.endorcemements}</span></li>`;
   });
+  skillsHTML.push("<li>...</li>");
   ul.innerHTML = skillsHTML.join("");
 }
 
