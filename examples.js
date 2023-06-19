@@ -19,3 +19,18 @@ var person = {
   skills: ["html", "css", "js"],
 };
 console.warn(typeof person, person);
+
+function h() {
+  return "h";
+}
+
+const f = function () {
+  return "f";
+};
+
+const a = () => {
+  return "a";
+};
+
+console.info(h());
+console.info(f(), a());
