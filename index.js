@@ -8,10 +8,20 @@ function hide(id) {
 }
 
 function showPage(id) {
+  var oldLink = document.querySelector(
+    `#top-menu-bar a[data-page=${activePage}]`
+  );
+  oldLink.classList.remove("active");
+
   hide(activePage);
+
+  var link = document.querySelector(`#top-menu-bar a[data-page=${id}]`);
+  link.classList.add("active");
+
   var page = document.getElementById(id);
   console.info("show %o", id, page);
   page.style.display = "block";
+
   activePage = id;
 }
 

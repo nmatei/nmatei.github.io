@@ -50,6 +50,10 @@ header {
 #my-picture img {
   border-radius: 50%;
   border: 4px solid white;
+  transition: 0.5s;
+}
+#my-picture img:hover {
+  border-color: #0798ab;
 }
 #header-info {
   padding: 10px;
@@ -94,6 +98,9 @@ h2 {
 }
 #top-menu-bar a:visited {
   color: #fff;
+}
+#top-menu-bar a.active {
+  background-color: #05798899;
 }
 #top-menu-bar a:hover {
   background-color: #057988;
