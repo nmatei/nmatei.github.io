@@ -27,6 +27,34 @@ body {
   flex: 3;
   padding: 10px 10px 5px 5px;
 }
+
+header {
+  background: linear-gradient(45deg, #0798ab99, transparent);
+}
+#header-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+#header-wrapper h1 {
+  margin: 0 0 5px 0;
+}
+#header-wrapper h2 {
+  margin: 0;
+}
+#my-picture {
+  padding: 5px;
+  width: 108px;
+  height: 108px;
+}
+#my-picture img {
+  border-radius: 50%;
+  border: 4px solid white;
+}
+#header-info {
+  padding: 10px;
+}
+
 .page {
   display: none;
   background-color: #ffffff;
@@ -47,6 +75,7 @@ h2 {
 }
 
 #top-menu-bar {
+  margin: 0;
   text-align: center;
   background-color: #0798ab;
   color: #fff;
