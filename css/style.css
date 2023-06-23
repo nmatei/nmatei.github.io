@@ -40,6 +40,11 @@ header {
 #my-picture img {
   border-radius: 50%;
   border: 4px solid #fff;
+  transition: 0.5s;
+}
+#my-picture img:hover {
+  border-radius: 50% 5px;
+  border-color: #0798ab;
 }
 #content {
   flex: 4;
@@ -142,8 +147,10 @@ li {
 #top-menu-bar a:visited {
   color: #fff;
 }
-#top-menu-bar a:hover,
 #top-menu-bar a.active {
+  background-color: #05798877;
+}
+#top-menu-bar a:hover {
   background-color: #057988;
 }
 
