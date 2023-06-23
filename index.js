@@ -45,10 +45,16 @@ function clickOnMenu(e) {
 }
 
 function showSkills() {
-  var skills = ["HTML", "css", "JS"];
+  var skills = [
+    { name: "HTML", favorite: true },
+    { name: "css" },
+    { name: "JS", favorite: true },
+  ];
   var htmlSkills = skills.map(function (skill) {
     // <li class="favorite">HTML</li>
-    return `<li>${skill}</li>`;
+    console.info("skill", skill);
+    var cls = skill.favorite ? "favorite" : "";
+    return `<li class="${cls}">${skill.name}</li>`;
   });
   var ul = $("#skills ul");
   ul.innerHTML = htmlSkills.join("");
