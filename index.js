@@ -44,10 +44,17 @@ function clickOnMenu(e) {
   }
 }
 
+function sortByEndorcements(a, b) {
+  return b.endorcements - a.endorcements;
+}
+
+function sortByName(a, b) {
+  return a.name.localeCompare(b.name);
+}
+
 function showSkills(skills) {
+  skills.sort(sortByEndorcements);
   var htmlSkills = skills.map(function (skill) {
-    // <li class="favorite">HTML</li>
-    console.info("skill", skill);
     var cls = skill.favorite ? "favorite" : "";
     return `<li class="${cls}">${skill.name} <span>- ${skill.endorcements}</span></li>`;
   });
