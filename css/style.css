@@ -211,62 +211,6 @@ th {
   width: 35px;
 }
 
-.rubik-face {
-  display: grid;
-  grid-template-columns: auto auto auto;
-  background-color: #0d0d0d;
-  padding: 2px;
-  grid-gap: 2px;
-  border-radius: 0.2em;
-  border: 1px solid #898983;
-}
-
-.rubik-face > div {
-  background: white;
-  padding-top: 100%;
-  border-radius: 0.2em;
-  transition: 1s;
-  border: 1px solid #0d0d0d33;
-}
-.rubik-face > div.center {
-  border-radius: 30%;
-}
-
-.rubik-face.rubik-size-2,
-.rubik-face.rubik-size-3 {
-  padding: 4px;
-  grid-gap: 4px;
-  max-width: 200px;
-}
-.rubik-face.rubik-size-4 {
-  padding: 3px;
-  grid-gap: 3px;
-  max-width: 300px;
-}
-/* .rubik-face.rubik-size-5 {
-  max-width: 350px;
-}
-.rubik-face.rubik-size-6 {
-  max-width: 400px;
-} */
-
-.rubik-face > div.top-edge {
-  border-bottom-left-radius: 30%;
-  border-bottom-right-radius: 30%;
-}
-.rubik-face > div.left-edge {
-  border-top-right-radius: 30%;
-  border-bottom-right-radius: 30%;
-}
-.rubik-face > div.right-edge {
-  border-top-left-radius: 30%;
-  border-bottom-left-radius: 30%;
-}
-.rubik-face > div.bottom-edge {
-  border-top-left-radius: 30%;
-  border-top-right-radius: 30%;
-}
-
 #text-carousel {
   min-height: 60px;
   padding: 3px 0;
