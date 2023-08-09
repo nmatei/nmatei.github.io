@@ -41,7 +41,7 @@ function scrambleRubikFace(face, newSize, colors) {
   const n = newSize * newSize;
   const pieces = new Array(n).fill(0);
   colors = colors || pieces.map(() => rubikColors[Math.floor(Math.random() * 6)]);
-  console.info('colors', JSON.stringify(colors));
+  console.info("colors", JSON.stringify(colors));
   const htmlPieces = face.querySelectorAll("div");
   if (htmlPieces.length === n) {
     htmlPieces.forEach((piece, i) => {
@@ -51,10 +51,9 @@ function scrambleRubikFace(face, newSize, colors) {
   } else {
     const html = pieces.map(
       (p, i) =>
-        `<div draggable="true" data-number="${faceNumbers[colors[i]]}" style="background: ${colors[i]}" class="rubik-piece ${rubikFaceCls(
-          newSize,
-          i
-        )}"></div>`
+        `<div draggable="true" data-number="${faceNumbers[colors[i]]}" style="background: ${
+          colors[i]
+        }" class="rubik-piece ${rubikFaceCls(newSize, i)}"></div>`
     );
     face.style.gridTemplateColumns = new Array(newSize).fill("auto").join(" ");
     // TODO progresive growing
@@ -77,30 +76,52 @@ function initRubik(form, colors) {
     const size = form.querySelector("[name=size]").value * 1;
     scrambleRubikFace(face, size, colors);
   });
-  form.addEventListener('click', e => {
-    const piece = e.target.closest('[data-number]');
+
+  form.addEventListener("click", e => {
+    const piece = e.target.closest("[data-number]");
     if (piece) {
       if (e.ctrlKey) {
+        // [ copy ]
         const { number } = piece.dataset;
         memoryPiece = {
           number,
           color: piece.style.background
-        }
-        console.info('copy', piece, memoryPiece, e);
-      } else {
+        };
+      } else if (e.shiftKey) {
+        // [ paste ]
         if (memoryPiece) {
-          console.info('paste', piece);
-          piece.style.background = memoryPiece.color;
-          piece.setAttribute("data-number", memoryPiece.number)
+          setPieceStyle(piece, memoryPiece.color, memoryPiece.number);
         }
       }
     }
-  })
-  // TODO
+  });
+
   form.addEventListener("dragstart", e => {
     e.dataTransfer.effectAllowed = "copy";
+    e.dataTransfer.setData("background", e.target.style.background);
+    e.dataTransfer.setData("number", e.target.dataset.number);
   });
-  form.addEventListener("dragend", e => {
-    console.warn('end', e);
+  form.addEventListener("dragover", e => {
+    const piece = e.target.closest(".rubik-piece[data-number]");
+    if (piece) {
+      e.preventDefault();
+    }
   });
+  form.addEventListener("dragenter", e => {
+    e.target.classList.add("drop");
+  });
+  form.addEventListener("dragleave", e => {
+    e.target.classList.remove("drop");
+  });
+  form.addEventListener("drop", e => {
+    const background = e.dataTransfer.getData("background");
+    const number = e.dataTransfer.getData("number");
+    setPieceStyle(e.target, background, number);
+    e.target.classList.remove("drop");
+  });
+}
+
+function setPieceStyle(piece, background, number) {
+  piece.style.background = background;
+  piece.dataset.number = number;
 }
