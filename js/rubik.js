@@ -1,3 +1,5 @@
+let memoryPiece;
+
 const rubikColors = ["#f1efe2", "#07f104", "#FFFF00", "#ffa500", "#ff2c0a", "#0082df"];
 
 const faceNumbers = (function () {
@@ -30,7 +32,7 @@ function rubikFaceCls(size, i) {
   return "middle";
 }
 
-function scrambleRubikFace(face, newSize) {
+function scrambleRubikFace(face, newSize, colors) {
   let oldSize = face.getAttribute("data-rubik-size");
   if (oldSize) {
     oldSize *= 1;
@@ -38,17 +40,18 @@ function scrambleRubikFace(face, newSize) {
   newSize = newSize || oldSize;
   const n = newSize * newSize;
   const pieces = new Array(n).fill(0);
-  const colors = pieces.map(() => rubikColors[Math.floor(Math.random() * 6)]);
-  htmlPices = face.querySelectorAll("div");
-  if (htmlPices.length === n) {
-    htmlPices.forEach((piece, i) => {
+  colors = colors || pieces.map(() => rubikColors[Math.floor(Math.random() * 6)]);
+  console.info('colors', JSON.stringify(colors));
+  const htmlPieces = face.querySelectorAll("div");
+  if (htmlPieces.length === n) {
+    htmlPieces.forEach((piece, i) => {
       piece.style.background = colors[i];
       piece.setAttribute("data-number", faceNumbers[colors[i]]);
     });
   } else {
     const html = pieces.map(
       (p, i) =>
-        `<div data-number="${faceNumbers[colors[i]]}" style="background: ${colors[i]}" class="${rubikFaceCls(
+        `<div draggable="true" data-number="${faceNumbers[colors[i]]}" style="background: ${colors[i]}" class="rubik-piece ${rubikFaceCls(
           newSize,
           i
         )}"></div>`
@@ -65,13 +68,39 @@ function scrambleRubikFace(face, newSize) {
   }
 }
 
-function initRubik(form) {
+function initRubik(form, colors) {
   const face = form.querySelector(".rubik-face");
   const size = form.querySelector("[name=size]").value * 1;
   scrambleRubikFace(face, size);
   form.addEventListener("submit", e => {
     e.preventDefault();
     const size = form.querySelector("[name=size]").value * 1;
-    scrambleRubikFace(face, size);
+    scrambleRubikFace(face, size, colors);
+  });
+  form.addEventListener('click', e => {
+    const piece = e.target.closest('[data-number]');
+    if (piece) {
+      if (e.ctrlKey) {
+        const { number } = piece.dataset;
+        memoryPiece = {
+          number,
+          color: piece.style.background
+        }
+        console.info('copy', piece, memoryPiece, e);
+      } else {
+        if (memoryPiece) {
+          console.info('paste', piece);
+          piece.style.background = memoryPiece.color;
+          piece.setAttribute("data-number", memoryPiece.number)
+        }
+      }
+    }
+  })
+  // TODO
+  form.addEventListener("dragstart", e => {
+    e.dataTransfer.effectAllowed = "copy";
+  });
+  form.addEventListener("dragend", e => {
+    console.warn('end', e);
   });
 }
