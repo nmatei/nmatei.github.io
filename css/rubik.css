@@ -16,7 +16,7 @@
   transition: 1s;
   border: 1px solid #0d0d0d33;
 }
-.rubik-face > div.center {
+.rubik-face.rubik-size-3 > div.center {
   border-radius: 30%;
 }
 
@@ -38,19 +38,19 @@
   max-width: 400px;
 } */
 
-.rubik-face > div.top-edge {
+.rubik-face.rubik-size-3 > div.top-edge {
   border-bottom-left-radius: 30%;
   border-bottom-right-radius: 30%;
 }
-.rubik-face > div.left-edge {
+.rubik-face.rubik-size-3 > div.left-edge {
   border-top-right-radius: 30%;
   border-bottom-right-radius: 30%;
 }
-.rubik-face > div.right-edge {
+.rubik-face.rubik-size-3 > div.right-edge {
   border-top-left-radius: 30%;
   border-bottom-left-radius: 30%;
 }
-.rubik-face > div.bottom-edge {
+.rubik-face.rubik-size-3 > div.bottom-edge {
   border-top-left-radius: 30%;
   border-top-right-radius: 30%;
 }
