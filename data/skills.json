@@ -1,5 +1,10 @@
 [
-    { "name": "HTML", "endorsements": 15 },
-    { "name": "CSS", "endorsements": 5 },
-    { "name": "JS", "endorsements": 24 }
+  { "name": "HTML", "endorsements": 15 },
+  { "name": "CSS", "endorsements": 5 },
+  { "name": "JS", "endorsements": 24 },
+  { "name": "React", "endorsements": 4 },
+  { "name": "Ext JS (Sencha)", "endorsements": 4 },
+  { "name": "Certified Trainer", "endorsements": 1 },
+  { "name": "Java", "endorsements": 1 },
+  { "name": "this are just some examples...", "endorsements": 0 }
 ]
