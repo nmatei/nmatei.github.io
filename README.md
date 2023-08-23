@@ -20,6 +20,15 @@ The repo name must be in the following format: **UserName**.github.io
 - [ ] Theme switch (dark / light) [example1](https://infinite-table.com/docs#what-is-infinite), [example2](https://tpiros.dev/)
 - [x] Theme [grayscale](https://www.w3docs.com/snippets/css/how-to-convert-an-image-into-a-grayscale-image-using-html-css.html) - test for color blind people
 
+### ‍💻 My course on Udemy
+
+A simple way to **support my work** and to **improve** your programming skills:
+
+- [x] [Become a WEB Developer from Scratch, step by step Guide](https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?couponCode=2023-START-WEB-DEV) - by [Nicolae Matei](https://nmatei.github.io/)
+    - [x] 🙋‍♂️ if you are interested in buying it
+        - [x] ask me if I have an active **Coupon** with discounts.
+        - [x] or use my [referral link](https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?couponCode=2023-START-WEB-DEV) from this page
+
 ## 📋 DEV notes
 
 For each Team **create new branch** from scrath (make sure to change name).
