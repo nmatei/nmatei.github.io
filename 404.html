@@ -12,6 +12,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
     <title>Nicolae Matei's CV</title>
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="stylesheet" href="/css/rubik.css" />
   </head>
 
   <body>
@@ -70,10 +71,10 @@
         </section>
 
         <section>
-          <h2>Rubik face challenge</h2>
+          <h2 title="Rubik Face challenge">💠 challenge</h2>
           <form action="" id="rubikChallenge">
             <div class="top-toolbar">
-              <input type="number" name="size" value="3" min="1" max="10" required />
+              <input type="number" name="size" value="3" min="1" max="10" required style="width: 40px" />
               <button class="scrambleFace" type="submit">🔃 Scramble</button>
             </div>
             <div class="rubik-face"></div>
@@ -86,23 +87,56 @@
           <h2>Home</h2>
           <p>
             Hey there... 👋! <br />
-            This page is about me... but can be and about you... if you learn with me 😉. I hope I can make a difference
-            and help you re-start your career in programming.
+            This page is about <a href="http://www.linkedin.com/in/nicolaematei" target="_blank">me</a>... but it can
+            also be about you... if you learn with me 😉. I hope I can make a difference and help you
+            <strong>re-start</strong> your <strong>career</strong> in programming.
+          </p>
+          <p>
+            My name is Matei Nicolae, I'm an Web Technical Lead & Trainer. I'd like to help you understand and master
+            web technologies.
           </p>
 
-          <h3>Linkedin recommendations</h3>
+          <h3>‍💻 My course on Udemy</h3>
+          <p>
+            You can start by watching my course
+            <a
+              href="https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?couponCode=2023-START-WEB-DEV"
+              target="_blank"
+              >Become a WEB Developer from Scratch, step by step Guide</a
+            >, and see if you like this domain or not...
+          </p>
+
+          <h3>
+            <svg
+              style="vertical-align: top"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              data-supported-dps="24x24"
+              fill="currentColor"
+              class="mercado-match"
+              width="20"
+              height="20"
+              focusable="false"
+            >
+              <path
+                d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"
+              ></path>
+            </svg>
+            Linkedin recommendations
+          </h3>
           <ol>
+            <li>Create and fill your linkedin profile.</li>
             <li>
-              Create and fill your linkedin profile. And you can also
+              And you can also
               <a
                 href="https://www.linkedin.com/help/linkedin/answer/87/customizing-your-public-profile-url?lang=en"
                 target="_blank"
                 >Personalize the URL for your profile</a
               >.
             </li>
-            <li>Link your linkedin and github accounts, post them here as well.</li>
-            <li>Find and join with your colegues / friends.</li>
-            <li>In your profile picture you should be serious and "rememberable".</li>
+            <li>Link your linkedin and <strong>github</strong> accounts, post them here as well.</li>
+            <li>Find and <strong>join</strong> with your <strong>colegues</strong> / friends.</li>
+            <li>In your profile <strong>picture</strong> you should be serious and <strong>"rememberable"</strong>.</li>
           </ol>
         </div>
 
@@ -190,7 +224,7 @@
       </div>
     </section>
     <footer>
-      <a href="https://www.linkedin.com/in/nicolaematei" target="_blank">
+      <a class="item" href="https://www.linkedin.com/in/nicolaematei" target="_blank">
         <svg
           style="vertical-align: top"
           xmlns="http://www.w3.org/2000/svg"
@@ -206,16 +240,36 @@
             d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"
           ></path>
         </svg>
-        LinkedIn
+        <span>LinkedIn</span>
       </a>
-      |
-      <a target="_blank" href="https://fasttrackit.org/curs-web-cluj-napoca/">🏤 Trainings</a>
-      |
-      <a target="_blank" href="https://www.youtube.com/c/mateinick" style="padding: 0 5px; line-height: inherit"
-        ><img height="20" src="/images/youtube.png"
+      <span class="item">|</span>
+      <a class="item" href="https://github.com/nmatei" target="_blank">
+        <svg
+          height="17"
+          aria-hidden="true"
+          viewBox="0 0 16 16"
+          version="1.1"
+          width="17"
+          data-view-component="true"
+          class="octicon octicon-mark-github v-align-middle"
+        >
+          <path
+            d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"
+          ></path>
+        </svg>
+        <span>GitHub</span>
+      </a>
+      <span class="item">|</span>
+      <a class="item" target="_blank" href="https://fasttrackit.org/curs-web-cluj-napoca/">
+        <span>🏤</span><span>Trainings</span></a
+      >
+      <span class="item">|</span>
+      <a class="item" target="_blank" href="https://www.youtube.com/c/mateinick"
+        ><img height="20" src="images/youtube.png"
       /></a>
     </footer>
 
+    <script src="/js/rubik.js"></script>
     <script src="/functions.js"></script>
     <script src="/js/gradient-text.js"></script>
   </body>
