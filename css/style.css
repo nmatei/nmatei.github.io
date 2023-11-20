@@ -1,0 +1,71 @@
+html {
+  height: 100%;
+}
+body {
+  margin: 0;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#content {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+}
+
+#side-menu {
+  flex: 1;
+}
+#main {
+  flex: 3;
+}
+
+td {
+  padding: 4px;
+}
+th {
+  padding: 5px;
+}
+
+#job-title {
+  color: green;
+  text-align: right;
+}
+
+#top-menu-bar {
+  text-align: center;
+  background-color: #334455;
+  color: #fff;
+  margin: 0;
+  padding: 2px;
+}
+#top-menu-bar li {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+}
+#top-menu-bar a {
+  display: inline-block;
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: 0.5s;
+}
+#top-menu-bar a:visited {
+  color: #fff;
+}
+#top-menu-bar a.active,
+#top-menu-bar a:hover {
+  color: #334455;
+  background: #fff;
+}
+
+.favorite {
+  font-weight: bold;
+  color: blue;
+}
+
+td.favorite {
+  font-weight: normal;
+}

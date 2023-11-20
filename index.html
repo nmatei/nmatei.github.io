@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matei</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Nicolae Matei.</h1>
+      <img height="100" src="images/matei-nicolae.jpg" alt="selfie" />
+      <p id="job-title">Trainer @ FastTrackIT</p>
+
+      <ul id="top-menu-bar">
+        <li><a href="#">HOME</a></li>
+        <li><a href="#">Skills</a></li>
+        <li><a href="#" class="active">Projects</a></li>
+        <li><a href="#">Languages</a></li>
+      </ul>
+    </header>
+
+    <section id="content">
+      <div id="side-menu">
+        <section>
+          <form action="secretara.html">
+            <h2>Contact</h2>
+            <div>
+              <label for="userEmail">Email</label>
+              <input
+                type="email"
+                name="email"
+                id="userEmail"
+                placeholder="your@email.com"
+                required
+              />
+            </div>
+
+            <div>
+              <label for="userName">Your Name</label>
+              <input
+                type="text"
+                name="name"
+                id="userName"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+
+            <button type="submit">Send</button>
+          </form>
+        </section>
+        <section>
+          <p>
+            start server: CTRL + Shift + P -> Browser Sync mode in Browser ->
+            Enter -> / -> Enter
+          </p>
+        </section>
+      </div>
+      <div id="main">
+        <h2>Skills</h2>
+        <ul>
+          <li class="favorite">HTML</li>
+          <li>CSS</li>
+          <li class="favorite">JS</li>
+        </ul>
+
+        <h2>Known Languages</h2>
+        <table border="1">
+          <tr>
+            <th>Language</th>
+            <th>Level</th>
+          </tr>
+          <tr>
+            <td class="favorite">Romanian</td>
+            <td>Native</td>
+          </tr>
+          <tr>
+            <td>English</td>
+            <td>Profesional</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <footer>
+      Open my
+      <a href="https://www.linkedin.com/in/nicolaematei/" target="_blank"
+        >LinkedIn</a
+      >
+      account.
+    </footer>
+
+    <script>
+      console.info(2 + 3);
+      console.warn("Nicolae Matei");
+
+      var employed = true;
+      var age = 18;
+      console.log("Angajat:", employed);
+      employed = false;
+      console.log("Angajat:", employed);
+      employed = "da";
+      console.log("Angajat:", employed);
+
+      var skills = ["html", "css"];
+      console.debug("tipul variabilei skills:", typeof skills);
+
+      var job = document.getElementById("job-title");
+      console.warn("job", job);
+      console.info(typeof job);
+    </script>
+  </body>
+</html>
