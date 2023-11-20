@@ -5,7 +5,8 @@ My personal CV made with `HTML`, `CSS` and `JS`.
 ## 🎞 Live Preview
 
 - [nmatei.github.io](https://nmatei.github.io/)
-- [https://nmatei.github.io/layout](https://nmatei.github.io/layout.html)
+- [https://nmatei.github.io/examples/layout](https://nmatei.github.io/examples/layout.html)
+- [https://nmatei.github.io/examples/layout-scroll](https://nmatei.github.io/examples/layout-scroll.html)
 
 The repo name must be in the following format: **UserName**.github.io
 
@@ -25,9 +26,9 @@ The repo name must be in the following format: **UserName**.github.io
 A simple way to **support my work** and to **improve** your programming skills:
 
 - [x] [Become a WEB Developer from Scratch, step by step Guide](https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?couponCode=2023-START-WEB-DEV) - by [Nicolae Matei](https://nmatei.github.io/)
-    - [x] 🙋‍♂️ if you are interested in buying it
-        - [x] ask me if I have an active **Coupon** with discounts.
-        - [x] or use my [referral link](https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?couponCode=2023-START-WEB-DEV) from this page
+  - [x] 🙋‍♂️ if you are interested in buying it
+    - [x] ask me if I have an active **Coupon** with discounts.
+    - [x] or use my [referral link](https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?couponCode=2023-START-WEB-DEV) from this page
 
 ## 📋 DEV notes
 

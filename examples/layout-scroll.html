@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fixed Header and Footer with Scrollable Content</title>
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        margin: 0;
+        overflow: hidden; /* Prevent body from scrolling */
+      }
+      header,
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+      }
+
+      main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow-y: hidden; /* Prevent main from scrolling */
+      }
+
+      .content {
+        flex: 1;
+        overflow-y: auto; /* Allow content to scroll when needed */
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>Header</header>
+    <main>
+      <section class="content">
+        <p>text <br />new line <br />one more line</p>
+        <p>text <br />new line <br />one more line</p>
+        <p>text <br />new line <br />one more line</p>
+        <p>text <br />new line <br />one more line</p>
+        <p>text <br />new line <br />one more line</p>
+        <p>text <br />new line <br />one more line</p>
+        <p>text <br />new line <br />one more line</p>
+        <p>text <br />new line <br />one more line</p>
+        <p>text <br />new line <br />one more line</p>
+        <p>text <br />new line <br />one more line</p>
+        <p>text <br />new line <br />one more line</p>
+        <p>text <br />new line <br />one more line</p>
+        <p>text <br />new line <br />one more line</p>
+        <p>text <br />new line <br />one more line</p>
+        <p>text <br />new line <br />one more line</p>
+        <p>text <br />new line <br />one more line</p>
+      </section>
+    </main>
+    <footer>Footer</footer>
+  </body>
+</html>
