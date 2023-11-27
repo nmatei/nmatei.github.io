@@ -19,9 +19,11 @@
       </div>
 
       <ul id="top-menu-bar">
-        <li><a href="#">HOME</a></li>
+        <li><a href="#" onclick="showHome()">HOME</a></li>
         <li><a href="#" onclick="showSkills()">Skills</a></li>
-        <li><a href="#" class="active">Projects</a></li>
+        <li>
+          <a href="#" onclick="showProjects()" class="active">Projects</a>
+        </li>
         <li><a href="#" onclick="showLanguages()">Languages</a></li>
       </ul>
     </header>
@@ -64,7 +66,7 @@
         </section>
       </div>
       <div id="main">
-        <div style="display: none">
+        <div id="home" style="display: none">
           <h2>Home</h2>
           <p>Welcome...</p>
         </div>
