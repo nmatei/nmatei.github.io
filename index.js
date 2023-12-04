@@ -12,26 +12,9 @@ function show(id) {
   page.style.display = "block";
 }
 
-function showHome() {
+function showPage(id) {
+  console.info("show page", id);
   hide(activePage);
-  show("home");
-  activePage = "home";
-}
-
-function showSkills() {
-  hide(activePage);
-  show("skills");
-  activePage = "skills";
-}
-
-function showProjects() {
-  hide(activePage);
-  show("projects");
-  activePage = "projects";
-}
-
-function showLanguages() {
-  hide(activePage);
-  show("languages");
-  activePage = "languages";
+  show(id);
+  activePage = id;
 }
