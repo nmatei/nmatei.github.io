@@ -30,6 +30,9 @@ header .top-container h1 {
 header .top-container h2 {
   font-size: 1.5rem;
 }
+header .top-container p {
+  margin: 0;
+}
 
 .sidebar-container {
   padding: 1px;
@@ -85,14 +88,14 @@ header .top-container .dark-background-inner-text-container {
   border: 1px solid #d1d7dc;
 }
 #what-you-will-learn h2 {
-  margin: 2rem 2rem 1em 2rem;
+  margin: 1.5rem 1.5rem 1em 1.5rem;
 }
 #what-you-will-learn ul {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
   list-style: none;
-  margin: 0 2rem 2rem 2rem;
+  margin: 0 1.5rem 1.5rem 1.5rem;
   padding: 0;
 }
 
@@ -116,7 +119,7 @@ footer a {
   }
   header .top-container h1 {
     margin: 0;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
   header .top-container h2 {
     font-size: 1.2rem;
@@ -134,6 +137,10 @@ footer a {
   }
 
   header .top-container {
+    padding: 20px;
+  }
+
+  #main {
     padding: 20px;
   }
 }
