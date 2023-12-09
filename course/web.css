@@ -1,21 +1,88 @@
-body {
+html {
   padding: 0;
   margin: 0;
 }
+body {
+  padding: 0;
+  margin: 0;
+  position: relative;
+  height: 100vh;
+}
 header {
   background-color: #2d2f31;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+header a {
+  color: #c0c4fc;
+}
+
+header .top-container {
   color: #fff;
   padding: 30px;
+  flex: 1;
 }
+
+.sidebar-container {
+  padding: 1px;
+  width: 330px;
+}
+.sidebar-container img {
+  border: 1px solid #d1d7dc;
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+header .top-container .dark-background-inner-text-container {
+  max-width: 60rem;
+  margin-left: 4.8rem;
+  margin-right: 4.8rem;
+}
+
 #main {
   padding: 30px;
 }
 
-#main li {
-  margin: 10px 0;
+#what-you-will-learn {
+  border: 1px solid #d1d7dc;
 }
-#main a {
+#what-you-will-learn h2 {
+  margin: 2rem 2rem 1em 2rem;
+}
+#what-you-will-learn ul {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  list-style: none;
+  margin: 0 2rem 2rem 2rem;
+  padding: 0;
+}
+
+#what-you-will-learn ul li {
+  width: calc(50% - (2.4rem / 2));
+  padding: 5px;
+}
+
+#coupons ul {
+  padding: 0;
+}
+#coupons li {
+  margin: 0;
+  display: inline-block;
+}
+#coupons a {
   color: #b32d0f;
   font-weight: bold;
   text-decoration: none;
+  display: inline-block;
+  border: 1px solid #2d2f31;
+  padding: 10px;
+  margin: 2px;
+  border-radius: 0.2em;
+  transition: 0.5s;
+}
+#coupons a:hover {
+  background-color: #a435f0;
+  color: #fff;
 }
