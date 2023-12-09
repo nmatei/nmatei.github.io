@@ -160,11 +160,16 @@
         </ul>
       </div>
     </section>
-    <footer></footer>
+    <footer>
+      <a
+        href="https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?referralCode=DCED6F67EFF597AA11CE"
+        >Refer students
+      </a>
+    </footer>
     <script>
       // redirect to Udemy
       setTimeout(function () {
-        var coupon = document.querySelector("ul a").innerText;
+        var coupon = document.querySelector("#coupons ul a").innerText;
         var url =
           "https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?couponCode=" + coupon;
         if (window.location.hostname === "localhost") {

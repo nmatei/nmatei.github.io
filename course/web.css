@@ -23,6 +23,9 @@ header .top-container {
   padding: 30px;
   flex: 1;
 }
+header .top-container h1 {
+  margin: 0;
+}
 
 .sidebar-container {
   padding: 1px;
@@ -40,21 +43,38 @@ header .top-container .dark-background-inner-text-container {
   margin-right: 4.8rem;
 }
 
-@media (max-width: 800px) {
-  header {
-    flex-direction: column-reverse;
-  }
-  .sidebar-container {
-    flex: 1;
-    width: auto;
-  }
-  header img {
-    width: 100%;
-  }
-}
-
 #main {
   padding: 30px;
+}
+
+#coupons h2 {
+  margin-top: 0;
+}
+#coupons ul {
+  padding: 0;
+}
+#coupons li {
+  margin: 0;
+  display: inline-block;
+}
+#coupons a {
+  color: #b32d0f;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  border: 1px solid #2d2f31;
+  padding: 10px;
+  margin: 2px;
+  border-radius: 0.2em;
+  transition: 0.5s;
+}
+#coupons ul li a:hover {
+  background-color: #8710d8 !important;
+  color: #fff;
+}
+#coupons ul li:first-of-type a {
+  background-color: #a435f0;
+  color: #fff;
 }
 
 #what-you-will-learn {
@@ -77,25 +97,28 @@ header .top-container .dark-background-inner-text-container {
   padding: 5px;
 }
 
-#coupons ul {
-  padding: 0;
+footer {
+  padding: 5px;
+  background-color: #2d2f31;
+  text-align: center;
 }
-#coupons li {
-  margin: 0;
-  display: inline-block;
-}
-#coupons a {
-  color: #b32d0f;
-  font-weight: bold;
-  text-decoration: none;
-  display: inline-block;
-  border: 1px solid #2d2f31;
-  padding: 10px;
-  margin: 2px;
-  border-radius: 0.2em;
-  transition: 0.5s;
-}
-#coupons a:hover {
-  background-color: #a435f0;
+footer a {
   color: #fff;
+}
+
+@media (max-width: 800px) {
+  header {
+    flex-direction: column-reverse;
+  }
+  .sidebar-container {
+    flex: 1;
+    width: auto;
+  }
+  header img {
+    width: 100%;
+  }
+
+  header .top-container {
+    padding: 20px;
+  }
 }
