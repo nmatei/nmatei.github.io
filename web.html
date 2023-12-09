@@ -70,7 +70,9 @@
     <section id="main">
       <div id="coupons">
         <h2>✨Latest Coupons / Discounts</h2>
-
+        <p id="redirect-info">
+          Redirecting to Udemy Course using <strong>best discount</strong> in&nbsp;<span>few</span>&nbsp;seconds...
+        </p>
         <ul>
           <li>
             <a
@@ -168,18 +170,6 @@
         >Refer students
       </a>
     </footer>
-    <script>
-      // redirect to Udemy
-      setTimeout(function () {
-        var coupon = document.querySelector("#coupons ul a").innerText;
-        var url =
-          "https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?couponCode=" + coupon;
-        if (window.location.hostname === "localhost") {
-          console.warn("redirect %o", url);
-        } else {
-          window.location.href = url;
-        }
-      }, 1000);
-    </script>
+    <script src="course/web.js"></script>
   </body>
 </html>

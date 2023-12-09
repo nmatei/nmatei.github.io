@@ -84,6 +84,11 @@ header .top-container .dark-background-inner-text-container {
   color: #fff;
 }
 
+#redirect-info span {
+  color: #a435f0;
+  font-weight: bold;
+}
+
 #what-you-will-learn {
   border: 1px solid #d1d7dc;
 }
