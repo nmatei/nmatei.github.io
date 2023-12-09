@@ -40,6 +40,19 @@ header .top-container .dark-background-inner-text-container {
   margin-right: 4.8rem;
 }
 
+@media (max-width: 800px) {
+  header {
+    flex-direction: column-reverse;
+  }
+  .sidebar-container {
+    flex: 1;
+    width: auto;
+  }
+  header img {
+    width: 100%;
+  }
+}
+
 #main {
   padding: 30px;
 }
