@@ -54,30 +54,44 @@ header .top-container .dark-background-inner-text-container {
   padding: 30px;
 }
 
+.btn {
+  text-decoration: none;
+  color: #8710d8;
+  padding: 2px 4px;
+  display: inline-block;
+}
+.btn:hover {
+  background-color: #8710d8;
+  color: #fff;
+}
+
 #coupons h2 {
   margin-top: 0;
 }
 #coupons ul {
   padding: 0;
-  display: flex;
-  justify-content: left;
-  align-items: stretch;
+}
+#coupons ul:after {
+  clear: both;
+  content: "";
+  display: block;
 }
 #coupons li {
   margin: 0;
-  /* display: inline-block; */
   list-style: none;
+  float: left;
 }
-#coupons a {
+#coupons li a {
   color: #b32d0f;
   font-weight: bold;
   text-decoration: none;
   display: inline-block;
   border: 1px solid #2d2f31;
-  padding: 10px;
+  padding: 10px 8px;
   margin: 2px;
   border-radius: 0.2em;
   transition: 0.5s;
+  font-size: 0.95em;
 }
 #coupons ul li a:hover {
   background-color: #8710d8;
