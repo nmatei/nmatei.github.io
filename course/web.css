@@ -36,7 +36,7 @@ header .top-container p {
 
 .sidebar-container {
   padding: 1px;
-  width: 330px;
+  width: 415px;
 }
 .sidebar-container img {
   border: 1px solid #d1d7dc;
@@ -59,10 +59,14 @@ header .top-container .dark-background-inner-text-container {
 }
 #coupons ul {
   padding: 0;
+  display: flex;
+  justify-content: left;
+  align-items: stretch;
 }
 #coupons li {
   margin: 0;
-  display: inline-block;
+  /* display: inline-block; */
+  list-style: none;
 }
 #coupons a {
   color: #b32d0f;
@@ -76,12 +80,62 @@ header .top-container .dark-background-inner-text-container {
   transition: 0.5s;
 }
 #coupons ul li a:hover {
-  background-color: #8710d8 !important;
+  background-color: #8710d8;
   color: #fff;
 }
 #coupons ul li:first-of-type a {
   background-color: #a435f0;
   color: #fff;
+}
+
+/* https://web.dev/articles/css-border-animations */
+@keyframes rotate {
+  100% {
+    transform: rotate(1turn);
+  }
+}
+
+#coupons ul li:first-of-type a {
+  position: relative;
+  /* background-color: transparent; */
+  /* border-color: transparent; */
+  z-index: 0;
+  overflow: hidden;
+}
+#coupons ul li:first-of-type a::before {
+  box-sizing: border-box;
+  content: "";
+  position: absolute;
+  z-index: -2;
+  left: -60%;
+  top: -240%;
+  padding-bottom: 120%; /* This creates a square, adjust as needed */
+  width: 220%;
+  /* height: 200%; */
+  background-color: #399953;
+  background-repeat: no-repeat;
+  background-size: 50% 50%, 50% 50%;
+  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+  background-image: linear-gradient(#399953, #399953), linear-gradient(#fbb300, #fbb300),
+    linear-gradient(#d53e33, #d53e33), linear-gradient(#377af5, #377af5);
+  animation: rotate 4s linear infinite;
+}
+
+#coupons ul li:first-of-type a::after {
+  box-sizing: border-box;
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 4px;
+  top: 4px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  background-color: #a435f0;
+  /* border-radius: 5px; */
+  /* animation: opacityChange 3s infinite alternate; */
+}
+#coupons ul li:first-of-type a:hover::after {
+  background-color: #8710d8;
 }
 
 #redirect-info span {
