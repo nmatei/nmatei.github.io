@@ -1,0 +1,29 @@
+{
+  "name": "nmatei.github.io",
+  "version": "1.0.0",
+  "description": "Nicolae Matei website",
+  "main": "functions.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "coupon": "node js/add-coupon.js web.html",
+    "postcoupon": "prettier --write web.html && git add \"web.html\" && git status && git commit -m \"add coupon\" && git push origin HEAD"
+  },
+  "keywords": [
+    "nmatei",
+    "web",
+    "js",
+    "css",
+    "html",
+    "study",
+    "programming",
+    "course"
+  ],
+  "author": "Nicolae Matei",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.12"
+  }
+}

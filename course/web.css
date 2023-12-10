@@ -80,6 +80,7 @@ header .top-container .dark-background-inner-text-container {
   margin: 0;
   list-style: none;
   float: left;
+  min-height: 50px;
 }
 #coupons li a {
   color: #b32d0f;
@@ -111,8 +112,6 @@ header .top-container .dark-background-inner-text-container {
 
 #coupons ul li:first-of-type a {
   position: relative;
-  /* background-color: transparent; */
-  /* border-color: transparent; */
   z-index: 0;
   overflow: hidden;
 }
@@ -121,11 +120,10 @@ header .top-container .dark-background-inner-text-container {
   content: "";
   position: absolute;
   z-index: -2;
-  left: -60%;
-  top: -240%;
-  padding-bottom: 120%; /* This creates a square, adjust as needed */
-  width: 220%;
-  /* height: 200%; */
+  left: calc(-100vh / 2 + 100% / 2);
+  top: calc(-100vh / 2 + 100% / 2);
+  width: 100vh;
+  height: 100vh;
   background-color: #399953;
   background-repeat: no-repeat;
   background-size: 50% 50%, 50% 50%;
