@@ -22,6 +22,7 @@ body {
 }
 
 .page {
+  display: none;
   background-color: #fff;
   padding: 10px;
   margin: 10px;
