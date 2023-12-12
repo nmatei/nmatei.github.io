@@ -70,6 +70,7 @@ header .top-container .dark-background-inner-text-container {
 }
 #coupons ul {
   padding: 0;
+  overflow: hidden;
 }
 #coupons ul:after {
   clear: both;
@@ -84,16 +85,41 @@ header .top-container .dark-background-inner-text-container {
 }
 #coupons li a {
   color: #b32d0f;
-  font-weight: bold;
+  background-color: #f0f0f0;
   text-decoration: none;
   display: inline-block;
-  border: 1px solid #2d2f31;
   padding: 10px 8px;
-  margin: 2px;
+  margin: 3px;
   border-radius: 0.2em;
   transition: 0.5s;
   font-size: 0.95em;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
 }
+#coupons .coupon-code {
+  font-weight: bold;
+}
+#coupons .coupon-info {
+  font-size: 0.9em;
+  text-align: right;
+  padding-top: 4px;
+}
+#coupons .coupon-expire-date {
+}
+
+#coupons li.first-expired {
+  clear: both;
+}
+#coupons .expired a {
+  padding: 8px 8px;
+}
+#coupons .expired .coupon-code {
+  font-weight: normal;
+  font-size: 0.9em;
+}
+#coupons .expired .coupon-info {
+  display: none;
+}
+
 #coupons ul li a:hover {
   background-color: #8710d8;
   color: #fff;
