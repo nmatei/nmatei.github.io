@@ -12,7 +12,7 @@ function checkExpired() {
   // TODO if expired use referal code: DCED6F67EFF597AA11CE
 
   // var now = new Date("2024-01-08T20:16:02.052Z").getTime();
-  var now = new Date("2024-01-07T20:16:02.052Z").getTime();
+  var now = new Date().getTime();
   var first = 1;
   document.querySelectorAll("#coupons li").forEach(function (li) {
     var date = new Date(li.dataset.expire);

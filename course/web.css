@@ -103,8 +103,6 @@ header .top-container .dark-background-inner-text-container {
   text-align: right;
   padding-top: 4px;
 }
-#coupons .coupon-expire-date {
-}
 
 #coupons li.first-expired {
   clear: both;
