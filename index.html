@@ -48,7 +48,6 @@
         <li><a href="#skills" data-page="skills">Skills</a></li>
         <li><a href="#projects" data-page="projects">Projects</a></li>
         <li><a href="#languages" data-page="languages">Languages</a></li>
-        <li><a href="#rubik" data-page="rubik">💠Rubik's</a></li>
       </ul>
     </header>
     <section id="content">
@@ -74,16 +73,17 @@
           <h2 title="Rubik Face challenge">💠 challenge</h2>
           <form action="" id="rubikChallenge">
             <div class="top-toolbar">
-              <input type="number" name="size" value="3" min="1" max="10" required style="width: 40px" />
+              <input type="number" name="size" value="3" min="1" max="5" required style="width: 40px" />
               <button class="scrambleFace" type="submit">🔃 Scramble</button>
             </div>
             <div class="rubik-face"></div>
           </form>
+          <p><a href="#rubik" data-page="rubik" class="page-actions">More 💠 faces</a></p>
         </section>
       </div>
 
       <div id="main">
-        <div id="home" class="page" style="display: none">
+        <div id="home" class="page">
           <h2>🏡 Home</h2>
           <p>
             Hey there... 👋! <br />
@@ -97,11 +97,19 @@
           </p>
 
           <h3>‍💻 My course on Udemy</h3>
-          <p>
-            If you are interested in programming you can start by watching my course
-            <a href="/web" target="_blank" class="bold">Become a WEB Developer from Scratch, step by step Guide</a>, and
-            see if you like this domain or not...
-          </p>
+          <div style="display: flex; gap: 10px">
+            <div>
+              <img src="images/web-qr-code.png" alt="nmatei.github.io/web" height="200" />
+            </div>
+            <div>
+              <p>
+                If you are interested in programming you can start by watching my course
+                <a href="/web" target="_blank" class="bold">Become a WEB Developer from Scratch, step by step Guide</a>,
+                and see if you like this domain or not...
+              </p>
+              <p>Please always refer to this link for ✨Latest Coupons / Discounts.</p>
+            </div>
+          </div>
 
           <h3>🙋‍♂️ About me</h3>
           <p>
@@ -149,12 +157,12 @@
           </ol>
         </div>
 
-        <div id="skills" class="page" style="display: none">
+        <div id="skills" class="page">
           <h2>Skills & Endorcements</h2>
           <ul></ul>
         </div>
 
-        <div id="projects" class="page" style="display: none">
+        <div id="projects" class="page">
           <h2>Projects</h2>
           <ul>
             <li>
@@ -191,7 +199,7 @@
           </ul>
         </div>
 
-        <div id="languages" class="page" style="display: none">
+        <div id="languages" class="page">
           <h2>Known Languages</h2>
           <table>
             <tr>
@@ -221,7 +229,9 @@
           </table>
         </div>
 
-        <div id="rubik" class="page" style="display: none">
+        <div id="rubik" class="page">
+          <h2>💠 Rubik Face challenge</h2>
+          <p>Try to make only <strong>one face</strong> of the cube too look like this <strong>scramble</strong></p>
           <form action="" id="rubikChallengePage">
             <div class="top-toolbar">
               <input type="number" name="size" value="5" min="1" max="20" required />

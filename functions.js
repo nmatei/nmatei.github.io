@@ -22,25 +22,30 @@ function hide(id) {
 
 function hidePreviousPage() {
   hide(activePage);
-  const link = document.querySelector(`#top-menu-bar a[data-page="${activePage}"]`);
+  const link = document.querySelector(`a[data-page="${activePage}"]`);
   link.classList.remove("active");
 }
 
 function showPage(pageId) {
   hidePreviousPage();
-  document.getElementById(pageId).style.display = "";
-  const link = document.querySelector(`#top-menu-bar a[data-page="${pageId}"]`);
+  document.getElementById(pageId).style.display = "block";
+  const link = document.querySelector(`a[data-page="${pageId}"]`);
   link.classList.add("active");
   activePage = pageId;
 }
 
+function initLink(e) {
+  const link = e.target;
+  if (link.matches("a[data-page]")) {
+    const id = link.getAttribute("data-page");
+    showPage(id);
+  }
+}
+
 function initMenu() {
-  document.addEventListener("click", e => {
-    const link = e.target;
-    if (link.matches("#top-menu-bar a")) {
-      const id = link.getAttribute("data-page");
-      showPage(id);
-    }
+  document.querySelector("#top-menu-bar").addEventListener("click", initLink);
+  document.querySelectorAll("a.page-actions[data-page]").forEach(link => {
+    link.addEventListener("click", initLink);
   });
 
   document.querySelector("#colorblind").addEventListener("click", () => {

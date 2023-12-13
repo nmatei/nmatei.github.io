@@ -138,6 +138,7 @@ li {
   margin: 0;
   padding: 0;
 }
+a.page-actions,
 #top-menu-bar a {
   text-decoration: none;
   padding: 5px 15px 5px 15px;
@@ -150,14 +151,22 @@ li {
 #top-menu-bar a:visited {
   color: #fff;
 }
+a.page-actions {
+  background-color: #0798ab;
+}
 #top-menu-bar a.active {
   background-color: #05798877;
 }
+a.page-actions.active {
+  background-color: #06899a;
+}
+a.page-actions:hover,
 #top-menu-bar a:hover {
   background-color: #057988;
 }
 
 .page {
+  display: none;
   flex: 1;
   background-color: #ffffff;
   margin: 0 0 10px 0;
@@ -169,6 +178,9 @@ li {
 .page > h3 {
   margin: 0 0 10px 0;
   color: #057988;
+}
+.page h3 {
+  margin-top: 20px;
 }
 
 #skills li span {
@@ -205,6 +217,11 @@ th {
 
 .top-toolbar {
   padding-bottom: 4px;
+  display: flex;
+  gap: 5px;
+}
+.top-toolbar input[type="number"] {
+  font-size: 1.4em;
 }
 
 .scrambleFace {
