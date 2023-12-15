@@ -1,3 +1,7 @@
+:root {
+  --max-width: 1200px;
+}
+
 html {
   padding: 0;
   margin: 0;
@@ -7,13 +11,20 @@ body {
   margin: 0;
   position: relative;
   height: 100vh;
+  font-size: 1.2em;
 }
 header {
   background-color: #2d2f31;
+}
+#header-wrapper {
   display: flex;
   flex-direction: row;
   align-items: center;
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
 }
+
 header a {
   color: #c0c4fc;
 }
@@ -51,7 +62,11 @@ header .top-container .dark-background-inner-text-container {
 }
 
 #main {
+  box-sizing: border-box;
   padding: 30px;
+  max-width: var(--max-width);
+  width: 100%;
+  margin: 0 auto;
 }
 
 .btn {
@@ -209,7 +224,10 @@ footer a {
 }
 
 @media (max-width: 800px) {
-  header {
+  body {
+    font-size: 1em;
+  }
+  #header-wrapper {
     flex-direction: column-reverse;
   }
   header .top-container h1 {
