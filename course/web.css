@@ -40,6 +40,7 @@ header .top-container h1 {
 }
 header .top-container h2 {
   font-size: 1.5rem;
+  font-weight: normal;
 }
 header .top-container p {
   margin: 0;
@@ -137,7 +138,7 @@ header .top-container .dark-background-inner-text-container {
   background-color: #8710d8;
   color: #fff;
 }
-#coupons ul li:first-of-type a {
+#coupons ul li.best-discount a {
   background-color: #a435f0;
   color: #fff;
 }
@@ -149,12 +150,12 @@ header .top-container .dark-background-inner-text-container {
   }
 }
 
-#coupons ul li:first-of-type a {
+#coupons ul li.best-discount a {
   position: relative;
   z-index: 0;
   overflow: hidden;
 }
-#coupons ul li:first-of-type a::before {
+#coupons ul li.best-discount a::before {
   box-sizing: border-box;
   content: "";
   position: absolute;
@@ -172,7 +173,7 @@ header .top-container .dark-background-inner-text-container {
   animation: rotate 4s linear infinite;
 }
 
-#coupons ul li:first-of-type a::after {
+#coupons ul li.best-discount a::after {
   box-sizing: border-box;
   content: "";
   position: absolute;
@@ -185,7 +186,7 @@ header .top-container .dark-background-inner-text-container {
   /* border-radius: 5px; */
   /* animation: opacityChange 3s infinite alternate; */
 }
-#coupons ul li:first-of-type a:hover::after {
+#coupons ul li.best-discount a:hover::after {
   background-color: #8710d8;
 }
 
