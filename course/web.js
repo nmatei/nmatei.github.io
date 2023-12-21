@@ -1,7 +1,9 @@
 var bestDiscountLi;
 
 function redirectToUdemy() {
-  var best = bestDiscountLi ? bestDiscountLi.querySelector("a") : document.querySelector("#coupons ul a");
+  var best = bestDiscountLi
+    ? bestDiscountLi.querySelector(".coupon-code")
+    : document.querySelector("#coupons ul .coupon-code");
   var coupon = best.innerText;
   var url = "https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?couponCode=" + coupon;
   if (window.location.hostname === "localhost") {
@@ -32,6 +34,8 @@ function checkExpired() {
 }
 
 (function () {
+  var redirectSec = 30;
+
   checkExpired();
 
   bestDiscountLi =
@@ -39,7 +43,6 @@ function checkExpired() {
   if (bestDiscountLi) {
     bestDiscountLi.classList.add("best-discount");
   }
-  var redirectSec = 30;
   var secondsEl = document.querySelector("#redirect-info .seconds");
   var stopEl = document.querySelector("#redirect-info .btn-stop");
 
