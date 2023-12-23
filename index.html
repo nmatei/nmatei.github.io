@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
-    <title>Nicolae Matei's CV</title>
+    <title>Nicolae Matei</title>
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/rubik.css" />
   </head>
@@ -61,22 +61,22 @@
             method="get"
           >
             <div class="form-row">
-              <label for="Name">Name & Email</label>
+              <label for="Name">About you</label>
               <input type="text" id="Name" name="entry.2005620554" placeholder="Enter your name" required />
             </div>
             <div class="form-row">
               <input type="email" id="Email" name="entry.1045781291" placeholder="your@email.com" required />
             </div>
             <div class="form-row">
-              <label for="e">Subject</label>
-              <input type="text" id="Subject" name="entry.1065046570" placeholder="Enter subject" required />
+              <label for="Subject">Content</label>
+              <input type="text" id="Subject" name="entry.1065046570" placeholder="Subject" required />
             </div>
             <div class="form-row">
               <textarea id="Message" name="entry.839337160" rows="3" placeholder="Message" required></textarea>
             </div>
             <div class="actions">
               <button type="reset">✖ Reset</button>
-              <button type="submit">📩 Send</button>
+              <button type="submit" class="primary-action">📩 Send</button>
             </div>
           </form>
         </section>
@@ -84,7 +84,7 @@
         <section>
           <h2 title="Rubik Face challenge">💠 challenge</h2>
           <form action="" id="rubikChallenge">
-            <div class="top-toolbar">
+            <div class="toolbar">
               <input type="number" name="size" value="3" min="1" max="5" required style="width: 40px" />
               <button class="scrambleFace" type="submit">🔃 Scramble</button>
             </div>
@@ -121,7 +121,9 @@
                 <a href="/web" target="_blank" class="bold">Become a WEB Developer from Scratch, step by step Guide</a>,
                 and see if you like this domain or not...
               </p>
-              <p>Please always refer to this link for ✨Latest Coupons / Discounts.</p>
+              <p>
+                Please always refer to this link for ✨Latest <strong>Coupons</strong> / <strong>Discounts</strong>.
+              </p>
             </div>
           </div>
 
@@ -245,9 +247,9 @@
 
         <div id="rubik" class="page">
           <h2>💠 Rubik Face challenge</h2>
-          <p>Try to make only <strong>one face</strong> of the cube to look like this <strong>scramble</strong></p>
+          <p>Try to make only <strong>one face</strong> of the cube to look like this <strong>scramble</strong>.</p>
           <form action="" id="rubikChallengePage">
-            <div class="top-toolbar">
+            <div class="toolbar">
               <input type="number" name="size" value="5" min="1" max="20" required />
               <button class="scrambleFace" type="submit">🔃 Scramble</button>
             </div>

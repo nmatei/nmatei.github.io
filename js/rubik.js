@@ -41,7 +41,7 @@ function scrambleRubikFace(face, newSize, colors) {
   const n = newSize * newSize;
   const pieces = new Array(n).fill(0);
   colors = colors || pieces.map(() => rubikColors[Math.floor(Math.random() * 6)]);
-  console.info("colors", JSON.stringify(colors));
+  // console.info("colors", JSON.stringify(colors));
   const htmlPieces = face.querySelectorAll("div");
   if (htmlPieces.length === n) {
     htmlPieces.forEach((piece, i) => {

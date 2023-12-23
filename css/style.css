@@ -222,16 +222,33 @@ th {
   text-align: right;
 }
 
-#contact-form .actions button {
-  padding: 5px 10px;
+button {
+  padding: 2px 8px;
+  cursor: pointer;
+  font-size: 1em;
+}
+
+button.primary-action {
+  background-color: #0798ab;
+  color: #fff;
+  border-radius: 3px;
+  border: 1px solid #343434;
+  padding: 3px 8px;
+}
+button.primary-action:hover {
+  background-color: #057988;
 }
 
 .form-row {
   padding: 4px 0;
 }
+.form-row label {
+  font-weight: bold;
+}
 
 .form-row input,
 .form-row textarea {
+  font-family: Arial;
   font-size: 16px;
   padding: 5px;
   width: 100%;
@@ -242,18 +259,15 @@ th {
   resize: none;
 }
 
-.top-toolbar {
+.toolbar {
   padding-bottom: 4px;
   display: flex;
   gap: 5px;
 }
-.top-toolbar input[type="number"] {
+.toolbar input[type="number"] {
   font-size: 1.4em;
 }
 
-.scrambleFace {
-  padding: 5px 10px;
-}
 #rubikSize {
   width: 35px;
 }
