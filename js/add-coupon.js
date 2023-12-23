@@ -2,6 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const cheerio = require("cheerio");
 
+const couponsPath = "../course/coupons.json";
+
 // Get the HTML file path from the command line arguments
 const args = process.argv.slice(2);
 if (args.length < 3) {
@@ -41,26 +43,42 @@ function getCoupon(couponType, couponCode) {
   };
 }
 
-const newCoupon = getCoupon(couponType, couponCode);
-
-const now = new Date().getTime();
-let preview;
-$("#coupons ul li").each(function (i, elem) {
-  const li = $(elem);
-  const date = new Date(li.attr("data-expire"));
-  if (date.getTime() < now) {
-    li.addClass("expired");
-  } else if (date.getTime() > newCoupon.expire.getTime()) {
-    preview = li;
-  }
-});
-
-if (preview) {
-  preview.after(newCoupon.code);
-} else {
-  $("#coupons ul").prepend(newCoupon.code);
+function storeJsonCoupon(type, code, expire) {
+  const coupons = require(couponsPath);
+  coupons.push({
+    type,
+    code,
+    expire: expire.toISOString()
+  });
+  const content = JSON.stringify(coupons, null, 2);
+  fs.writeFileSync(couponsPath, content);
 }
 
-fs.writeFileSync(htmlFilePath, $.html());
+function updateHtmlCoupons(newCoupon) {
+  const now = new Date().getTime();
+  let preview;
+  $("#coupons ul li").each(function (i, elem) {
+    const li = $(elem);
+    const date = new Date(li.attr("data-expire"));
+    if (date.getTime() < now) {
+      li.addClass("expired");
+    } else if (date.getTime() > newCoupon.expire.getTime()) {
+      preview = li;
+    }
+  });
+
+  if (preview) {
+    preview.after(newCoupon.code);
+  } else {
+    $("#coupons ul").prepend(newCoupon.code);
+  }
+
+  fs.writeFileSync(htmlFilePath, $.html());
+}
+
+const newCoupon = getCoupon(couponType, couponCode);
+
+storeJsonCoupon(couponType, couponCode, newCoupon.expire);
+updateHtmlCoupons(newCoupon);
 
 console.log("Coupon added successfully!");
