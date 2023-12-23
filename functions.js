@@ -4,7 +4,30 @@ function $(selector, parent) {
   return (parent || document).querySelector(selector);
 }
 
+function initContactForm() {
+  let autoSend = false;
+  const fields = ["Name", "Email", "Subject", "Message"];
+  const queryString = window.location.search;
+  const searchParams = new URLSearchParams(queryString);
+  fields.forEach(field => {
+    const value = searchParams.get(field);
+    $("#" + field).value = value;
+    if (value) {
+      autoSend = true;
+    }
+  });
+  if (autoSend) {
+    setTimeout(() => {
+      const form = $("#contact-form");
+      form.target = "";
+      form.submit();
+    }, 2000);
+  }
+}
+
 (function () {
+  initContactForm();
+
   const hash = window.location.hash.substring(1);
 
   if (hash) {
