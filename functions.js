@@ -1,5 +1,9 @@
 let activePage = "home";
 
+function $(selector, parent) {
+  return (parent || document).querySelector(selector);
+}
+
 (function () {
   const hash = window.location.hash.substring(1);
 

@@ -222,8 +222,24 @@ th {
   text-align: right;
 }
 
+#contact-form .actions button {
+  padding: 5px 10px;
+}
+
 .form-row {
   padding: 4px 0;
+}
+
+.form-row input,
+.form-row textarea {
+  font-size: 16px;
+  padding: 5px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-row textarea {
+  resize: none;
 }
 
 .top-toolbar {

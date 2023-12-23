@@ -53,18 +53,30 @@
     <section id="content">
       <div id="side-menu">
         <section>
-          <h2>Contact Form</h2>
-          <form action="" id="contact-form">
+          <h2>Contact</h2>
+          <form
+            action="https://docs.google.com/forms/d/e/1FAIpQLScBUBDJ3MXsjh0MxEd1sO1hwzVfvVq7LV17n2KEv0H8NRJNjg/viewform"
+            id="contact-form"
+            target="_blank"
+            method="get"
+          >
             <div class="form-row">
-              <label for="e">Email</label>
-              <input type="email" id="e" name="em" placeholder="example@job.com" />
+              <label for="Name">Name & Email</label>
+              <input type="text" id="Name" name="entry.2005620554" placeholder="Enter your name" required />
             </div>
             <div class="form-row">
-              <label for="contactName">Name</label>
-              <input type="text" id="contactName" name="nume" placeholder="Your name" />
+              <input type="email" id="Email" name="entry.1045781291" placeholder="your@email.com" required />
+            </div>
+            <div class="form-row">
+              <label for="e">Subject</label>
+              <input type="text" id="Subject" name="entry.1065046570" placeholder="Enter subject" required />
+            </div>
+            <div class="form-row">
+              <textarea id="Message" name="entry.839337160" rows="3" placeholder="Message" required></textarea>
             </div>
             <div class="actions">
-              <button type="submit">Contact Us</button>
+              <button type="reset">✖ Reset</button>
+              <button type="submit">📩 Send</button>
             </div>
           </form>
         </section>
