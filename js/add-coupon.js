@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const cheerio = require("cheerio");
 
-const COUPONS_PATH = "../course/coupons.json";
+const COUPONS_PATH = "course/coupons.json";
 
 // Get the HTML file path from the command line arguments
 const args = process.argv.slice(2);
@@ -49,13 +49,13 @@ function getCoupons() {
 }
 
 function storeJsonCoupon(type, code, expire) {
-  const coupons = getCoupons();
-  coupons.push({
+  const store = getCoupons();
+  store.coupons.push({
     type,
     code,
     expire: expire.toISOString()
   });
-  const content = JSON.stringify(coupons, null, 2);
+  const content = JSON.stringify(store, null, 2);
   fs.writeFileSync(COUPONS_PATH, content);
 }
 

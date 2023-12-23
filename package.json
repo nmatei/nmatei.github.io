@@ -9,7 +9,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "coupon": "node js/add-coupon.js web.html",
-    "postcoupon": "prettier --write web.html && git add \"web.html\" && git status && git commit -m \"add coupon\" && git push origin HEAD"
+    "postcoupon": "prettier --write web.html && git add \"web.html\" && git add \"course/coupons.json\" && git status && git commit -m \"add coupon\" && git push origin HEAD"
   },
   "keywords": [
     "nmatei",

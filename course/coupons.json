@@ -1,3 +1,9 @@
 {
-  "coupons": []
+  "coupons": [
+    {
+      "type": "best",
+      "code": "CHRISTMAS-2023",
+      "expire": "2023-12-28T12:45:43.458Z"
+    }
+  ]
 }
