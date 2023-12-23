@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const cheerio = require("cheerio");
 
-const couponsPath = "../course/coupons.json";
+const COUPONS_PATH = "../course/coupons.json";
 
 // Get the HTML file path from the command line arguments
 const args = process.argv.slice(2);
@@ -43,15 +43,20 @@ function getCoupon(couponType, couponCode) {
   };
 }
 
+function getCoupons() {
+  const content = fs.readFileSync(COUPONS_PATH);
+  return JSON.parse(content);
+}
+
 function storeJsonCoupon(type, code, expire) {
-  const coupons = require(couponsPath);
+  const coupons = getCoupons();
   coupons.push({
     type,
     code,
     expire: expire.toISOString()
   });
   const content = JSON.stringify(coupons, null, 2);
-  fs.writeFileSync(couponsPath, content);
+  fs.writeFileSync(COUPONS_PATH, content);
 }
 
 function updateHtmlCoupons(newCoupon) {
