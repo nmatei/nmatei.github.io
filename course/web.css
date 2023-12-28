@@ -39,11 +39,12 @@ header .top-container h1 {
   font-size: 2.4rem;
 }
 header .top-container h2 {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: normal;
 }
 header .top-container p {
   margin: 0;
+  font-size: 0.9em;
 }
 
 .sidebar-container {
