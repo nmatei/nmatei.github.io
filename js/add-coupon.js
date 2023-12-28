@@ -26,6 +26,8 @@ function getCoupon(couponType, couponCode) {
   const expire = new Date();
   // Add 5 or 31 days to the current date
   expire.setDate(expire.getDate() + (couponType === "best" ? 5 : 31));
+  // Subtract 5 minutes from the current date
+  expire.setMinutes(expire.getMinutes() - 5);
 
   return {
     expire,
