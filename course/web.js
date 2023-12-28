@@ -34,7 +34,7 @@ function checkExpired() {
 }
 
 (function () {
-  var redirectSec = 30;
+  var redirectSec = 5;
 
   checkExpired();
 
