@@ -56,10 +56,7 @@ function checkExpired() {
     }, 1000);
   }
 
-  var redirectTimer = startTimer();
-
-  stopEl.addEventListener("click", function () {
-    var stop = stopEl.dataset.stop === "0";
+  function toggleTimer(stop) {
     stopEl.innerText = stop ? "[ Continue ]" : "[ Stop ]";
     stopEl.dataset.stop = stop ? 1 : 0;
     if (stop) {
@@ -69,6 +66,19 @@ function checkExpired() {
         redirectSec = 1;
       }
       redirectTimer = startTimer();
+    }
+  }
+
+  var redirectTimer = startTimer();
+
+  stopEl.addEventListener("click", function (e) {
+    var stop = e.target.dataset.stop === "0";
+    toggleTimer(stop);
+  });
+
+  document.querySelector("#coupons ul").addEventListener("click", function (e) {
+    if (e.target.closest("a")) {
+      toggleTimer(true);
     }
   });
 })();
