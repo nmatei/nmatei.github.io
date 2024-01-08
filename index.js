@@ -20,7 +20,7 @@ function showPage(id) {
   prevLink.classList.remove("active");
   hide(activePage);
 
-  var nextLink = document.querySelector("a[data-page=" + id + "]");
+  var nextLink = document.querySelector(`a[data-page=${id}]`);
   nextLink.classList.add("active");
   show(id);
   activePage = id;
