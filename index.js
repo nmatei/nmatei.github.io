@@ -1,5 +1,5 @@
 // variable publice
-var activePage = "projects";
+var activePage = "home";
 
 // functii publice
 function hide(id) {
@@ -16,7 +16,12 @@ function show(id) {
 
 function showPage(id) {
   console.info("show page", id);
+  var prevLink = document.querySelector("a[data-page=" + activePage + "]");
+  prevLink.classList.remove("active");
   hide(activePage);
+
+  var nextLink = document.querySelector("a[data-page=" + id + "]");
+  nextLink.classList.add("active");
   show(id);
   activePage = id;
 }
