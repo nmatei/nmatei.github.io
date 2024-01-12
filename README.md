@@ -4,7 +4,8 @@ My personal CV made with `HTML`, `CSS` and `JS`.
 
 ## 🎞 Live Preview
 
-- [nmatei.github.io](https://nmatei.github.io/)
+- **[nmatei.github.io](https://nmatei.github.io/)**
+
 - [https://nmatei.github.io/examples/layout](https://nmatei.github.io/examples/layout.html)
 - [https://nmatei.github.io/examples/layout-scroll](https://nmatei.github.io/examples/layout-scroll.html)
 
