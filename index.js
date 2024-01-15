@@ -4,17 +4,18 @@ var activePage = "skills";
 // functii publice
 function $(selector) {
   var el = document.querySelector(selector);
+  // console.info("%o found:", selector, el);
   return el;
 }
 
 function hide(id) {
   console.info("hide", id);
-  document.getElementById(id).style.display = "none";
+  $("#" + id).style.display = "none";
 }
 
 function show(id) {
   console.info("show", id);
-  var page = document.getElementById(id);
+  var page = $(`#${id}`);
   console.debug("show page", page);
   page.style.display = "block";
 }
