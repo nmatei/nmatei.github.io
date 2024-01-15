@@ -1,0 +1,21 @@
+[
+  {
+    "name": "HTML",
+    "endorcements": 6,
+    "favorite": true
+  },
+  {
+    "name": "CSS",
+    "endorcements": 5
+  },
+  {
+    "name": "JS",
+    "endorcements": 7,
+    "favorite": true
+  },
+  {
+    "name": "Word",
+    "endorcements": 1,
+    "favorite": false
+  }
+]
