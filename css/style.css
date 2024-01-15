@@ -84,3 +84,7 @@ th {
 td.favorite {
   font-weight: normal;
 }
+
+#skills li span {
+  color: gray;
+}
