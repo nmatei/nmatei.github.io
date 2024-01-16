@@ -9,6 +9,11 @@
       "type": "best",
       "code": "CHRISTMAS-STUDY-23",
       "expire": "2024-01-02T17:04:40.148Z"
+    },
+    {
+      "type": "custom",
+      "code": "LEARN-JS-JAN-2024",
+      "expire": "2024-02-16T09:14:54.466Z"
     }
   ]
 }
