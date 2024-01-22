@@ -43,7 +43,18 @@ function initEvents() {
   });
 }
 
+function sortSkillsByEndorcements(a, b) {
+  console.info("sort", a, b);
+  return b.endorcements - a.endorcements;
+}
+
+function sortByName(a, b) {
+  return a.name.localeCompare(b.name);
+}
+
 function showSkills(skills) {
+  //skills.sort(sortSkillsByEndorcements);
+  skills.sort(sortByName);
   var ul = $("#skills ul");
 
   var text = skills.map(function (skill) {
