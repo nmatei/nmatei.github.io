@@ -60,7 +60,17 @@ function showSkills(skills) {
   ul.innerHTML = text.join("");
 }
 
+function loadSkills() {
+  var promise = fetch("skills.json");
+  promise.then(function (r) {
+    const jsonPromise = r.json();
+    jsonPromise.then(function (skills) {
+      showSkills(skills);
+    });
+  });
+}
+
 // excutii
-//showSkills([]);
 showPage(activePage);
 initEvents();
+loadSkills();
