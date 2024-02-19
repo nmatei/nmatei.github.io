@@ -2,6 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const cheerio = require("cheerio");
 
+// TODO use this file to generate entire content
+//   filter out old Coupons
 const COUPONS_PATH = "course/coupons.json";
 
 // Get the HTML file path from the command line arguments
