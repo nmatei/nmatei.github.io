@@ -218,8 +218,13 @@ th {
   color: #0b5808;
 }
 
-#contact-form .actions {
-  text-align: right;
+.actions {
+  display: flex;
+  gap: 5px;
+  align-items: stretch;
+}
+.tfill {
+  flex: 1;
 }
 
 button {

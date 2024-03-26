@@ -31,7 +31,7 @@ function initContactForm() {
   const hash = window.location.hash.substring(1);
 
   if (hash) {
-    const page = document.querySelector("#" + hash);
+    const page = $("#" + hash);
     if (page && page.classList.contains("page")) {
       activePage = hash;
     }
@@ -49,14 +49,14 @@ function hide(id) {
 
 function hidePreviousPage() {
   hide(activePage);
-  const link = document.querySelector(`a[data-page="${activePage}"]`);
+  const link = $(`a[data-page="${activePage}"]`);
   link.classList.remove("active");
 }
 
 function showPage(pageId) {
   hidePreviousPage();
   document.getElementById(pageId).style.display = "block";
-  const link = document.querySelector(`a[data-page="${pageId}"]`);
+  const link = $(`a[data-page="${pageId}"]`);
   link.classList.add("active");
   activePage = pageId;
 }
@@ -66,6 +66,10 @@ function initLink(e) {
   if (link.matches("a[data-page]")) {
     const id = link.getAttribute("data-page");
     showPage(id);
+    if (history.pushState) {
+      e.preventDefault();
+      history.pushState(null, null, "#" + id);
+    }
   }
 }
 
