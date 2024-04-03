@@ -74,12 +74,12 @@ function initLink(e) {
 }
 
 function initMenu() {
-  document.querySelector("#top-menu-bar").addEventListener("click", initLink);
+  $("#top-menu-bar").addEventListener("click", initLink);
   document.querySelectorAll("a.page-actions[data-page]").forEach(link => {
     link.addEventListener("click", initLink);
   });
 
-  document.querySelector("#colorblind").addEventListener("click", () => {
+  $("#colorblind").addEventListener("click", () => {
     document.body.classList.toggle("grayscale");
   });
 }
@@ -100,7 +100,7 @@ function getHTMLSkills(skills) {
 }
 
 function showSkills(skills) {
-  const ul = document.querySelector("#skills ul");
+  const ul = $("#skills ul");
   ul.innerHTML = getHTMLSkills(skills);
 }
 
@@ -113,6 +113,6 @@ fetch("/data/skills.json")
   });
 
 setTimeout(() => {
-  initRubik(document.getElementById("rubikChallenge"));
-  initRubik(document.getElementById("rubikChallengePage"));
+  initRubik($("#rubikChallenge"));
+  initRubik($("#rubikChallengePage"));
 }, 10);

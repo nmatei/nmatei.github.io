@@ -72,6 +72,7 @@ function checkExpired() {
   var redirectTimer = startTimer();
 
   stopEl.addEventListener("click", function (e) {
+    e.preventDefault();
     var stop = e.target.dataset.stop === "0";
     toggleTimer(stop);
   });
