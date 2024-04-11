@@ -29,6 +29,11 @@ h1 {
 header {
   background: linear-gradient(45deg, #0798ab99, transparent);
 }
+
+p {
+  text-indent: 2em;
+}
+
 #header-wrapper {
   min-height: 120px;
   display: flex;
