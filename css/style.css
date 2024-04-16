@@ -348,7 +348,7 @@ button.primary-action:hover {
   margin-left: 0;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
   body {
     font-size: 1em;
   }
@@ -367,7 +367,7 @@ button.primary-action:hover {
   }
 }
 @media (max-width: 800px) {
-  #my-cours {
-    flex-direction: column;
+  #my-course {
+    flex-direction: column-reverse;
   }
 }
