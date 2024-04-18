@@ -14,7 +14,7 @@ function createGradientTextSlider(options) {
   }
 
   function animate(carousel) {
-    carousel.querySelectorAll(".text-carousel-line").forEach(function (e) {
+    Array.from(carousel.querySelectorAll(".text-carousel-line")).forEach(function (e) {
       var left = parseInt(e.style.marginLeft.replace("px", ""));
       var dir = Math.random() < 0.5 ? -1 : 1;
       var add = min + Math.floor(Math.random() * width);
