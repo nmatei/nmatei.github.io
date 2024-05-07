@@ -42,7 +42,7 @@ function scrambleRubikFace(face, newSize, colors) {
   const pieces = new Array(n).fill(0);
   colors = colors || pieces.map(() => rubikColors[Math.floor(Math.random() * 6)]);
   // console.info("colors", JSON.stringify(colors));
-  const htmlPieces = face.querySelectorAll("div");
+  const htmlPieces = Array.from(face.querySelectorAll("div"));
   if (htmlPieces.length === n) {
     htmlPieces.forEach((piece, i) => {
       piece.style.background = colors[i];
@@ -84,7 +84,7 @@ function initRubik(form, colors) {
         // [ copy ]
         const { number } = piece.dataset;
         memoryPiece = {
-          number,
+          number: number,
           color: piece.style.background
         };
       } else if (e.shiftKey) {
