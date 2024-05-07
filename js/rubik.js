@@ -1,6 +1,6 @@
-let memoryPiece;
+var memoryPiece;
 
-const rubikColors = ["#f1efe2", "#07f104", "#FFFF00", "#ffa500", "#ff2c0a", "#0082df"];
+var rubikColors = ["#f1efe2", "#07f104", "#FFFF00", "#ffa500", "#ff2c0a", "#0082df"];
 
 const faceNumbers = (function () {
   const numbers = [".", ":", ":.", "::", "::.", ":::"];
@@ -33,28 +33,31 @@ function rubikFaceCls(size, i) {
 }
 
 function scrambleRubikFace(face, newSize, colors) {
-  let oldSize = face.getAttribute("data-rubik-size");
+  var oldSize = face.getAttribute("data-rubik-size");
   if (oldSize) {
     oldSize *= 1;
   }
   newSize = newSize || oldSize;
   const n = newSize * newSize;
   const pieces = new Array(n).fill(0);
-  colors = colors || pieces.map(() => rubikColors[Math.floor(Math.random() * 6)]);
+  colors =
+    colors ||
+    pieces.map(function () {
+      return rubikColors[Math.floor(Math.random() * 6)];
+    });
   // console.info("colors", JSON.stringify(colors));
   const htmlPieces = Array.from(face.querySelectorAll("div"));
   if (htmlPieces.length === n) {
-    htmlPieces.forEach((piece, i) => {
+    htmlPieces.forEach(function (piece, i) {
       piece.style.background = colors[i];
       piece.setAttribute("data-number", faceNumbers[colors[i]]);
     });
   } else {
-    const html = pieces.map(
-      (p, i) =>
-        `<div draggable="true" data-number="${faceNumbers[colors[i]]}" style="background: ${
-          colors[i]
-        }" class="rubik-piece ${rubikFaceCls(newSize, i)}"></div>`
-    );
+    const html = pieces.map(function (p, i) {
+      return `<div draggable="true" data-number="${faceNumbers[colors[i]]}" style="background: ${
+        colors[i]
+      }" class="rubik-piece ${rubikFaceCls(newSize, i)}"></div>`;
+    });
     face.style.gridTemplateColumns = new Array(newSize).fill("auto").join(" ");
     // TODO progresive growing
     face.style.maxWidth = `${Math.max(200, newSize * 60)}px`;
@@ -71,18 +74,19 @@ function initRubik(form, colors) {
   const face = form.querySelector(".rubik-face");
   const size = form.querySelector("[name=size]").value * 1;
   scrambleRubikFace(face, size);
-  form.addEventListener("submit", e => {
+
+  form.addEventListener("submit", function (e) {
     e.preventDefault();
-    const size = form.querySelector("[name=size]").value * 1;
+    var size = form.querySelector("[name=size]").value * 1;
     scrambleRubikFace(face, size, colors);
   });
 
-  form.addEventListener("click", e => {
-    const piece = e.target.closest("[data-number]");
+  form.addEventListener("click", function (e) {
+    var piece = e.target.closest("[data-number]");
     if (piece) {
       if (e.ctrlKey) {
         // [ copy ]
-        const { number } = piece.dataset;
+        var number = piece.dataset.number;
         memoryPiece = {
           number: number,
           color: piece.style.background
@@ -96,24 +100,24 @@ function initRubik(form, colors) {
     }
   });
 
-  form.addEventListener("dragstart", e => {
+  form.addEventListener("dragstart", function (e) {
     e.dataTransfer.effectAllowed = "copy";
     e.dataTransfer.setData("background", e.target.style.background);
     e.dataTransfer.setData("number", e.target.dataset.number);
   });
-  form.addEventListener("dragover", e => {
+  form.addEventListener("dragover", function (e) {
     const piece = e.target.closest(".rubik-piece[data-number]");
     if (piece) {
       e.preventDefault();
     }
   });
-  form.addEventListener("dragenter", e => {
+  form.addEventListener("dragenter", function (e) {
     e.target.classList.add("drop");
   });
-  form.addEventListener("dragleave", e => {
+  form.addEventListener("dragleave", function (e) {
     e.target.classList.remove("drop");
   });
-  form.addEventListener("drop", e => {
+  form.addEventListener("drop", function (e) {
     const background = e.dataTransfer.getData("background");
     const number = e.dataTransfer.getData("number");
     setPieceStyle(e.target, background, number);
