@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -10,7 +10,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
-    <title>Nicolae Matei's CV</title>
+    <title>Nicolae Matei</title>
     <link rel="stylesheet" href="/css/style.css" />
     <link rel="stylesheet" href="/css/rubik.css" />
   </head>
@@ -48,24 +48,36 @@
         <li><a href="#skills" data-page="skills">Skills</a></li>
         <li><a href="#projects" data-page="projects">Projects</a></li>
         <li><a href="#languages" data-page="languages">Languages</a></li>
-        <li><a href="#rubik" data-page="rubik">💠Rubik's</a></li>
       </ul>
     </header>
     <section id="content">
       <div id="side-menu">
         <section>
-          <h2>Contact Form</h2>
-          <form action="" id="contact-form">
+          <h2>📨 Contact</h2>
+          <form
+            action="https://docs.google.com/forms/d/e/1FAIpQLScBUBDJ3MXsjh0MxEd1sO1hwzVfvVq7LV17n2KEv0H8NRJNjg/viewform"
+            id="contact-form"
+            target="_blank"
+            method="get"
+          >
             <div class="form-row">
-              <label for="e">Email</label>
-              <input type="email" id="e" name="em" placeholder="example@job.com" />
+              <label for="Name">About you</label>
+              <input type="text" id="Name" name="entry.2005620554" placeholder="Enter your name" />
             </div>
             <div class="form-row">
-              <label for="contactName">Name</label>
-              <input type="text" id="contactName" name="nume" placeholder="Your name" />
+              <input type="email" id="Email" name="entry.1045781291" placeholder="your@email.com" />
+            </div>
+            <div class="form-row">
+              <label for="Subject">Content</label>
+              <input type="text" id="Subject" name="entry.1065046570" placeholder="Subject" />
+            </div>
+            <div class="form-row">
+              <textarea id="Message" name="entry.839337160" rows="3" placeholder="Message"></textarea>
             </div>
             <div class="actions">
-              <button type="submit">Contact Us</button>
+              <div class="tfill"></div>
+              <button type="reset">✖ Reset</button>
+              <button type="submit" class="primary-action">📩 Send</button>
             </div>
           </form>
         </section>
@@ -73,18 +85,22 @@
         <section>
           <h2 title="Rubik Face challenge">💠 challenge</h2>
           <form action="" id="rubikChallenge">
-            <div class="top-toolbar">
-              <input type="number" name="size" value="3" min="1" max="10" required style="width: 40px" />
+            <div class="toolbar">
+              <input type="number" name="size" value="3" min="1" max="5" required style="width: 40px" />
               <button class="scrambleFace" type="submit">🔃 Scramble</button>
             </div>
             <div class="rubik-face"></div>
           </form>
+          <div class="actions">
+            <div class="tfill"></div>
+            <a href="#rubik" data-page="rubik" class="page-actions">More 💠 faces</a>
+          </div>
         </section>
       </div>
 
       <div id="main">
-        <div id="home" class="page" style="display: none">
-          <h2>Home</h2>
+        <div id="home" class="page">
+          <h2>🏡 Home</h2>
           <p>
             Hey there... 👋! <br />
             This page is about <a href="http://www.linkedin.com/in/nicolaematei" target="_blank">me</a>... but it can
@@ -92,30 +108,58 @@
             <strong>re-start</strong> your <strong>career</strong> in programming.
           </p>
           <p>
-            My name is Matei Nicolae, I'm an Web Technical Lead & Trainer. I'd like to help you understand and master
-            web technologies.
-          </p>
-
-          <h3>About me</h3>
-          <p>
-            I've has been building complex Web Applications in big companies. Started my career in 2006 at a Software
-            company and at the same time was teaching students as a Lector at Technical University of Moldova. When I've
-            moved to Romania, I tried to also combine working at my new company with my hobby by teaching others and
-            helping them restart their career in development.
-          </p>
-          <p>
-            I'm also certified in Oracle Certified Professional, Java SE 6 Programmer and I'm also one of founders of
-            RWS/Testy framework that helps QA's automate their code faster and nicer.
+            My name is <strong>Matei Nicolae</strong>, I'm an Web Technical Lead & Trainer. I'd like to help you
+            understand and master web technologies.
           </p>
 
           <h3>‍💻 My course on Udemy</h3>
+          <div id="my-course">
+            <div>
+              <a class="qr-code-link" href="/web" target="_blank"
+                ><img src="/images/web-qr-code.png" alt="nmatei.github.io/web" height="200"
+              /></a>
+            </div>
+            <div id="udemy-cover">
+              <p>
+                If you have an <strong>interest in programming</strong>, consider taking my course
+                <a href="/web" target="_blank" class="bold">Become a WEB Developer from Scratch, step by step Guide</a>,
+                to explore whether this field/domain appeals to you.
+              </p>
+              <p style="text-align: right">
+                Always refer to this link for ✨Latest <strong>Coupons</strong> / <strong>Discounts</strong>.
+              </p>
+            </div>
+          </div>
+
+          <h3>🙋‍♂️ About me</h3>
           <p>
-            If you are interested in programming you can start by watching my course
+            I've been building complex Web Applications in big companies. Started my career in 2006 at a Software
+            company and at the same time was teaching students as a Lector at
+            <a href="https://utm.md/en/" target="_blank">Technical University of Moldova</a>. When I've moved to
+            Romania, I tried to combine working at my new company with my hobby by teaching others and helping them
+            restart their career in development.
+          </p>
+          <p>
+            I'm also certified in
             <a
-              href="https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?couponCode=2023-START-WEB-DEV"
+              href="https://www.credly.com/badges/0c8342ac-bb6e-4197-9295-673603a98132/linked_in_profile"
               target="_blank"
-              >Become a WEB Developer from Scratch, step by step Guide</a
-            >, and see if you like this domain or not...
+              >Oracle Certified Professional, Java SE 6 Programmer</a
+            >
+            and I'm also one of founders of
+            <a href="https://github.com/RWS/Testy" target="_blank">RWS/Testy</a> framework that helps QA's automate
+            their code faster and nicer.
+          </p>
+          <p>
+            Passionate speedcuber with a keen dedication to mastering Rubik's Cubes, competing in speedcubing events
+            with a focus on continuous improvement and achieving personal bests. I've also passed on my love for cubing
+            to my three children, teaching them how to solve the Rubik's Cube. Check out our solving journey
+            <a
+              href="https://youtube.com/playlist?list=PLKKdgn3CnKC2j0VlOZafMkejrDZLoV07q&si=xAhgNdGHDrmJvnlO"
+              target="_blank"
+              >here</a
+            >. View my World Cube Association competition results
+            <a href="https://www.worldcubeassociation.org/persons/2010NICO01" target="_blank">here</a>.
           </p>
 
           <h3>
@@ -134,8 +178,12 @@
                 d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"
               ></path>
             </svg>
-            Linkedin recommendations
+            How to Enhance Your LinkedIn Profile?
           </h3>
+          <p>
+            Your LinkedIn profile is your digital handshake with the professional world. Make it shine like a beacon of
+            your accomplishments and aspirations!
+          </p>
           <ol>
             <li>Create and fill your linkedin profile.</li>
             <li>
@@ -152,29 +200,39 @@
           </ol>
         </div>
 
-        <div id="skills" class="page" style="display: none">
+        <div id="skills" class="page">
           <h2>Skills & Endorcements</h2>
           <ul></ul>
         </div>
 
-        <div id="projects" class="page" style="display: none">
-          <h2>Projects</h2>
+        <div id="projects" class="page">
+          <h2>🔥 Projects</h2>
+          <p>Here are some of the public projects I've been working on.</p>
           <ul>
             <li>
-              <a href="https://github.com/RWS/Testy" target="_blank"
-                >Testy Framework (for Automated Acceptance Testing)</a
+              <a href="https://github.com/nmatei/chrome-bible-utilities" target="_blank"
+                >Chrome extension to for <strong>Bible.com</strong></a
               >
             </li>
             <li>
-              <a href="https://github.com/nmatei/simple-quiz-app" target="_blank">JS/HTML/CSS Quiz</a>
+              <a href="https://github.com/nmatei/simple-quiz-app" target="_blank"
+                ><strong>JS</strong> / HTML / CSS / Bible <strong>Quiz</strong></a
+              >
             </li>
+            <li>
+              <a href="https://github.com/RWS/Testy" target="_blank"
+                ><strong>Testy</strong> Framework (for Automated Acceptance Testing)</a
+              >
+            </li>
+          </ul>
+
+          <h3>👨‍🎓 For my students</h3>
+          <ul>
             <li>
               <a href="https://github.com/nmatei/web-intro-presentation" target="_blank">Web Presentation</a>
             </li>
             <li>
-              <a href="https://github.com/nmatei/chrome-bible-utilities" target="_blank"
-                >Chrome extension to for Bible.com</a
-              >
+              <a href="https://github.com/nmatei/teams-networking" target="_blank">Teams Networking</a>
             </li>
             <li>
               <a href="https://github.com/nmatei/speedcubing-algoritms" target="_blank">SpeedCubing Algorithms</a>
@@ -182,9 +240,10 @@
             <li>
               <a href="https://github.com/nmatei/warranties-list" target="_blank">Warranties List</a>
             </li>
-            <li>
-              <a href="https://github.com/nmatei/teams-networking" target="_blank">Teams Networking</a>
-            </li>
+          </ul>
+
+          <h3>Other Projects</h3>
+          <ul>
             <li>
               <a href="https://github.com/nmatei/salus-logs" target="_blank">Salus Logs</a>
             </li>
@@ -194,7 +253,7 @@
           </ul>
         </div>
 
-        <div id="languages" class="page" style="display: none">
+        <div id="languages" class="page">
           <h2>Known Languages</h2>
           <table>
             <tr>
@@ -202,11 +261,11 @@
               <th>Level</th>
             </tr>
             <tr>
-              <td>Romanian</td>
+              <td class="bold">Romanian</td>
               <td>Native or bilingual proficiency</td>
             </tr>
             <tr>
-              <td>English</td>
+              <td class="bold">English</td>
               <td>Professional working proficiency</td>
             </tr>
             <tr>
@@ -218,15 +277,17 @@
               <td>Elementary proficiency</td>
             </tr>
             <tr>
-              <td>"Java Script"</td>
+              <td class="bold">"Java Script"</td>
               <td>Full professional proficiency</td>
             </tr>
           </table>
         </div>
 
-        <div id="rubik" class="page" style="display: none">
+        <div id="rubik" class="page">
+          <h2>💠 Rubik Face challenge</h2>
+          <p>Try to make only <strong>one face</strong> of the cube to look like this <strong>scramble</strong>.</p>
           <form action="" id="rubikChallengePage">
-            <div class="top-toolbar">
+            <div class="toolbar">
               <input type="number" name="size" value="5" min="1" max="20" required />
               <button class="scrambleFace" type="submit">🔃 Scramble</button>
             </div>
@@ -282,7 +343,7 @@
     </footer>
 
     <script src="/js/rubik.js"></script>
-    <script src="/functions.js"></script>
     <script src="/js/gradient-text.js"></script>
+    <script src="/functions.js"></script>
   </body>
 </html>
