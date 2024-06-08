@@ -1,0 +1,23 @@
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent body from scrolling */
+}
+header,
+footer {
+  padding: 10px;
+}
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden; /* Prevent main from scrolling */
+}
+.content {
+  flex: 1;
+  overflow-y: auto; /* Allow content to scroll when needed */
+  padding: 20px;
+}
