@@ -12,6 +12,8 @@ body {
   position: relative;
   height: 100vh;
   font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
 }
 header {
   background-color: #2d2f31;
@@ -54,7 +56,9 @@ header .top-container p {
 .sidebar-container img {
   border: 1px solid #d1d7dc;
   box-sizing: border-box;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 header .top-container .dark-background-inner-text-container {
@@ -69,6 +73,7 @@ header .top-container .dark-background-inner-text-container {
   max-width: var(--max-width);
   width: 100%;
   margin: 0 auto;
+  flex: 1;
 }
 
 .btn {
@@ -110,7 +115,9 @@ header .top-container .dark-background-inner-text-container {
   border-radius: 0.2em;
   transition: 0.5s;
   font-size: 0.95em;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.15),
+    0 2px 3px rgba(0, 0, 0, 0.2);
 }
 #coupons .coupon-code {
   font-weight: bold;
@@ -167,8 +174,14 @@ header .top-container .dark-background-inner-text-container {
   height: 100vh;
   background-color: #399953;
   background-repeat: no-repeat;
-  background-size: 50% 50%, 50% 50%;
-  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
+  background-size:
+    50% 50%,
+    50% 50%;
+  background-position:
+    0 0,
+    100% 0,
+    100% 100%,
+    0 100%;
   background-image: linear-gradient(#399953, #399953), linear-gradient(#fbb300, #fbb300),
     linear-gradient(#d53e33, #d53e33), linear-gradient(#377af5, #377af5);
   animation: rotate 4s linear infinite;
