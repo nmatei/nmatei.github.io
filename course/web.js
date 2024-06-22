@@ -7,12 +7,16 @@ if (typeof URLSearchParams === "undefined") {
   document.head.appendChild(script);
 }
 
+function getCouponUrl(coupon) {
+  return "https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?couponCode=" + coupon;
+}
+
 function redirectToUdemy(coupon) {
   var best = bestDiscountLi
     ? bestDiscountLi.querySelector(".coupon-code")
     : document.querySelector("#coupons ul .coupon-code");
   coupon = coupon || best.innerText;
-  var url = "https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?couponCode=" + coupon;
+  var url = getCouponUrl(coupon);
   if (window.location.hostname === "localhost") {
     console.warn("redirect %o", url);
   } else {
@@ -20,25 +24,8 @@ function redirectToUdemy(coupon) {
   }
 }
 
-function getHTMLCoupon(type, code, expire, cls) {
-  var url = `https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?couponCode=${code}`;
-  return `
-    <li data-expire="${expire.toISOString()}" class="${type}-price ${cls}">
-      <a target="_blank" href="${url}">
-        <span class="coupon-code">${code}</span>
-        <div class="coupon-info">
-          <span>Valid until:</span>
-          <span class="coupon-expire-date">${expire.toDateString()} ${type === "best" ? "✨" : ""}</span>
-        </div>
-      </a>
-    </li>
-  `;
-}
-
 function checkExpired() {
   // TODO if expired use referal code: DCED6F67EFF597AA11CE
-
-  // var now = new Date("2024-01-08T20:16:02.052Z").getTime();
   var now = new Date().getTime();
   var first = 1;
   document.querySelectorAll("#coupons li").forEach(function (li) {
@@ -47,7 +34,7 @@ function checkExpired() {
     if (date.getTime() < now) {
       li.classList.add("expired");
       li.title = "Expired: " + date.toDateString();
-      if (first) {
+      if (first && (li.classList.contains("custom-price") || li.classList.contains("best-price"))) {
         first = 0;
         li.classList.add("first-expired");
       }
@@ -55,38 +42,63 @@ function checkExpired() {
   });
 }
 
-/**
- * get date in iso format
- * 202407231029 => "2024-07-23T10:29:00.000Z"
- * @param expire
- * @returns {string}
- */
-function remapExpire(expire) {
-  var expireObj = Array.from(expire);
-  expireObj.push(":00.000Z");
-  expireObj.splice(10, 0, ":");
-  expireObj.splice(8, 0, "T");
-  expireObj.splice(6, 0, "-");
-  expireObj.splice(4, 0, "-");
-  return expireObj.join("");
+function addNotification(message, type) {
+  var el = document.querySelector(".msg-container");
+  el.innerHTML += `<p class="msg-${type || "warn"}">${message}</p>`;
+}
+
+function checkCouponCodeParam() {
+  var params = new URLSearchParams(window.location.search);
+  var coupon = params.get("c") || params.get("couponCode");
+  var free = document.querySelector("li.open-price") || document.querySelector("li.targeted-price");
+  if (free) {
+    if (coupon) {
+      var couponView = free.querySelector(".coupon-code").innerText;
+      var half = couponView.replace(/\*/g, "");
+      if (coupon.startsWith(half) && couponView.length === coupon.length) {
+        free.classList.add("invited-price", "best-price");
+        free.querySelector("a").href = getCouponUrl(coupon);
+        free.classList.add("matched");
+        var expired = free.classList.contains("expired");
+        if (expired) {
+          addNotification(`Coupon <strong>${coupon}</strong> expired.`);
+        } else {
+          addNotification(
+            `Coupon <strong>${coupon}</strong> applied, but has limited redemptions so hurry up!`,
+            "info"
+          );
+        }
+        return {
+          coupon: coupon,
+          expired: expired
+        };
+      } else {
+        free.classList.add("expired");
+        addNotification(`Coupon <strong>${coupon}</strong> is not valid or expired.`);
+      }
+    } else {
+      free.classList.add("expired", "hidden");
+    }
+  } else if (coupon) {
+    addNotification(`Coupon <strong>${coupon}</strong> is not valid or expired.`);
+  }
 }
 
 (function () {
+  var coupon;
   var redirectSec = 5;
-
-  let params = new URLSearchParams(window.location.search);
-  var coupon = params.get("c") || params.get("couponCode");
-  if (coupon) {
-    redirectSec = 1;
-    var expire = new Date(remapExpire(params.get("e")));
-    var html = getHTMLCoupon(params.get("t") || "targeted", coupon, expire, "best-price invited-price");
-    var list = document.querySelector("#coupons ul");
-    list.innerHTML = html + list.innerHTML;
-  }
 
   checkExpired();
 
-  bestDiscountLi = document.querySelector("li.best-price:not(.expired)") || document.querySelector("li:not(.expired)");
+  var couponInfo = checkCouponCodeParam();
+  if (couponInfo && !couponInfo.expired) {
+    coupon = couponInfo.coupon;
+    //redirectSec = 3;
+  }
+
+  bestDiscountLi =
+    document.querySelector("#coupons li.best-price:not(.expired)") ||
+    document.querySelector("#coupons li:not(.expired)");
   if (bestDiscountLi) {
     bestDiscountLi.classList.add("best-discount");
   }

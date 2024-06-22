@@ -87,6 +87,19 @@ header .top-container .dark-background-inner-text-container {
   color: #fff;
 }
 
+.msg-container p {
+  margin: 0;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #faf5e5;
+  border: 1px solid #e5cb80;
+  color: #03488c;
+}
+p.msg-info {
+  background-color: #80bbd520;
+  border-color: #80bbd5;
+}
+
 #coupons h2 {
   margin-top: 0;
 }
@@ -128,6 +141,10 @@ header .top-container .dark-background-inner-text-container {
   padding-top: 4px;
 }
 
+.open-price.expired:not(.matched),
+.target-price.expired:not(.matched) {
+  display: none;
+}
 #coupons li.first-expired {
   clear: both;
 }
@@ -138,7 +155,7 @@ header .top-container .dark-background-inner-text-container {
   font-weight: normal;
   font-size: 0.9em;
 }
-#coupons .expired .coupon-info {
+#coupons .expired:not(.matched) .coupon-info {
   display: none;
 }
 
@@ -202,6 +219,11 @@ header .top-container .dark-background-inner-text-container {
 }
 #coupons ul li.best-discount a:hover::after {
   background-color: #8710d8;
+}
+
+#coupons ul li.best-discount.invited-price a::before {
+  background-image: linear-gradient(#399953, #399953), linear-gradient(#327845, #327845),
+    linear-gradient(#245f34, #245f34), linear-gradient(#15391f, #15391f);
 }
 #coupons ul li.best-discount.invited-price a::after {
   background: #39995399;

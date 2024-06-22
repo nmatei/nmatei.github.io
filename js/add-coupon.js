@@ -10,8 +10,11 @@ const COUPONS_PATH = "course/coupons.json";
 const args = process.argv.slice(2);
 if (args.length < 3) {
   console.warn("\n");
-  console.error("\t    Best price Usage: %o", "yarn coupon best CODE");
-  console.error("\t  Custom price Usage: %o", "yarn coupon custom CODE");
+  console.error("\t             Best price (5 days): %o", "yarn coupon best CODE");
+  console.error("\t          Custom price (31 days): %o", "yarn coupon custom CODE");
+  console.error("\t      Free Open (5 days, 1000 c): %o", "yarn coupon open CODE");
+  console.error("\t  Free Targeted (31 days, 100 c): %o", "yarn coupon targeted CODE");
+  console.error("\t                    Refresh page: %o", "yarn coupon clean old");
   console.warn("\n");
   process.exit(1);
 }
@@ -55,6 +58,10 @@ function getCoupons() {
 
 function storeJsonCoupon(type, code, expire) {
   const store = getCoupons();
+  if (["open", "targeted"].includes(couponType)) {
+    // half hidden
+    code = code.substring(0, code.length / 2) + code.substring(code.length / 2).replace(/./g, "*");
+  }
   store.coupons.push({
     type,
     code,
@@ -91,5 +98,4 @@ if (["best", "custom", "open", "targeted"].includes(couponType)) {
 }
 
 setHtmlCoupons(getCoupons().coupons);
-
 console.log("Coupons page refreshed successfully!");
