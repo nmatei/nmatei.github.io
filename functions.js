@@ -27,8 +27,7 @@ function $(selector, parent) {
 function initContactForm() {
   var autoSend = false;
   const fields = ["Name", "Email", "Subject", "Message"];
-  const queryString = window.location.search;
-  const searchParams = new URLSearchParams(queryString);
+  const searchParams = new URLSearchParams(window.location.search);
   fields.forEach(function (field) {
     var value = searchParams.get(field);
     $("#" + field).value = value;

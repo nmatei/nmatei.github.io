@@ -26,7 +26,8 @@ const $ = cheerio.load(htmlContent);
 function getCouponExpire(couponType) {
   const expire = new Date();
   // Add 5 or 31 days to the current date
-  expire.setDate(expire.getDate() + (couponType === "best" ? 5 : 31));
+  let addDays = couponType === "best" || couponType === "open" ? 5 : 31;
+  expire.setDate(expire.getDate() + addDays);
   // Subtract 5 minutes from the current date
   expire.setMinutes(expire.getMinutes() - 5);
   return expire;
@@ -81,7 +82,7 @@ function setHtmlCoupons(coupons) {
   fs.writeFileSync(htmlFilePath, $.html());
 }
 
-if (["best", "custom"].includes(couponType)) {
+if (["best", "custom", "open", "targeted"].includes(couponType)) {
   console.info("adding coupon : %o", couponType);
   const newCouponExpire = getCouponExpire(couponType, couponCode);
   storeJsonCoupon(couponType, couponCode, newCouponExpire);
