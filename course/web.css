@@ -203,6 +203,12 @@ header .top-container .dark-background-inner-text-container {
 #coupons ul li.best-discount a:hover::after {
   background-color: #8710d8;
 }
+#coupons ul li.best-discount.invited-price a::after {
+  background: #39995399;
+}
+#coupons ul li.best-discount.invited-price a:hover::after {
+  background: #399953;
+}
 
 #redirect-info span {
   color: #a435f0;
