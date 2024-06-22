@@ -23,28 +23,28 @@ const couponCode = args[2];
 const htmlContent = fs.readFileSync(htmlFilePath, "utf-8");
 const $ = cheerio.load(htmlContent);
 
-function getCoupon(couponType, couponCode) {
-  const url = `https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?couponCode=${couponCode}`;
+function getCouponExpire(couponType) {
   const expire = new Date();
   // Add 5 or 31 days to the current date
   expire.setDate(expire.getDate() + (couponType === "best" ? 5 : 31));
   // Subtract 5 minutes from the current date
   expire.setMinutes(expire.getMinutes() - 5);
+  return expire;
+}
 
-  return {
-    expire,
-    code: `
-      <li data-expire="${expire.toISOString()}" class="${couponType}-price">
-        <a target="_blank" href="${url}">
-          <span class="coupon-code">${couponCode}</span>
-          <div class="coupon-info">
-            <span>Valid until:</span>
-            <span class="coupon-expire-date">${expire.toDateString()} ${couponType === "best" ? "✨" : ""}</span>
-          </div>
-        </a>
-      </li>
-    `
-  };
+function getHTMLCoupon(type, code, expire, cls = "") {
+  const url = `https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?couponCode=${code}`;
+  return `
+    <li data-expire="${expire.toISOString()}" class="${type}-price ${cls}">
+      <a target="_blank" href="${url}">
+        <span class="coupon-code">${code}</span>
+        <div class="coupon-info">
+          <span>Valid until:</span>
+          <span class="coupon-expire-date">${expire.toDateString()} ${type === "best" ? "✨" : ""}</span>
+        </div>
+      </a>
+    </li>
+  `;
 }
 
 function getCoupons() {
@@ -63,31 +63,32 @@ function storeJsonCoupon(type, code, expire) {
   fs.writeFileSync(COUPONS_PATH, content);
 }
 
-function updateHtmlCoupons(newCoupon) {
+function setHtmlCoupons(coupons) {
+  const limit = new Date().getTime() - 90 * 24 * 60 * 60 * 1000; // 90 days back
+  coupons = coupons
+    .filter(c => new Date(c.expire).getTime() > limit)
+    .sort((a, b) => new Date(b.expire).getTime() - new Date(a.expire).getTime());
   const now = new Date().getTime();
-  let preview;
-  $("#coupons ul li").each(function (i, elem) {
-    const li = $(elem);
-    const date = new Date(li.attr("data-expire"));
-    if (date.getTime() < now) {
-      li.addClass("expired");
-    } else if (date.getTime() > newCoupon.expire.getTime()) {
-      preview = li;
-    }
+
+  const list = coupons.map(coupon => {
+    let expire = new Date(coupon.expire);
+    const cls = expire.getTime() < now ? "expired" : "";
+    return getHTMLCoupon(coupon.type, coupon.code, expire, cls);
   });
 
-  if (preview) {
-    preview.after(newCoupon.code);
-  } else {
-    $("#coupons ul").prepend(newCoupon.code);
-  }
+  $("#coupons ul").html(list.join(""));
 
   fs.writeFileSync(htmlFilePath, $.html());
 }
 
-const newCoupon = getCoupon(couponType, couponCode);
+if (["best", "custom"].includes(couponType)) {
+  console.info("adding coupon : %o", couponType);
+  const newCouponExpire = getCouponExpire(couponType, couponCode);
+  storeJsonCoupon(couponType, couponCode, newCouponExpire);
+} else {
+  console.warn("Invalid coupon type: %o", couponType);
+}
 
-storeJsonCoupon(couponType, couponCode, newCoupon.expire);
-updateHtmlCoupons(newCoupon);
+setHtmlCoupons(getCoupons().coupons);
 
-console.log("Coupon added successfully!");
+console.log("Coupons page refreshed successfully!");

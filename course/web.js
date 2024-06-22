@@ -21,7 +21,7 @@ function checkExpired() {
   var first = 1;
   document.querySelectorAll("#coupons li").forEach(function (li) {
     var date = new Date(li.dataset.expire);
-    console.info("date", date);
+    //console.info("date", date);
     if (date.getTime() < now) {
       li.classList.add("expired");
       li.title = "Expired: " + date.toDateString();
