@@ -80,7 +80,13 @@ function checkCouponCodeParam() {
       free.classList.add("expired", "hidden");
     }
   } else if (coupon) {
-    addNotification(`Coupon <strong>${coupon}</strong> is not valid or expired.`);
+    // check if coupon is valid and exists in page
+    const el = Array.from(document.querySelectorAll("#coupons li .coupon-code")).find(function (li) {
+      return li.innerText.trim() === coupon;
+    });
+    if (!el || el.closest("li").classList.contains("expired")) {
+      addNotification(`Coupon <strong>${coupon}</strong> is not valid or expired.`);
+    }
   }
 }
 
