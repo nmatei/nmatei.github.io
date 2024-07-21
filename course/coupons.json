@@ -59,6 +59,11 @@
       "type": "best",
       "code": "JSJULY2024",
       "expire": "2024-07-17T08:54:41.778Z"
+    },
+    {
+      "type": "custom",
+      "code": "WEBJULY2024",
+      "expire": "2024-08-21T18:48:50.724Z"
     }
   ]
 }
