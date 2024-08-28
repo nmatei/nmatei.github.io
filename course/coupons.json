@@ -64,6 +64,11 @@
       "type": "custom",
       "code": "WEBJULY2024",
       "expire": "2024-08-21T18:48:50.724Z"
+    },
+    {
+      "type": "custom",
+      "code": "WEBAUG2024",
+      "expire": "2024-09-28T13:02:16.561Z"
     }
   ]
 }
