@@ -140,7 +140,7 @@ function check404Redirects() {
         redirect = redirects[redirect];
       }
       if (redirect) {
-        window.location.href = redirect[1];
+        window.location.href = redirect;
       }
     });
 }
