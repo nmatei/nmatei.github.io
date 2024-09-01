@@ -1,6 +1,10 @@
-[
-  ["udemy", "web"],
-  ["course", "web"],
-  ["become-a-web-developer-from-scratch-step-by-step-guide", "web"],
-  ["youtube", "https://www.youtube.com/c/mateinick"]
-]
+{
+  "udemy": "web",
+  "course": "web",
+  "become-a-web-developer-from-scratch-step-by-step-guide": "web",
+  "youtube": "https://www.youtube.com/c/mateinick",
+  "y": "youtube",
+  "bible": "https://bit.ly/project-bible",
+  "project-bible": "bible",
+  "project-verses-from-bible": "bible"
+}

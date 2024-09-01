@@ -135,9 +135,10 @@ function check404Redirects() {
       return r.json();
     })
     .then(function (redirects) {
-      var redirect = redirects.find(function (r) {
-        return r[0] === path;
-      });
+      var redirect = redirects[path];
+      while (redirects[redirect]) {
+        redirect = redirects[redirect];
+      }
       if (redirect) {
         window.location.href = redirect[1];
       }
