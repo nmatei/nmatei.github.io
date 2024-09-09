@@ -394,6 +394,29 @@ button.primary-action:hover {
   background-size: 8px 7px;
 }
 
+a.animate-decoration {
+  position: relative;
+}
+a.animate-decoration:hover {
+  text-decoration: none;
+}
+a.animate-decoration:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(64, 64, 64, 0), rgb(7 152 171), #06899a, rgb(7 152 171), rgba(64, 64, 64, 0));
+  opacity: 0;
+  transform: translateX(-50%) scaleX(0);
+  transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+a.animate-decoration:hover:after {
+  opacity: 1;
+  transform: translateX(-50%) scaleX(1);
+}
+
 @media (max-width: 600px) {
   body {
     font-size: 1em;
