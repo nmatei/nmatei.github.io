@@ -165,6 +165,7 @@ a.page-actions,
   display: inline-block;
   border-radius: 0.2em;
   transition: 0.5s;
+  text-shadow: 1px 1px 1px #000;
 }
 #top-menu-bar a:visited {
   color: #fff;
@@ -173,7 +174,7 @@ a.page-actions {
   background-color: #0798ab;
 }
 #top-menu-bar a.active {
-  background-color: #05798877;
+  background-color: #055d6b77;
 }
 a.page-actions.active {
   background-color: #06899a;
@@ -294,6 +295,7 @@ button {
 button.primary-action {
   background-color: #0798ab;
   color: #fff;
+  text-shadow: 1px 1px 1px #000;
   border-radius: 3px;
   border: 1px solid #343434;
   padding: 3px 8px;
