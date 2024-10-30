@@ -74,6 +74,11 @@
       "type": "custom",
       "code": "WEBOCT2024",
       "expire": "2024-10-29T20:04:23.166Z"
+    },
+    {
+      "type": "custom",
+      "code": "WEBNOV2024",
+      "expire": "2024-11-30T11:06:54.609Z"
     }
   ]
 }
