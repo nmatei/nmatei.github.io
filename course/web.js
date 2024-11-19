@@ -1,3 +1,10 @@
+/**
+ * link examples:
+ *    https://nmatei.github.io/web
+ *    https://nmatei.github.io/web?c=2024-ABC
+ *    https://nmatei.github.io/web?couponCode=2024-ABC
+ */
+
 var bestDiscountLi;
 
 if (typeof URLSearchParams === "undefined") {
@@ -92,7 +99,7 @@ function checkCouponCodeParam() {
 
 (function () {
   var coupon;
-  var redirectSec = 5;
+  var redirectSec = 15;
 
   checkExpired();
 
