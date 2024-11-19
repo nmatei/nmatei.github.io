@@ -285,6 +285,10 @@ footer a:hover {
   background-color: #0798ab;
 }
 
+.hidden {
+  display: none;
+}
+
 @media (max-width: 800px) {
   body {
     font-size: 1em;
