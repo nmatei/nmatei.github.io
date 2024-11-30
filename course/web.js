@@ -15,7 +15,10 @@ if (typeof URLSearchParams === "undefined") {
 }
 
 function getCouponUrl(coupon) {
-  return "https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?couponCode=" + coupon;
+  return (
+    "https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?referralCode=DCED6F67EFF597AA11CE&couponCode=" +
+    coupon
+  );
 }
 
 function redirectToUdemy(coupon) {
