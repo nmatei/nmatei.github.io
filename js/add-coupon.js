@@ -37,7 +37,7 @@ function getCouponExpire(couponType) {
 }
 
 function getHTMLCoupon(type, code, expire, cls = "") {
-  const url = `https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?couponCode=${code}`;
+  const url = `https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?referralCode=DCED6F67EFF597AA11CE&couponCode=${code}`;
   return `
     <li data-expire="${expire.toISOString()}" class="${type}-price ${cls}">
       <a target="_blank" href="${url}">
