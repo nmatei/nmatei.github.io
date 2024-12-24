@@ -1,0 +1,188 @@
+<html>
+  <head>
+    <title>Colinde 2024</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body {
+        padding: 10px;
+        font-size: 1.7em;
+        background: #fff;
+        color: #000;
+      }
+      h1 {
+        margin: 5px 2px;
+        font-size: 1.3em;
+        color: #00217e;
+      }
+      h1 a {
+        font-size: 0.6em;
+      }
+      .chord {
+        display: none;
+      }
+
+      a {
+        text-decoration: none;
+        color: #00217e;
+      }
+
+      #toc {
+        margin: 10px 0;
+      }
+      #toc a {
+        display: block;
+      }
+
+      .toolbar {
+        display: flex;
+        justify-content: flex-end;
+      }
+      button {
+        cursor: pointer;
+        font-size: 1em;
+        background-color: #0798ab;
+        color: #fff;
+        border-radius: 3px;
+        border: 1px solid #343434;
+        padding: 3px 8px;
+      }
+
+      button:disabled {
+        cursor: default;
+        background: transparent;
+        opacity: 0.5;
+      }
+
+      body.dark-mode {
+        background: #000;
+        color: #fff;
+      }
+      .dark-mode a,
+      .dark-mode h1 {
+        color: #efef00;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="toc">
+      <div class="toolbar">
+        <button id="lightMode" onclick="toggleDisplayMode()" disabled>🌞</button>
+        <button id="darkMode" onclick="toggleDisplayMode()">🌒</button>
+      </div>
+    </div>
+    <br />
+
+    <h1>Departe intr-o iesle in paie ascuns</h1>
+    Departe într-o iesle, în paie ascuns<br />
+    Culcat printre vite stă Pruncul Isus.<br />
+    Îi cântă și Îl leagănă stele de argint<br />
+    Și încet copilașul adoarme zâmbind.<br /><br />
+
+    Doar vitele în grajd zgomotos Îl trezesc<br />
+    Duios le privește și se liniștesc.<br />
+    O, Prunc minunat Te slăvim că ai venit<br />
+    Și în ieslea săracă adânc Te-ai smerit.<br /><br />
+
+    Rămâi drag Isuse cu noi, Te rugăm<br />
+    N-avem bogății, dar tot ce avem Îți dăm<br />
+    Iar Tu dă-ne binecuvântarea Ta<br />
+    Și viața întreagă cu Tine vom sta. <br /><br />
+
+    <h1>Suntem trei magi din răsărit</h1>
+    Suntem trei magi din răsărit<br />
+    Și cu daruri noi am pornit<br />
+    Duși pe cale, deal și vale<br />
+    De steaua ce-a lucit.<br /><br />
+
+    R:<br />O, stea măreață, steaua Lui<br />
+    Strălucind de sus ne spui<br />
+    La Betleem noi să mergem<br />
+    Lângă ieslea Domnului.<br /><br />
+
+    Pruncului ceresc Îi voi da<br />
+    Aur din coroana mea<br />
+    Să trăiască, să domnească<br />
+    Să ne dea pacea Sa.<br /><br />
+
+    O, stea măreață, steaua Lui<br />
+    Strălucind de sus ne spui<br />
+    La Betleem noi să mergem<br />
+    Lângă ieslea Domnului.<br /><br />
+
+    Glorie, o, Miel divin<br />
+    Mire sfânt, Te proslăvim<br />
+    Aleluia, Aleluia<br />
+    În veci Te preamărim!<br /><br />
+
+    O, stea măreață, steaua Lui<br />
+    Strălucind de sus ne spui<br />
+    La Betleem noi să mergem<br />
+    Lângă ieslea Domnului.<br /><br />
+
+    <h1>Lumina lumii (Revers)</h1>
+    Tăcere-n infinit;<br />
+    Pământul s-a oprit într-o noapte.<br />
+    Se naște un Erou,<br />
+    Se-aude un ecou printre șoapte.<br />
+    Îngerii cântă printre nori:<br />
+    “Să fie pace peste noi!”.<br /><br />
+
+    Azi s-a născut Lumina lumii.<br />
+    Într-o iesle culcat, ce minunat:<br />
+    S-a născut Emanuel!<br />
+    Veniți să vedem Lumina lumii.<br />
+    A adus pacea înapoi;<br />
+    Dumnezeu e cu noi;<br />
+    S-a născut Emanuel!<br /><br />
+
+    Păstorii au alergat<br />
+    Și s-au închinat lâng-o iesle.<br />
+    Steaua strălucea,<br />
+    Parcă ne-ndemna “Dați de veste!”.<br />
+    Vestea că astăzi Cel ce-i sfânt<br />
+    A venit la noi pe pământ.<br /><br />
+
+    Azi s-a născut Lumina lumii.<br />
+    Într-o iesle culcat, ce minunat:<br />
+    S-a născut Emanuel!<br />
+    Veniți să vedem Lumina lumii.<br />
+    A adus pacea înapoi;<br />
+    Dumnezeu e cu noi;<br />
+    S-a născut Emanuel!<br /><br />
+
+    E iar Crăciun, se naște Mesia.<br />
+    Simți tu fiorul în inima ta?<br /><br />
+
+    Azi s-a născut Lumina lumii.<br />
+    Într-o iesle culcat, ce minunat:<br />
+    S-a născut Emanuel!<br />
+    Veniți să vedem Lumina lumii.<br />
+    A adus pacea înapoi;<br />
+    Dumnezeu e cu noi;<br />
+    S-a născut Emanuel!
+
+    <script>
+      function toggleDisplayMode() {
+        document.body.classList.toggle("dark-mode");
+        var lightMode = document.getElementById("lightMode");
+        lightMode.disabled = !lightMode.disabled;
+        var darkMode = document.getElementById("darkMode");
+        darkMode.disabled = !darkMode.disabled;
+
+        localStorage.setItem("dark-mode", lightMode.disabled ? "0" : "1");
+      }
+
+      if (localStorage.getItem("dark-mode") === "1") {
+        toggleDisplayMode();
+      }
+
+      var tocContent = Array.from(document.querySelectorAll("h1")).map(function (h1, i) {
+        var title = h1.innerHTML;
+        h1.innerHTML = "<a href='#toc'>🔝</a> " + title;
+        h1.id = "s" + (i + 1);
+        return "<a href='#s" + (i + 1) + "'>" + (i + 1) + " " + title + "</a>";
+      });
+      document.getElementById("toc").innerHTML += tocContent.join("");
+    </script>
+  </body>
+</html>
