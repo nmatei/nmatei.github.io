@@ -60,16 +60,26 @@ function addNotification(message, type) {
 function checkCouponCodeParam() {
   var params = new URLSearchParams(window.location.search);
   var coupon = params.get("c") || params.get("couponCode");
-  var free = document.querySelector("li.open-price") || document.querySelector("li.targeted-price");
-  if (free) {
+  var freeElCoupons = Array.from(document.querySelectorAll("li.open-price, li.targeted-price"));
+  if (freeElCoupons.length) {
     if (coupon) {
-      var couponView = free.querySelector(".coupon-code").innerText;
-      var half = couponView.replace(/\*/g, "");
-      if (coupon.startsWith(half) && couponView.length === coupon.length) {
-        free.classList.add("invited-price", "best-price");
-        free.querySelector("a").href = getCouponUrl(coupon);
-        free.classList.add("matched");
-        var expired = free.classList.contains("expired");
+      var freeCoupon = freeElCoupons.find(function (free) {
+        var couponView = free.querySelector(".coupon-code").innerText;
+        var half = couponView.replace(/\*/g, "");
+        return coupon.startsWith(half) && couponView.length === coupon.length;
+      });
+
+      freeElCoupons.forEach(function (free) {
+        if (freeCoupon !== free) {
+          free.classList.add("hidden");
+        }
+      });
+
+      if (freeCoupon) {
+        freeCoupon.classList.add("invited-price", "best-price");
+        freeCoupon.querySelector("a").href = getCouponUrl(coupon);
+        freeCoupon.classList.add("matched");
+        var expired = freeCoupon.classList.contains("expired");
         if (expired) {
           addNotification(`Coupon <strong>${coupon}</strong> expired.`);
         } else {
@@ -83,11 +93,12 @@ function checkCouponCodeParam() {
           expired: expired
         };
       } else {
-        free.classList.add("expired");
         addNotification(`Coupon <strong>${coupon}</strong> is not valid or expired.`);
       }
     } else {
-      free.classList.add("expired", "hidden");
+      freeElCoupons.forEach(function (free) {
+        free.classList.add("expired", "hidden");
+      });
     }
   } else if (coupon) {
     // check if coupon is valid and exists in page
