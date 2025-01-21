@@ -114,6 +114,11 @@
       "type": "best",
       "code": "JS2025JAN",
       "expire": "2025-01-21T14:41:32.211Z"
+    },
+    {
+      "type": "best",
+      "code": "BEST2025JAN",
+      "expire": "2025-01-26T17:34:44.817Z"
     }
   ]
 }
