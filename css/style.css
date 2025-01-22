@@ -396,6 +396,11 @@ button.primary-action:hover {
   background-size: 8px 7px;
 }
 
+.colored-list > li > p {
+  text-indent: 1em;
+  margin: 0.5em 0.5em 1em 1em;
+}
+
 a.animate-decoration {
   position: relative;
 }
