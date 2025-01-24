@@ -32,6 +32,7 @@ header {
 
 p {
   text-indent: 2em;
+  text-align: justify;
 }
 
 #header-wrapper {

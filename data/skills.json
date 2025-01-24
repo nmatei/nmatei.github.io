@@ -1,10 +1,10 @@
 [
-  { "name": "HTML", "endorsements": 15 },
-  { "name": "CSS", "endorsements": 5 },
-  { "name": "JS", "endorsements": 24 },
+  { "name": "HTML", "endorsements": 40 },
+  { "name": "CSS", "endorsements": 20 },
+  { "name": "JS", "endorsements": 64 },
   { "name": "React", "endorsements": 4 },
-  { "name": "Ext JS (Sencha)", "endorsements": 4 },
-  { "name": "Certified Trainer", "endorsements": 1 },
-  { "name": "Java", "endorsements": 1 },
-  { "name": "These are just some examples... *", "endorsements": 0 }
+  { "name": "Ext JS (Sencha)", "endorsements": 38 },
+  { "name": "Certified Trainer", "endorsements": 17 },
+  { "name": "Java", "endorsements": 46 },
+  { "name": "These are just some examples... *", "endorsements": 1 }
 ]
