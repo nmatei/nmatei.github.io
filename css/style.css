@@ -12,6 +12,14 @@ body {
   font-size: 1.2em;
 }
 
+#top-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+
 .grayscale {
   -webkit-filter: grayscale(1);
   filter: grayscale(1);
@@ -423,6 +431,88 @@ a.animate-decoration:after {
 a.animate-decoration:hover:after {
   opacity: 1;
   transform: translateX(-50%) scaleX(1);
+}
+
+/* css similar to https://www.programiz.com/c-programming/online-compiler/ */
+#toggle-dark-mode {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: 4px 6px;
+}
+#toggle-dark-mode svg {
+  width: 20px;
+  height: 20px;
+}
+.toggle-dark-mode-icon.sun {
+  display: none;
+}
+.dark-mode .toggle-dark-mode-icon.moon {
+  display: none;
+}
+.dark-mode .toggle-dark-mode-icon.sun {
+  display: block;
+}
+body.dark-mode {
+  background-color: #383b40;
+  color: #eeeeee;
+}
+.dark-mode #top-menu-bar {
+  background-color: #2d2f34;
+}
+.dark-mode #top-menu-bar a.active,
+.dark-mode #top-menu-bar a:hover {
+  background-color: #0556f3;
+}
+.dark-mode .page {
+  background-color: #1c2130;
+}
+.dark-mode header {
+  background: linear-gradient(45deg, #2d2f3499, transparent);
+}
+.dark-mode .text-carousel-wrap {
+  color: #a3dae2;
+}
+.dark-mode #job-title {
+  color: #f5f5f5;
+}
+.dark-mode a {
+  color: #b0e7ff;
+}
+.dark-mode #side-menu > section h2 {
+  color: #f5f5f5;
+}
+.dark-mode th {
+  background: #2d2f34;
+}
+.dark-mode .page > h2,
+.dark-mode .page > h3 {
+  color: #f5f5f5;
+}
+.dark-mode input,
+.dark-mode textarea {
+  color: #ffffffde;
+  background: none;
+  border: 1px solid #ffffff33;
+}
+.dark-mode a.page-actions,
+.dark-mode button {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: transparent;
+  border-radius: 2px;
+  color: #f5f5f5;
+}
+.dark-mode #udemy-cover p {
+  text-shadow: 1px 1px 2px #3d3f3b;
+}
+.dark-mode #skills li span {
+  color: #c5bcbc;
+}
+.dark-mode .favorite {
+  color: #8bcb88;
+}
+.dark-mode footer {
+  background-color: #1f2023;
 }
 
 @media (max-width: 600px) {

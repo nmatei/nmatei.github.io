@@ -7,6 +7,11 @@ window.onerror = function (message, source, lineno, colno, error) {
 
 var activePage = "home";
 
+var dark = localStorage.getItem("dark-mode");
+if (dark === "true") {
+  document.body.classList.add("dark-mode");
+}
+
 if (typeof URLSearchParams === "undefined") {
   var script = document.createElement("script");
   script.src = "https://cdn.jsdelivr.net/npm/url-search-params-polyfill@8.2.5/index.min.js";
@@ -87,6 +92,11 @@ function initMenu() {
 
   $("#colorblind").addEventListener("click", function () {
     document.body.classList.toggle("grayscale");
+  });
+
+  $("#toggle-dark-mode").addEventListener("click", function () {
+    document.body.classList.toggle("dark-mode");
+    localStorage.setItem("dark-mode", document.body.classList.contains("dark-mode"));
   });
 }
 
