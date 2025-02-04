@@ -124,6 +124,11 @@
       "type": "custom",
       "code": "WEBFEB2024",
       "expire": "2025-03-05T17:53:07.343Z"
+    },
+    {
+      "type": "best",
+      "code": "BEST2025FEB",
+      "expire": "2025-02-09T20:12:49.692Z"
     }
   ]
 }
