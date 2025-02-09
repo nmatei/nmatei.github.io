@@ -195,6 +195,14 @@ a.page-actions:hover,
   background-color: #057988;
 }
 
+#circle-menu-wrapper {
+  width: 208px;
+  height: 208px;
+}
+.circle-slices .phrase-inner:hover {
+  padding-left: 25px !important;
+}
+
 .page {
   display: none;
   flex: 1;

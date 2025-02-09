@@ -1,3 +1,8 @@
+/**
+ * @global
+ * @var {Object} CircleSlices
+ */
+
 window.onerror = function (message, source, lineno, colno, error) {
   alert(
     `Error: ${message}\nSource: ${source}\nLine: ${lineno}\nColumn: ${colno}\nError object: ${JSON.stringify(error)}`
@@ -64,11 +69,16 @@ function hidePreviousPage() {
   link.classList.remove("active");
 }
 
-function showPage(pageId) {
+function showPage(pageId, rotate) {
   hidePreviousPage();
   document.getElementById(pageId).style.display = "block";
   var link = $(`a[data-page="${pageId}"]`);
   link.classList.add("active");
+  if (rotate !== false) {
+    setTimeout(() => {
+      rotateCircleMenu(pageId);
+    }, 10);
+  }
   activePage = pageId;
 }
 
@@ -98,6 +108,51 @@ function initMenu() {
     document.body.classList.toggle("dark-mode");
     localStorage.setItem("dark-mode", document.body.classList.contains("dark-mode"));
   });
+}
+
+var circleMenu = {
+  home: { icon: "🏡", text: "Home" },
+  skills: { icon: "👌", text: "Skills" },
+  projects: { icon: "🔥", text: "Projects" },
+  languages: { icon: "🌎", text: "Languages" },
+  rubik: { icon: "💠", text: "Rubik" }
+};
+
+function initCircleMenu(pageId) {
+  const renderTo = "#circle-menu";
+  CircleSlices.render({
+    renderTo: renderTo,
+    groupSize: 200,
+    slicesSize: 120,
+    centerSize: 25,
+    default: circleMenu[pageId].icon,
+    text: Object.keys(circleMenu)
+      .map(function (hash) {
+        return `#${circleMenu[hash].text} \n ${circleMenu[hash].icon}`;
+      })
+      .join("\n"),
+    centerText: ``
+  });
+
+  document.querySelector(renderTo).addEventListener("rotate", event => {
+    const { index } = event.detail;
+    const id = Object.keys(circleMenu)[index];
+    showPage(id, false);
+    if (history.pushState) {
+      history.pushState(null, null, "#" + id);
+    }
+  });
+}
+
+function rotateCircleMenu(pageId) {
+  const i = Object.keys(circleMenu).findIndex(function (hash) {
+    return hash === pageId;
+  });
+  const slice = $(`.slice-text[data-index="${i + 1}"]`);
+  if (slice) {
+    const angle = parseFloat(slice.style.getPropertyValue("--angle").replace("deg", ""));
+    CircleSlices.rotate("#circle-menu", -angle);
+  }
 }
 
 function getHTMLSkills(skills) {
@@ -170,6 +225,8 @@ window.addEventListener("load", function () {
   showPage(activePage);
 
   initMenu();
+
+  initCircleMenu(activePage);
 
   setTimeout(function () {
     initRubik($("#rubikChallenge"));
