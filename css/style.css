@@ -202,6 +202,15 @@ a.page-actions:hover,
 .circle-slices .phrase-inner:hover {
   padding-left: 25px !important;
 }
+#circle-menu-wrapper .circle {
+  border-color: #0798ab;
+}
+#circle-menu-wrapper .circle-slice-group {
+  background: #d5e6e9;
+}
+#circle-menu-wrapper .circle-slices {
+  background: #ffffff77;
+}
 
 .page {
   display: none;
