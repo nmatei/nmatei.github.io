@@ -156,14 +156,6 @@ function rotateCircleMenu(pageId) {
 }
 
 function getHTMLSkills(skills) {
-  return skills.map(function (skill) {
-    return `<li class="${skill.endorsements > 9 ? "favorite" : ""}">
-            ${skill.name} <span>&middot; ${skill.endorsements}</span>
-        </li>`;
-  });
-}
-
-function getHTMLSkills(skills) {
   return skills
     .map(function (skill) {
       return `<li class="${skill.endorsements > 9 ? "favorite" : ""}">
