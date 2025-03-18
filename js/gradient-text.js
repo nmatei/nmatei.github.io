@@ -31,7 +31,8 @@ function createGradientTextSlider(options) {
   var carousel = document.querySelector(options.renderTo);
 
   if (carousel) {
-    var line = createLine(options.text);
+    var line = createLine(options.text || carousel.innerText);
+    carousel.innerHTML = "";
     var carouselWrap = document.createElement("div");
     carouselWrap.className = "text-carousel-wrap";
     [line, line, line].forEach(function (line) {
@@ -48,20 +49,21 @@ function createGradientTextSlider(options) {
     }, 10);
 
     if (options.animateInterval) {
-      setInterval(function () {
-        animate(carousel);
-      }, Math.max(options.animateInterval, 3000));
+      setInterval(
+        function () {
+          animate(carousel);
+        },
+        Math.max(options.animateInterval, 3000)
+      );
     }
   }
 }
 
 createGradientTextSlider({
-  //renderTo: "#carousel-hestia-generic",
   renderTo: "#text-carousel",
-  animateInterval: 15000,
-  text: `COMPLEX IS BETTER THAN COMPLICATED.
-    READABILITY COUNTS.
-    BEAUTIFUL IS BETTER THAN UGLY. 
-    EXPLICIT IS BETTER THAN IMPLICIT. 
-    SIMPLE IS BETTER THAN COMPLEX`
+  animateInterval: 15000
+  // text: `#AI PERFORMS BEST WHEN PAIRED WITH #STRONG #KNOWLEDGE.
+  // #INVEST IN #LEARNING TO UNLOCK ITS FULL POTENTIAL.
+  // #AI IS #NOT A #REPLACEMENT FOR #HUMANS.
+  // IT IS A #TOOL TO #ENHANCE #HUMAN #CAPABILITIES`
 });

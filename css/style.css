@@ -376,6 +376,10 @@ button.primary-action:hover {
   min-height: 60px;
   padding: 3px 0;
   border-top: 2px solid #ffffff33;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 20px;
+  color: #0798ab;
 }
 .text-carousel-wrap {
   font-size: 16px;
