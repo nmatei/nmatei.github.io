@@ -56,9 +56,7 @@ header .top-container p {
 .sidebar-container img {
   border: 1px solid #d1d7dc;
   box-sizing: border-box;
-  box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.08),
-    0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 header .top-container .dark-background-inner-text-container {
@@ -128,9 +126,7 @@ p.msg-info {
   border-radius: 0.2em;
   transition: 0.5s;
   font-size: 0.95em;
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.15),
-    0 2px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 #coupons .coupon-code {
   font-weight: bold;
@@ -191,14 +187,8 @@ p.msg-info {
   height: 100vh;
   background-color: #399953;
   background-repeat: no-repeat;
-  background-size:
-    50% 50%,
-    50% 50%;
-  background-position:
-    0 0,
-    100% 0,
-    100% 100%,
-    0 100%;
+  background-size: 50% 50%, 50% 50%;
+  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
   background-image: linear-gradient(#399953, #399953), linear-gradient(#fbb300, #fbb300),
     linear-gradient(#d53e33, #d53e33), linear-gradient(#377af5, #377af5);
   animation: rotate 4s linear infinite;
@@ -235,6 +225,15 @@ p.msg-info {
 #redirect-info span {
   color: #a435f0;
   font-weight: bold;
+}
+.seconds {
+  border: 1px solid #80bbd5;
+  padding: 1px 5px;
+  border-radius: 4px;
+  min-width: 20px;
+  display: inline-block;
+  text-align: center;
+  background: #f6f00044;
 }
 
 #what-you-will-learn {
