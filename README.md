@@ -4,7 +4,7 @@ My personal CV made with `HTML`, `CSS` and `JS`.
 
 ## 🎞 Live Preview
 
-- [x] **[nmatei.github.io](https://nmatei.github.io/)**
+- [x] [![Live](https://img.shields.io/badge/live-nmatei.github.io-brightgreen?style=for-the-badge)](https://nmatei.github.io/)
 - [x] **[nmatei.github.io/links](https://nmatei.github.io/links)**
 
 - [https://nmatei.github.io/examples/layout](https://nmatei.github.io/examples/layout.html)
