@@ -12,7 +12,8 @@
     "start": "browser-sync start --server --files '**/*'",
     "coupon": "node js/add-coupon.js web.html",
     "c": "yarn coupon",
-    "postcoupon": "prettier --write web.html && prettier --write course/coupons.json && git add \"web.html\" && git add \"course/coupons.json\" && git status && git commit -m \"add coupon\" && git push origin HEAD"
+    "postcoupon": "prettier --write web.html && prettier --write course/coupons.json && npm run deploy",
+    "deploy": "git add \"web.html\" && git add \"course/coupons.json\" && git status && git commit -m \"add coupon\" && git push origin HEAD"
   },
   "keywords": [
     "nmatei",

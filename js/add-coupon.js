@@ -78,11 +78,17 @@ function setHtmlCoupons(coupons) {
     .sort((a, b) => new Date(b.expire).getTime() - new Date(a.expire).getTime());
   const now = new Date().getTime();
 
-  const list = coupons.map(coupon => {
-    let expire = new Date(coupon.expire);
-    const cls = expire.getTime() < now ? "expired" : "";
-    return getHTMLCoupon(coupon.type, coupon.code, expire, cls);
-  });
+  const list = coupons
+    .map(coupon => {
+      let expire = new Date(coupon.expire);
+      const expired = expire.getTime() < now;
+      if (expired && (coupon.type === "open" || coupon.type === "targeted")) {
+        return false;
+      }
+      const cls = expired ? "expired" : "";
+      return getHTMLCoupon(coupon.type, coupon.code, expire, cls);
+    })
+    .filter(Boolean);
 
   $("#coupons ul").html(list.join(""));
 
