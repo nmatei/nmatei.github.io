@@ -149,6 +149,11 @@
       "type": "custom",
       "code": "WEB2025APR",
       "expire": "2025-05-13T17:04:30.175Z"
+    },
+    {
+      "type": "best",
+      "code": "BEST2025MAY",
+      "expire": "2025-05-18T17:13:36.696Z"
     }
   ]
 }
