@@ -9,7 +9,7 @@
   "scripts": {
     "clear": "rimraf node_modules",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "browser-sync start --server --files '**/*'",
+    "start": "browser-sync start --server --files '**/*' --single --no-notify",
     "coupon": "node js/add-coupon.js web.html",
     "c": "yarn coupon",
     "postcoupon": "prettier --write web.html && prettier --write course/coupons.json && npm run deploy",

@@ -184,24 +184,6 @@ function loadSkills() {
     });
 }
 
-function check404Redirects() {
-  var path = window.location.pathname.substring(1);
-
-  fetch("/data/404-redirects.json")
-    .then(function (r) {
-      return r.json();
-    })
-    .then(function (redirects) {
-      var redirect = redirects[path];
-      while (redirects[redirect]) {
-        redirect = redirects[redirect];
-      }
-      if (redirect) {
-        window.location.href = redirect;
-      }
-    });
-}
-
 window.addEventListener("load", function () {
   initContactForm();
 
@@ -225,7 +207,5 @@ window.addEventListener("load", function () {
     initRubik($("#rubikChallengePage"));
 
     loadSkills();
-
-    check404Redirects();
   }, 10);
 });
