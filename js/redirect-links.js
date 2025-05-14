@@ -20,6 +20,7 @@ function check404Redirects() {
         "old-path": "/new-path",
         youtube: "https://www.youtube.com/c/mateinick"
       });
+      console.info("real example", "https://nmatei.github.io/data/redirect-links.json");
     });
 }
 
