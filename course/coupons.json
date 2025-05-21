@@ -159,6 +159,11 @@
       "type": "custom",
       "code": "WEB2025MAY",
       "expire": "2025-06-18T17:45:13.707Z"
+    },
+    {
+      "type": "targeted",
+      "code": "CST2****",
+      "expire": "2025-06-21T12:39:49.058Z"
     }
   ]
 }
