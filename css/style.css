@@ -87,9 +87,7 @@ p {
 #side-menu > section {
   margin-bottom: 10px;
   padding: 10px;
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.15),
-    0 2px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
 }
 #side-menu > section h2 {
@@ -218,9 +216,7 @@ a.page-actions:hover,
   background-color: #ffffff;
   margin: 0 0 10px 0;
   padding: 24px;
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.15),
-    0 2px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
   border-radius: 2px;
 }
 .page > h2,
@@ -257,9 +253,7 @@ a.page-actions:hover,
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.15),
-    0 2px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
 }
 #udemy-cover:before {
   content: " ";
@@ -577,4 +571,27 @@ body.dark-mode {
   #my-course {
     flex-direction: column-reverse;
   }
+}
+
+/* Quiz List Styling */
+.quiz-list {
+  list-style: none;
+  padding-left: 1em;
+  margin-top: 0.5em;
+}
+
+.quiz-list li {
+  margin-bottom: 0.5em;
+}
+
+.quiz-list a {
+  display: inline-block;
+  padding: 0.2em 0.5em;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+}
+
+.quiz-list a:hover {
+  background-color: rgba(0, 0, 0, 0.05);
 }
