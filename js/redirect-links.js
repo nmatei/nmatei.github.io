@@ -11,7 +11,18 @@ function check404Redirects() {
         redirect = redirects[redirect];
       }
       if (redirect) {
-        window.location.href = redirect;
+        // Prepare the final URL with preserved parameters
+        var url = redirect;
+
+        // Check if there are URL parameters to preserve
+        var search = window.location.search;
+        if (search && search.length > 1) {
+          // Append parameters appropriately based on whether the redirect URL already has parameters
+          url += (redirect.indexOf("?") !== -1 ? "&" : "?") + search.substring(1);
+        }
+
+        // Perform the single redirect
+        window.location.href = url;
       }
     })
     .catch(function () {
