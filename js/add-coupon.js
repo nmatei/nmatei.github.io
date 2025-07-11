@@ -12,9 +12,12 @@ if (args.length < 3) {
   console.warn("\n");
   console.error("\t             Best price (5 days): %o", "yarn coupon best CODE");
   console.error("\t          Custom price (31 days): %o", "yarn coupon custom CODE");
-  console.error("\t      Free Open (5 days, 1000 c): %o", "yarn coupon open CODE");
-  console.error("\t  Free Targeted (31 days, 100 c): %o", "yarn coupon targeted CODE");
+  console.error("\t      Free Open (5 days, 1000 c): %o", "yarn coupon open CODE [EXISTING_CODE]");
+  console.error("\t  Free Targeted (31 days, 100 c): %o", "yarn coupon targeted CODE [EXISTING_CODE]");
   console.error("\t                    Refresh page: %o", "yarn coupon clean old");
+  console.warn("\n");
+  console.warn("Note: When [EXISTING_CODE] is provided, it finds that coupon and extends it");
+  console.warn("      with the new CODE as an encoded extended value for future use.");
   console.warn("\n");
   process.exit(1);
 }
@@ -22,6 +25,7 @@ if (args.length < 3) {
 const htmlFilePath = path.resolve(args[0]);
 const couponType = args[1].toLowerCase();
 const couponCode = args[2];
+const existingCode = args[3]; // When provided, find this existing code and add couponCode as extended
 
 const htmlContent = fs.readFileSync(htmlFilePath, "utf-8");
 const $ = cheerio.load(htmlContent);
@@ -56,19 +60,57 @@ function getCoupons() {
   return JSON.parse(content);
 }
 
-function storeJsonCoupon(type, code, expire) {
+function storeJsonCoupon(type, code, expire, existingCode) {
   const store = getCoupons();
+
+  // If existingCode is provided, find existing coupon and update it
+  if (existingCode && ["open", "targeted"].includes(type)) {
+    const existingCouponIndex = store.coupons.findIndex(c => {
+      // Match by code pattern (handling both full codes and masked codes)
+      const cleanExisting = existingCode.replace(/\*/g, "");
+      const cleanStored = c.code.replace(/\*/g, "");
+
+      // Check if the stored code starts with the existing code pattern
+      return cleanStored.startsWith(cleanExisting) || cleanExisting.startsWith(cleanStored) || c.code === existingCode;
+    });
+
+    if (existingCouponIndex !== -1) {
+      // Update existing coupon with new extended code
+      store.coupons[existingCouponIndex].extended = encodeCoupon(code);
+      console.log(`Extended existing coupon ${existingCode} with new code for future use`);
+      // Continue to create new coupon as well
+    } else {
+      console.warn(`Coupon ${existingCode} not found for extending`);
+      // Continue to create new coupon anyway
+    }
+  }
+
+  // Create new coupon (original logic)
+  let displayCode = code;
   if (["open", "targeted"].includes(couponType)) {
     // half hidden
-    code = code.substring(0, code.length / 2) + code.substring(code.length / 2).replace(/./g, "*");
+    displayCode = code.substring(0, code.length / 2) + code.substring(code.length / 2).replace(/./g, "*");
   }
-  store.coupons.push({
+
+  const couponData = {
     type,
-    code,
+    code: displayCode,
     expire: expire.toISOString()
-  });
+  };
+
+  store.coupons.push(couponData);
   const content = JSON.stringify(store, null, 2);
   fs.writeFileSync(COUPONS_PATH, content);
+}
+
+// Simple encoding function for extended coupon codes
+function encodeCoupon(code) {
+  // Simple base64-like encoding with character shift
+  return Buffer.from(code)
+    .toString("base64")
+    .split("")
+    .map(c => String.fromCharCode(c.charCodeAt(0) + 3))
+    .join("");
 }
 
 function setHtmlCoupons(coupons) {
@@ -83,7 +125,7 @@ function setHtmlCoupons(coupons) {
       let expire = new Date(coupon.expire);
       const expired = expire.getTime() < now;
       if (expired && (coupon.type === "open" || coupon.type === "targeted")) {
-        return false;
+        //return false;
       }
       const cls = expired ? "expired" : "";
       return getHTMLCoupon(coupon.type, coupon.code, expire, cls);
@@ -98,7 +140,7 @@ function setHtmlCoupons(coupons) {
 if (["best", "custom", "open", "targeted"].includes(couponType)) {
   console.info("adding coupon : %o", couponType);
   const newCouponExpire = getCouponExpire(couponType, couponCode);
-  storeJsonCoupon(couponType, couponCode, newCouponExpire);
+  storeJsonCoupon(couponType, couponCode, newCouponExpire, existingCode);
 } else {
   console.warn("Invalid coupon type: %o", couponType);
 }

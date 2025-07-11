@@ -57,6 +57,39 @@ function addNotification(message, type) {
   el.innerHTML += `<p class="msg-${type || "warn"}">${message}</p>`;
 }
 
+function handleExtendedCoupon(couponData, currentCoupon) {
+  // leave this function as is (private, not global), it handles the extended coupon logic
+  function decodeCoupon(encoded) {
+    try {
+      // Reverse the character shift and decode
+      var shifted = encoded
+        .split("")
+        .map(c => String.fromCharCode(c.charCodeAt(0) - 3))
+        .join("");
+      return atob(shifted);
+    } catch (e) {
+      console.warn("Failed to decode coupon:", e);
+      return null;
+    }
+  }
+
+  if (couponData.extended) {
+    var decodedCoupon = decodeCoupon(couponData.extended);
+    if (decodedCoupon && decodedCoupon !== currentCoupon) {
+      // Update URL parameter and refresh
+      var params = new URLSearchParams(window.location.search);
+      params.set("c", decodedCoupon);
+      var newUrl = window.location.pathname + "?" + params.toString();
+      addNotification(`Coupon expired, redirecting to extended coupon...`, "info");
+      setTimeout(function () {
+        window.location.href = newUrl;
+      }, 1500);
+      return true;
+    }
+  }
+  return false;
+}
+
 function checkCouponCodeParam() {
   var params = new URLSearchParams(window.location.search);
   var coupon = params.get("c") || params.get("couponCode");
@@ -80,8 +113,24 @@ function checkCouponCodeParam() {
         freeCoupon.querySelector("a").href = getCouponUrl(coupon);
         freeCoupon.classList.add("matched");
         var expired = freeCoupon.classList.contains("expired");
+
         if (expired) {
-          addNotification(`Coupon <strong>${coupon}</strong> expired.`);
+          // Check if this coupon has an extended property
+          fetch("course/coupons.json")
+            .then(response => response.json())
+            .then(data => {
+              var matchingCoupon = data.coupons.find(function (c) {
+                var codePattern = c.code.replace(/\*/g, "");
+                return coupon.startsWith(codePattern) && c.code.length === coupon.length;
+              });
+
+              if (matchingCoupon && !handleExtendedCoupon(matchingCoupon, coupon)) {
+                addNotification(`Coupon <strong>${coupon}</strong> expired.`);
+              }
+            })
+            .catch(function () {
+              addNotification(`Coupon <strong>${coupon}</strong> expired.`);
+            });
         } else {
           addNotification(
             `Coupon <strong>${coupon}</strong> applied, but has limited redemptions so hurry up!`,
