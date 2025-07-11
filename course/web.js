@@ -80,10 +80,10 @@ function handleExtendedCoupon(couponData, currentCoupon) {
       var params = new URLSearchParams(window.location.search);
       params.set("c", decodedCoupon);
       var newUrl = window.location.pathname + "?" + params.toString();
-      addNotification(`Coupon expired, redirecting to extended coupon...`, "info");
+      addNotification(`🎉 Good news! I've extended the time for your expired coupon. Hurry up and grab it! ⏰`, "info");
       setTimeout(function () {
         window.location.href = newUrl;
-      }, 1500);
+      }, 4000);
       return true;
     }
   }
@@ -133,7 +133,7 @@ function checkCouponCodeParam() {
             });
         } else {
           addNotification(
-            `Coupon <strong>${coupon}</strong> applied, but has limited redemptions so hurry up!`,
+            `🎯 Coupon <strong>${coupon}</strong> successfully applied! ⚡ Limited spots available - secure yours now! 🚀`,
             "info"
           );
         }
