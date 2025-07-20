@@ -175,6 +175,11 @@
       "type": "targeted",
       "code": "CST25DXB********",
       "expire": "2025-08-11T10:00:26.823Z"
+    },
+    {
+      "type": "best",
+      "code": "BEST2025JUL",
+      "expire": "2025-07-25T12:35:40.050Z"
     }
   ]
 }
