@@ -221,6 +221,11 @@
       "type": "best",
       "code": "BEST2025NOV",
       "expire": "2025-11-15T19:37:42.890Z"
+    },
+    {
+      "type": "custom",
+      "code": "WEB2025NOV",
+      "expire": "2025-12-17T18:47:35.134Z"
     }
   ]
 }
