@@ -1,7 +1,7 @@
 function check404Redirects() {
   var path = window.location.pathname.substring(1);
 
-  fetch("/data/redirect-links.json")
+  fetch("/data/redirect-links.json", { cache: 'reload' })
     .then(function (r) {
       return r.json();
     })
