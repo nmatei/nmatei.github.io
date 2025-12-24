@@ -36,6 +36,8 @@
       .toolbar {
         display: flex;
         justify-content: flex-end;
+        gap: 8px;
+        align-items: center;
       }
       button {
         cursor: pointer;
@@ -61,12 +63,18 @@
       .dark-mode h1 {
         color: #efef00;
       }
+      .separator {
+        color: #666;
+      }
     </style>
   </head>
   <body>
     <div id="toc">
       <div class="toolbar">
         <a href="https://nmatei.github.io/examples/colinde-2023">2023</a>
+        <span>2024</span>
+        <a href="https://nmatei.github.io/examples/colinde-2025">2025</a>
+        <span class="separator">|</span>
         <button id="lightMode" onclick="toggleDisplayMode()" disabled>🌞</button>
         <button id="darkMode" onclick="toggleDisplayMode()">🌒</button>
       </div>
