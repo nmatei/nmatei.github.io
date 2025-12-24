@@ -367,7 +367,7 @@ I: Final: Fa-I loc in inima ta lui Mesia
     S‑a născut Emanuel.<br />
     S‑a născut Emanuel.
 
-    <script>
+	  <script>
       function toggleDisplayMode() {
         document.body.classList.toggle("dark-mode");
         var lightMode = document.getElementById("lightMode");
@@ -388,7 +388,8 @@ I: Final: Fa-I loc in inima ta lui Mesia
         h1.id = "s" + (i + 1);
         return "<a href='#s" + (i + 1) + "'>" + (i + 1) + " " + title + "</a>";
       });
-      document.getElementById("toc").innerHTML = tocContent.join("");
+      document.getElementById("toc").innerHTML += tocContent.join("");
     </script>
+	  
   </body>
 </html>
