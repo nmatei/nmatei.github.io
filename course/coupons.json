@@ -241,6 +241,11 @@
       "type": "best",
       "code": "2025BEST",
       "expire": "2026-01-05T15:39:26.297Z"
+    },
+    {
+      "type": "custom",
+      "code": "WEB2026IAN",
+      "expire": "2026-02-08T14:28:24.328Z"
     }
   ]
 }
