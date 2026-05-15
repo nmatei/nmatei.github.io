@@ -261,6 +261,11 @@
       "type": "custom",
       "code": "WEB2026APR",
       "expire": "2026-05-15T11:31:37.794Z"
+    },
+    {
+      "type": "custom",
+      "code": "WEB2026MAY",
+      "expire": "2026-06-15T13:55:55.699Z"
     }
   ]
 }
