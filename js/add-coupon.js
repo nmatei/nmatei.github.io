@@ -141,6 +141,7 @@ if (["best", "custom", "open", "targeted"].includes(couponType)) {
   console.info("adding coupon : %o", couponType);
   const newCouponExpire = getCouponExpire(couponType, couponCode);
   storeJsonCoupon(couponType, couponCode, newCouponExpire, existingCode);
+  console.log("\nShare link: %o", `https://nmatei.github.io/web?c=${couponCode}`);
 } else {
   console.warn("Invalid coupon type: %o", couponType);
 }
