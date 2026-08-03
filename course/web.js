@@ -90,74 +90,126 @@ function handleExtendedCoupon(couponData, currentCoupon) {
   return false;
 }
 
+function getValidityInfo(li) {
+  var expire = new Date(li.dataset.expire);
+  if (isNaN(expire.getTime())) {
+    return `⏳ Hurry up, it will expire soon.`;
+  }
+  var hoursLeft = (expire.getTime() - new Date().getTime()) / (60 * 60 * 1000);
+  var left;
+  if (hoursLeft < 24) {
+    left = "it's the last day";
+  } else {
+    var days = Math.floor(hoursLeft / 24);
+    left = `only ${days} ${days === 1 ? "day" : "days"} left`;
+  }
+  return `⏳ Valid until ${expire.toDateString()} - ${left}.`;
+}
+
+function notifyExpiredCoupon(coupon) {
+  // Check if this coupon has an extended property
+  fetch("course/coupons.json")
+    .then(response => response.json())
+    .then(data => {
+      var matchingCoupon = data.coupons.find(function (c) {
+        var codePattern = c.code.replace(/\*/g, "");
+        return coupon.startsWith(codePattern) && c.code.length === coupon.length;
+      });
+
+      if (matchingCoupon && !handleExtendedCoupon(matchingCoupon, coupon)) {
+        addNotification(`Coupon <strong>${coupon}</strong> expired.`);
+      }
+    })
+    .catch(function () {
+      addNotification(`Coupon <strong>${coupon}</strong> expired.`);
+    });
+}
+
+function checkFreeCouponParam(coupon, freeElCoupons) {
+  var freeCoupon = freeElCoupons.find(function (free) {
+    var couponView = free.querySelector(".coupon-code").innerText;
+    var half = couponView.replace(/\*/g, "");
+    return coupon.startsWith(half) && couponView.length === coupon.length;
+  });
+
+  freeElCoupons.forEach(function (free) {
+    if (freeCoupon !== free) {
+      free.classList.add("hidden");
+    }
+  });
+
+  if (!freeCoupon) {
+    return null;
+  }
+
+  freeCoupon.classList.add("invited-price", "best-price", "matched");
+  freeCoupon.querySelector("a").href = getCouponUrl(coupon);
+  var expired = freeCoupon.classList.contains("expired");
+
+  if (expired) {
+    notifyExpiredCoupon(coupon);
+  } else {
+    addNotification(
+      `🎯 Coupon <strong>${coupon}</strong> successfully applied! ⚡ Limited spots available - secure yours now! 🚀`,
+      "info"
+    );
+  }
+  return {
+    coupon: coupon,
+    expired: expired
+  };
+}
+
+function checkListedCouponParam(coupon) {
+  // check if coupon is valid and exists in page (public / non free coupons)
+  var el = Array.from(document.querySelectorAll("#coupons li .coupon-code")).find(function (code) {
+    return code.innerText.trim() === coupon;
+  });
+  if (!el) {
+    addNotification(`Coupon <strong>${coupon}</strong> is not valid or expired.`);
+    return null;
+  }
+
+  var li = el.closest("li");
+  li.classList.add("matched");
+  var expired = li.classList.contains("expired");
+
+  if (expired) {
+    notifyExpiredCoupon(coupon);
+  } else {
+    addNotification(
+      `🎁 Coupon <strong>${coupon}</strong> is active and ready to use!<br />` +
+        `${getValidityInfo(li)}<br />Enroll now and start learning today! 🚀`,
+      "info"
+    );
+  }
+  return {
+    coupon: coupon,
+    expired: expired
+  };
+}
+
 function checkCouponCodeParam() {
   var params = new URLSearchParams(window.location.search);
   var coupon = params.get("c") || params.get("couponCode");
   var freeElCoupons = Array.from(document.querySelectorAll("li.open-price, li.targeted-price"));
-  if (freeElCoupons.length) {
-    if (coupon) {
-      var freeCoupon = freeElCoupons.find(function (free) {
-        var couponView = free.querySelector(".coupon-code").innerText;
-        var half = couponView.replace(/\*/g, "");
-        return coupon.startsWith(half) && couponView.length === coupon.length;
-      });
 
-      freeElCoupons.forEach(function (free) {
-        if (freeCoupon !== free) {
-          free.classList.add("hidden");
-        }
-      });
-
-      if (freeCoupon) {
-        freeCoupon.classList.add("invited-price", "best-price");
-        freeCoupon.querySelector("a").href = getCouponUrl(coupon);
-        freeCoupon.classList.add("matched");
-        var expired = freeCoupon.classList.contains("expired");
-
-        if (expired) {
-          // Check if this coupon has an extended property
-          fetch("course/coupons.json")
-            .then(response => response.json())
-            .then(data => {
-              var matchingCoupon = data.coupons.find(function (c) {
-                var codePattern = c.code.replace(/\*/g, "");
-                return coupon.startsWith(codePattern) && c.code.length === coupon.length;
-              });
-
-              if (matchingCoupon && !handleExtendedCoupon(matchingCoupon, coupon)) {
-                addNotification(`Coupon <strong>${coupon}</strong> expired.`);
-              }
-            })
-            .catch(function () {
-              addNotification(`Coupon <strong>${coupon}</strong> expired.`);
-            });
-        } else {
-          addNotification(
-            `🎯 Coupon <strong>${coupon}</strong> successfully applied! ⚡ Limited spots available - secure yours now! 🚀`,
-            "info"
-          );
-        }
-        return {
-          coupon: coupon,
-          expired: expired
-        };
-      } else {
-        addNotification(`Coupon <strong>${coupon}</strong> is not valid or expired.`);
-      }
-    } else {
-      freeElCoupons.forEach(function (free) {
-        free.classList.add("expired", "hidden");
-      });
-    }
-  } else if (coupon) {
-    // check if coupon is valid and exists in page
-    const el = Array.from(document.querySelectorAll("#coupons li .coupon-code")).find(function (li) {
-      return li.innerText.trim() === coupon;
+  if (!coupon) {
+    freeElCoupons.forEach(function (free) {
+      free.classList.add("expired", "hidden");
     });
-    if (!el || el.closest("li").classList.contains("expired")) {
-      addNotification(`Coupon <strong>${coupon}</strong> is not valid or expired.`);
+    return null;
+  }
+
+  // a free / targeted (invitation) coupon has priority, it is not visible as full code in page
+  if (freeElCoupons.length) {
+    var freeInfo = checkFreeCouponParam(coupon, freeElCoupons);
+    if (freeInfo) {
+      return freeInfo;
     }
   }
+
+  return checkListedCouponParam(coupon);
 }
 
 (function () {
