@@ -275,7 +275,8 @@
     {
       "type": "targeted",
       "code": "202606-S********",
-      "expire": "2026-07-30T14:11:00.935Z"
+      "expire": "2026-07-30T14:11:00.935Z",
+      "extended": "PmD|QmD7OYQXYXU]OXUEZT@@"
     },
     {
       "type": "custom",
@@ -291,6 +292,11 @@
       "type": "custom",
       "code": "WEB2026AUG",
       "expire": "2026-09-24T16:36:26.253Z"
+    },
+    {
+      "type": "targeted",
+      "code": "202608-S********",
+      "expire": "2026-09-24T16:37:58.884Z"
     }
   ]
 }
