@@ -286,6 +286,11 @@
       "type": "best",
       "code": "REACT26AI",
       "expire": "2026-08-08T21:25:33.600Z"
+    },
+    {
+      "type": "custom",
+      "code": "WEB2026AUG",
+      "expire": "2026-09-24T16:36:26.253Z"
     }
   ]
 }
