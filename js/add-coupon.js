@@ -10,8 +10,8 @@ const COUPONS_PATH = "course/coupons.json";
 const args = process.argv.slice(2);
 if (args.length < 3) {
   console.warn("\n");
-  console.error("\t             Best price (5 days): %o", "yarn coupon best CODE");
-  console.error("\t          Custom price (31 days): %o", "yarn coupon custom CODE");
+  console.error("\t             Best price (5 days): %o", "yarn coupon best CODE [EXISTING_CODE]");
+  console.error("\t          Custom price (31 days): %o", "yarn coupon custom CODE [EXISTING_CODE]");
   console.error("\t      Free Open (5 days, 1000 c): %o", "yarn coupon open CODE [EXISTING_CODE]");
   console.error("\t  Free Targeted (31 days, 100 c): %o", "yarn coupon targeted CODE [EXISTING_CODE]");
   console.error("\t                    Refresh page: %o", "yarn coupon clean old");
@@ -60,19 +60,33 @@ function getCoupons() {
   return JSON.parse(content);
 }
 
+// Find a stored coupon by code, same rule as the page uses (see course/web.js)
+// Searches from the most recent one, exact match first, then half hidden (open / targeted) codes
+function findCouponIndex(coupons, existingCode) {
+  for (let i = coupons.length - 1; i >= 0; i--) {
+    if (coupons[i].code === existingCode) {
+      return i;
+    }
+  }
+  for (let i = coupons.length - 1; i >= 0; i--) {
+    const stored = coupons[i].code;
+    if (!stored.includes("*")) {
+      continue;
+    }
+    const prefix = stored.replace(/\*/g, "");
+    if (stored.length === existingCode.length && existingCode.startsWith(prefix)) {
+      return i;
+    }
+  }
+  return -1;
+}
+
 function storeJsonCoupon(type, code, expire, existingCode) {
   const store = getCoupons();
 
-  // If existingCode is provided, find existing coupon and update it
-  if (existingCode && ["open", "targeted"].includes(type)) {
-    const existingCouponIndex = store.coupons.findIndex(c => {
-      // Match by code pattern (handling both full codes and masked codes)
-      const cleanExisting = existingCode.replace(/\*/g, "");
-      const cleanStored = c.code.replace(/\*/g, "");
-
-      // Check if the stored code starts with the existing code pattern
-      return cleanStored.startsWith(cleanExisting) || cleanExisting.startsWith(cleanStored) || c.code === existingCode;
-    });
+  // If existingCode is provided, find existing coupon and update it (any coupon type)
+  if (existingCode) {
+    const existingCouponIndex = findCouponIndex(store.coupons, existingCode);
 
     if (existingCouponIndex !== -1) {
       // Update existing coupon with new extended code
@@ -87,7 +101,7 @@ function storeJsonCoupon(type, code, expire, existingCode) {
 
   // Create new coupon (original logic)
   let displayCode = code;
-  if (["open", "targeted"].includes(couponType)) {
+  if (["open", "targeted"].includes(type)) {
     // half hidden
     displayCode = code.substring(0, code.length / 2) + code.substring(code.length / 2).replace(/./g, "*");
   }
