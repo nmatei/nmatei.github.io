@@ -13,7 +13,6 @@
     "coupon": "node js/add-coupon.js web.html",
     "c": "yarn coupon",
     "postcoupon": "prettier --write web.html ro/web.html course/coupons.json && npm run deploy",
-    "--deploy": "echo \"Pls deploy changes manualy...\"",
     "deploy": "git add web.html ro/web.html course/ && git status && git commit -m \"add coupon\" && git push origin HEAD",
     "build": "node js/add-coupon.js web.html clean old && prettier --write web.html ro/web.html"
   },
