@@ -14,11 +14,12 @@ const PAGES = [
 const args = process.argv.slice(2);
 if (args.length < 3) {
   console.warn("\n");
-  console.error("\t             Best price (5 days): %o", "yarn coupon best CODE [EXISTING_CODE]");
-  console.error("\t          Custom price (31 days): %o", "yarn coupon custom CODE [EXISTING_CODE]");
-  console.error("\t      Free Open (5 days, 1000 c): %o", "yarn coupon open CODE [EXISTING_CODE]");
-  console.error("\t  Free Targeted (31 days, 100 c): %o", "yarn coupon targeted CODE [EXISTING_CODE]");
-  console.error("\t                    Refresh page: %o", "yarn coupon clean old");
+  // Udemy coupon types (price / redemptions / validity)
+  console.error("\t           Best price (€9.99, unlimited, 5 days): %o", "yarn coupon best     CODE [EXISTING_CODE]");
+  console.error("\tCustom price (€12.99-€19.99, unlimited, 31 days): %o", "yarn coupon custom   CODE [EXISTING_CODE]");
+  console.error("\t              Free Open (10 redemptions, 5 days): %o", "yarn coupon open     CODE [EXISTING_CODE]");
+  console.error("\t        Free Targeted (100 redemptions, 31 days): %o", "yarn coupon targeted CODE [EXISTING_CODE]");
+  console.error("\t                         Refresh pages (EN + RO): %o", "npm run build");
   console.warn("\n");
   console.warn("Note: When [EXISTING_CODE] is provided, it finds that coupon and extends it");
   console.warn("      with the new CODE as an encoded extended value for future use.");
@@ -139,8 +140,9 @@ if (["best", "custom", "open", "targeted"].includes(couponType)) {
   console.info("adding coupon : %o", couponType);
   const newCouponExpire = getCouponExpire(couponType, couponCode);
   storeJsonCoupon(couponType, couponCode, newCouponExpire, existingCode);
-  console.log("\nShare link: %o", `https://nmatei.github.io/web?c=${couponCode}`);
-} else {
+  console.log("\nShare link (EN): %o", `https://nmatei.github.io/web?c=${couponCode}`);
+  console.log("Share link (RO): %o", `https://nmatei.github.io/ro/web?c=${couponCode}`);
+} else if (couponType !== "clean") {
   console.warn("Invalid coupon type: %o", couponType);
 }
 

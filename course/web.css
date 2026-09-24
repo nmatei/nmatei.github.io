@@ -12,7 +12,14 @@ body {
   position: relative;
   height: 100vh;
   font-size: 1.2em;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
   line-height: 1.5;
   color: #2d2f31;
   display: flex;
@@ -65,7 +72,9 @@ header .top-container p {
   height: auto;
   border: 1px solid #d1d7dc;
   box-sizing: border-box;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.08);
+  box-shadow:
+    0 2px 4px rgba(0, 0, 0, 0.08),
+    0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 header .top-container .dark-background-inner-text-container {
@@ -135,7 +144,9 @@ p.msg-info {
   border-radius: 0.2em;
   transition: 0.5s;
   font-size: 0.95em;
-  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.15), 0 2px 3px rgba(0, 0, 0, 0.2);
+  box-shadow:
+    0 0 0 1px rgba(0, 0, 0, 0.15),
+    0 2px 3px rgba(0, 0, 0, 0.2);
 }
 #coupons .coupon-code {
   font-weight: bold;
@@ -196,10 +207,17 @@ p.msg-info {
   height: 100vh;
   background-color: #399953;
   background-repeat: no-repeat;
-  background-size: 50% 50%, 50% 50%;
-  background-position: 0 0, 100% 0, 100% 100%, 0 100%;
-  background-image: linear-gradient(#399953, #399953), linear-gradient(#fbb300, #fbb300),
-    linear-gradient(#d53e33, #d53e33), linear-gradient(#377af5, #377af5);
+  background-size:
+    50% 50%,
+    50% 50%;
+  background-position:
+    0 0,
+    100% 0,
+    100% 100%,
+    0 100%;
+  background-image:
+    linear-gradient(#399953, #399953), linear-gradient(#fbb300, #fbb300), linear-gradient(#d53e33, #d53e33),
+    linear-gradient(#377af5, #377af5);
   animation: rotate 4s linear infinite;
 }
 
@@ -221,8 +239,9 @@ p.msg-info {
 }
 
 #coupons ul li.best-discount.invited-price a::before {
-  background-image: linear-gradient(#399953, #399953), linear-gradient(#327845, #327845),
-    linear-gradient(#245f34, #245f34), linear-gradient(#15391f, #15391f);
+  background-image:
+    linear-gradient(#399953, #399953), linear-gradient(#327845, #327845), linear-gradient(#245f34, #245f34),
+    linear-gradient(#15391f, #15391f);
 }
 #coupons ul li.best-discount.invited-price a::after {
   background: #39995399;
@@ -262,7 +281,22 @@ p.msg-info {
 
 #what-you-will-learn ul li {
   width: calc(50% - (2.4rem / 2));
-  padding: 5px;
+  box-sizing: border-box;
+  padding: 5px 5px 5px 2.2em;
+  position: relative;
+}
+/* check icon: purple check in a light purple circle */
+#what-you-will-learn ul li::before {
+  content: "";
+  position: absolute;
+  left: 0.2em;
+  top: calc(5px + 0.1em);
+  width: 1.4em;
+  height: 1.4em;
+  border-radius: 50%;
+  background: #a435f01f
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a435f0' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12.5l4.5 4.5L19 7.5'/%3E%3C/svg%3E")
+    center / 62% no-repeat;
 }
 
 footer {
@@ -444,5 +478,9 @@ main section {
 
   #main {
     padding: 20px;
+  }
+
+  #what-you-will-learn ul li {
+    width: 100%;
   }
 }

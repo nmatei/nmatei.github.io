@@ -1,8 +1,7 @@
 // Renders the course page (web.html / ro/web.html) from course/course.json + course/i18n/{lang}.json
 const SITE = "https://nmatei.github.io";
 
-const STAR_PATH =
-  "M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z";
+const STAR_PATH = "M12 2.5l2.9 6.1 6.6.8-4.9 4.6 1.3 6.6L12 17.3l-5.9 3.3 1.3-6.6-4.9-4.6 6.6-.8z";
 
 function format(text, values) {
   return text.replace(/\{(\w+)\}/g, (m, key) => (key in values ? values[key] : m));
@@ -79,7 +78,11 @@ function getJsonLd(t, course, locales) {
     provider: { "@type": "Organization", name: "Udemy", sameAs: "https://www.udemy.com" },
     author: { "@type": "Person", name: "Nicolae Matei", url: SITE + "/" },
     offers: { "@type": "Offer", category: "Paid", url: course.url },
-    hasCourseInstance: { "@type": "CourseInstance", courseMode: "Online", courseWorkload: "PT" + (course.hours || 1) + "H" }
+    hasCourseInstance: {
+      "@type": "CourseInstance",
+      courseMode: "Online",
+      courseWorkload: "PT" + (course.hours || 1) + "H"
+    }
   };
   // Google requires ratingCount for aggregateRating
   if (course.rating && course.ratingsCount) {
@@ -186,7 +189,7 @@ ${getJsonLd(t, course, locales)}
       <section id="what-you-will-learn">
         <h2>${t.learnTitle}</h2>
         <ul>
-          ${t.learn.map(item => `<li>✔ ${item}</li>`).join("\n          ")}
+          ${t.learn.map(item => `<li>${item}</li>`).join("\n          ")}
         </ul>
       </section>
 

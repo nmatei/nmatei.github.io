@@ -29,6 +29,43 @@ A simple way to **support my work** and to **improve** your programming skills:
 
 - [x] [Become a WEB Developer from Scratch, step by step Guide](https://nmatei.github.io/web) - by [Nicolae Matei](https://nmatei.github.io/)
 
+## 🎟 Udemy coupons page
+
+The course pages are **generated**, do not edit them manually:
+
+- [web.html](web.html) (EN) → [nmatei.github.io/web](https://nmatei.github.io/web)
+- [ro/web.html](ro/web.html) (RO) → [nmatei.github.io/ro/web](https://nmatei.github.io/ro/web)
+
+Sources:
+
+- [js/web-page.js](js/web-page.js) - page template (html, SEO meta, JSON-LD)
+- [course/i18n/en.json](course/i18n/en.json), [course/i18n/ro.json](course/i18n/ro.json) - texts
+- [course/course.json](course/course.json) - course info (badge, rating, ratings count, students...)
+- [course/coupons.json](course/coupons.json) - coupons (updated by `yarn coupon`)
+
+### Add coupon
+
+Create the coupon on Udemy, then add it (pages are regenerated, formatted, committed and pushed):
+
+| Udemy coupon type  | Price           | Redemptions | Validity | Command                     |
+| ------------------ | --------------- | ----------- | -------- | --------------------------- |
+| Current best price | €9.99           | unlimited   | 5 days   | `yarn coupon best CODE`     |
+| Custom price       | €12.99 - €19.99 | unlimited   | 31 days  | `yarn coupon custom CODE`   |
+| Free: Open         | free            | 10          | 5 days   | `yarn coupon open CODE`     |
+| Free: Targeted     | free            | 100         | 31 days  | `yarn coupon targeted CODE` |
+
+- `yarn coupon <type> CODE EXISTING_CODE` - also extends `EXISTING_CODE`: users opening an expired link are sent to the new `CODE`
+- free coupons (open / targeted) are half hidden on the page, share them with `?c=CODE`:
+  `https://nmatei.github.io/web?c=CODE` or `https://nmatei.github.io/ro/web?c=CODE`
+  (auto redirect to Udemy only happens when the link has a valid coupon)
+
+### Build / run
+
+```sh
+npm run build # regenerate web.html + ro/web.html (after editing texts, template or course.json)
+npm start     # local server, pages work without .html (like GitHub Pages): /web, /ro/web
+```
+
 ## 📋 DEV notes
 
 For each Team **create new branch** from scrath (make sure to change name).

@@ -89,7 +89,10 @@ function handleExtendedCoupon(couponData, currentCoupon) {
       var params = new URLSearchParams(window.location.search);
       params.set("c", decodedCoupon);
       var newUrl = window.location.pathname + "?" + params.toString();
-      addNotification(t("extended", null, "🎉 Good news! I've extended the time for your expired coupon. Hurry up and grab it! ⏰"), "info");
+      addNotification(
+        t("extended", null, "🎉 Good news! I've extended the time for your expired coupon. Hurry up and grab it! ⏰"),
+        "info"
+      );
       setTimeout(function () {
         window.location.href = newUrl;
       }, 4000);
@@ -110,7 +113,10 @@ function getValidityInfo(li) {
     left = t("lastDay", null, "it's the last day");
   } else {
     var days = Math.floor(hoursLeft / 24);
-    left = days === 1 ? t("dayLeft", { days: days }, "only {days} day left") : t("daysLeft", { days: days }, "only {days} days left");
+    left =
+      days === 1
+        ? t("dayLeft", { days: days }, "only {days} day left")
+        : t("daysLeft", { days: days }, "only {days} days left");
   }
   var date = expire.toLocaleDateString(document.documentElement.lang);
   return t("validity", { date: date, left: left }, "⏳ Valid until {date} - {left}.");
@@ -231,8 +237,20 @@ function checkCouponCodeParam() {
   return checkListedCouponParam(coupon);
 }
 
+// language links keep url params (coupon), static href is kept for SEO
+function keepParamsOnLanguageLinks() {
+  if (!window.location.search) {
+    return;
+  }
+  document.querySelectorAll(".lang-switch a").forEach(function (a) {
+    a.href = a.getAttribute("href").split("?")[0] + window.location.search;
+  });
+}
+
 (function () {
   var coupon;
+
+  keepParamsOnLanguageLinks();
   var redirectSec = 15;
 
   checkExpired();
