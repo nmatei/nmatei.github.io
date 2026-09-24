@@ -30,17 +30,33 @@ function getCouponUrl(coupon) {
   );
 }
 
+// remember auto redirect per coupon, so Back from Udemy does not redirect again
+function getRedirectKey(coupon) {
+  return "redirected:" + coupon;
+}
+
+function isRedirected(coupon) {
+  try {
+    return sessionStorage.getItem(getRedirectKey(coupon)) === "1";
+  } catch (e) {
+    return false;
+  }
+}
+
+function setRedirected(coupon) {
+  try {
+    sessionStorage.setItem(getRedirectKey(coupon), "1");
+  } catch (e) {}
+}
+
 function redirectToUdemy(coupon) {
   var best = bestDiscountLi
     ? bestDiscountLi.querySelector(".coupon-code")
     : document.querySelector("#coupons ul .coupon-code");
   coupon = coupon || best.innerText;
   var url = getCouponUrl(coupon);
-  if (window.location.hostname === "localhost") {
-    console.warn("redirect %o", url);
-  } else {
-    window.location.href = url;
-  }
+  setRedirected(coupon);
+  window.location.href = url;
 }
 
 function checkExpired() {
@@ -277,10 +293,19 @@ function keepParamsOnLanguageLinks() {
 
   // auto redirect only for shared links with a valid coupon (?c=CODE)
   //   without it, search engines would see this page as a redirect to Udemy
-  if (!coupon) {
+  if (!coupon || isRedirected(coupon)) {
     return;
   }
-  document.querySelector("#redirect-info").classList.remove("hidden");
+  var redirectInfo = document.querySelector("#redirect-info");
+  redirectInfo.classList.remove("hidden");
+
+  // Back from Udemy restored from bfcache: page is not reloaded, just hide the countdown
+  window.addEventListener("pageshow", function (e) {
+    if (e.persisted && isRedirected(coupon)) {
+      clearInterval(redirectTimer);
+      redirectInfo.classList.add("hidden");
+    }
+  });
 
   var secondsEl = document.querySelector("#redirect-info .seconds");
   var stopEl = document.querySelector("#redirect-info .btn-stop");
