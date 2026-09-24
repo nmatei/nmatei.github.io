@@ -144,6 +144,8 @@ function checkFreeCouponParam(coupon, freeElCoupons) {
 
   freeCoupon.classList.add("invited-price", "best-price", "matched");
   freeCoupon.querySelector("a").href = getCouponUrl(coupon);
+  // invited (free) coupon is shown first in the list
+  freeCoupon.parentNode.prepend(freeCoupon);
   var expired = freeCoupon.classList.contains("expired");
 
   if (expired) {
@@ -225,6 +227,7 @@ function checkCouponCodeParam() {
   }
 
   bestDiscountLi =
+    document.querySelector("#coupons li.matched:not(.expired)") ||
     document.querySelector("#coupons li.best-price:not(.expired)") ||
     document.querySelector("#coupons li:not(.expired)");
   if (bestDiscountLi) {
