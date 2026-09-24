@@ -9,12 +9,13 @@
   "scripts": {
     "clear": "rimraf node_modules",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "browser-sync start --server --files '**/*' --single --no-notify",
+    "start": "browser-sync start --config js/bs-config.js",
     "coupon": "node js/add-coupon.js web.html",
     "c": "yarn coupon",
-    "postcoupon": "prettier --write web.html && prettier --write course/coupons.json && npm run deploy",
+    "postcoupon": "prettier --write web.html ro/web.html course/coupons.json && npm run deploy",
     "--deploy": "echo \"Pls deploy changes manualy...\"",
-    "deploy": "git add \"web.html\" && git add \"course/coupons.json\" && git status && git commit -m \"add coupon\" && git push origin HEAD"
+    "deploy": "git add web.html ro/web.html course/ && git status && git commit -m \"add coupon\" && git push origin HEAD",
+    "build": "node js/add-coupon.js web.html clean old && prettier --write web.html ro/web.html"
   },
   "keywords": [
     "nmatei",

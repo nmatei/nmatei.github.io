@@ -1,10 +1,14 @@
 const fs = require("fs");
 const path = require("path");
-const cheerio = require("cheerio");
+const { renderPage } = require("./web-page");
 
-// TODO use this file to generate entire content
-//   filter out old Coupons
 const COUPONS_PATH = "course/coupons.json";
+const COURSE_PATH = "course/course.json";
+// first language is the default one (x-default)
+const PAGES = [
+  { lang: "en", file: "web.html" },
+  { lang: "ro", file: "ro/web.html" }
+];
 
 // Get the HTML file path from the command line arguments
 const args = process.argv.slice(2);
@@ -22,13 +26,10 @@ if (args.length < 3) {
   process.exit(1);
 }
 
-const htmlFilePath = path.resolve(args[0]);
+// args[0] (web.html) is kept for compatibility, all PAGES are generated
 const couponType = args[1].toLowerCase();
 const couponCode = args[2];
 const existingCode = args[3]; // When provided, find this existing code and add couponCode as extended
-
-const htmlContent = fs.readFileSync(htmlFilePath, "utf-8");
-const $ = cheerio.load(htmlContent);
 
 function getCouponExpire(couponType) {
   const expire = new Date();
@@ -38,21 +39,6 @@ function getCouponExpire(couponType) {
   // Subtract 5 minutes from the current date
   expire.setMinutes(expire.getMinutes() - 5);
   return expire;
-}
-
-function getHTMLCoupon(type, code, expire, cls = "") {
-  const url = `https://www.udemy.com/course/become-a-web-developer-from-scratch-step-by-step-guide/?referralCode=DCED6F67EFF597AA11CE&couponCode=${code}`;
-  return `
-    <li data-expire="${expire.toISOString()}" class="${type}-price ${cls}">
-      <a target="_blank" href="${url}">
-        <span class="coupon-code">${code}</span>
-        <div class="coupon-info">
-          <span>Valid until:</span>
-          <span class="coupon-expire-date">${expire.toDateString()} ${type === "best" ? "✨" : ""}</span>
-        </div>
-      </a>
-    </li>
-  `;
 }
 
 function getCoupons() {
@@ -127,28 +113,26 @@ function encodeCoupon(code) {
     .join("");
 }
 
+function readJson(file) {
+  return JSON.parse(fs.readFileSync(file, "utf-8"));
+}
+
 function setHtmlCoupons(coupons) {
   const limit = new Date().getTime() - 90 * 24 * 60 * 60 * 1000; // 90 days back
   coupons = coupons
     .filter(c => new Date(c.expire).getTime() > limit)
     .sort((a, b) => new Date(b.expire).getTime() - new Date(a.expire).getTime());
-  const now = new Date().getTime();
 
-  const list = coupons
-    .map(coupon => {
-      let expire = new Date(coupon.expire);
-      const expired = expire.getTime() < now;
-      if (expired && (coupon.type === "open" || coupon.type === "targeted")) {
-        //return false;
-      }
-      const cls = expired ? "expired" : "";
-      return getHTMLCoupon(coupon.type, coupon.code, expire, cls);
-    })
-    .filter(Boolean);
+  const course = readJson(COURSE_PATH);
+  const translations = PAGES.map(page => readJson(`course/i18n/${page.lang}.json`));
+  const locales = translations.map(t => ({ lang: t.lang, locale: t.locale, path: t.path }));
 
-  $("#coupons ul").html(list.join(""));
-
-  fs.writeFileSync(htmlFilePath, $.html());
+  PAGES.forEach((page, i) => {
+    const html = renderPage({ t: translations[i], course, coupons, locales });
+    fs.mkdirSync(path.dirname(page.file), { recursive: true });
+    fs.writeFileSync(page.file, html);
+    console.log("generated: %o", page.file);
+  });
 }
 
 if (["best", "custom", "open", "targeted"].includes(couponType)) {
