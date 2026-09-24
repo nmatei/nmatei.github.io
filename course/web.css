@@ -322,6 +322,12 @@ footer a {
   border-radius: 0.2em;
   transition: 0.5s;
 }
+footer .icon {
+  flex-shrink: 0;
+}
+footer .label-short {
+  display: none;
+}
 footer a:hover {
   text-decoration: none;
   background-color: #0798ab;
@@ -482,5 +488,16 @@ main section {
 
   #what-you-will-learn ul li {
     width: 100%;
+  }
+
+  /* footer: icons only, everything on one row */
+  footer {
+    white-space: nowrap;
+  }
+  footer .label {
+    display: none;
+  }
+  footer .label-short {
+    display: inline;
   }
 }
