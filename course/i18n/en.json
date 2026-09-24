@@ -1,0 +1,70 @@
+{
+  "lang": "en",
+  "locale": "en_US",
+  "path": "/web",
+  "title": "Become a Web Developer from Scratch - Udemy Coupon | Nicolae Matei",
+  "name": "Become a WEB Developer from Scratch, step by step Guide",
+  "description": "Learn HTML, CSS, JavaScript, VSCode and Git step by step and build 2 projects. Get the latest Udemy coupon for the course by Nicolae Matei.",
+  "subtitle": "If you wish to see what Web Development means and try it, what can you build with and how - you are in the right place.",
+  "createdBy": "Created by",
+  "imageAlt": "Become a WEB Developer from Scratch - course cover",
+  "badges": {
+    "highestRated": "Highest Rated",
+    "bestseller": "Bestseller"
+  },
+  "ratingLabel": "Rating: {rating} out of 5",
+  "ratings": "ratings",
+  "students": "students",
+  "lastUpdated": "Last updated",
+  "totalHours": "total hours",
+  "courseLanguage": "",
+  "couponsTitle": "✨Latest Coupons / Discounts",
+  "redirectInfo": "Redirecting to Udemy Course using <strong>best discount</strong> in&nbsp;<span class=\"seconds\">few</span>&nbsp;seconds...",
+  "cta": "Enroll with the best coupon",
+  "learnTitle": "What you'll learn",
+  "learn": [
+    "Web concepts every web developer must know",
+    "Learn how to create your own webpages and web applications",
+    "Learn how to reproduce any parts of a web page",
+    "You can decide if you wish to become a Developer or you wish other Programming languages"
+  ],
+  "requirementsTitle": "Requirements",
+  "requirements": "No programming experience needed. You will learn everything you need step by step.",
+  "descriptionTitle": "Description",
+  "descriptionHtml": [
+    "We will learn the basic <strong><a href=\"https://www.w3schools.com/html/\" target=\"_blank\">html</a> &amp; <a href=\"https://www.w3schools.com/css/\" target=\"_blank\">css</a> concepts</strong> we need to know, we will discover the most important parts of web development, and will understand <strong>how they work</strong>, <strong>why they behave in that way</strong>. And after that we will be <strong>able to reproduce any parts of a web page</strong>.",
+    "I'll explain some <strong>css layouts</strong> (css layout, flexbox, grid layout), concepts so you could organize and create any layout or skeleton pages. Also if you wish to know better what are <strong>css selectors</strong> - I'll touch this topic as well.",
+    "You will be building <strong>2 projects</strong>, where you will apply the knowledge we learn in the course.",
+    "We will build step by step both projects and you should be able to type the code I'm typing and see the results.",
+    "<strong>Pure <a href=\"https://www.w3schools.com/js/\" target=\"_blank\">JavaScript</a> is vital </strong>so we have to take more time to understand <strong>how</strong> JS <strong>works</strong>, what are key concepts in this programming language. I'll explain all JS&nbsp;concepts you have to know to be able to <strong>start any web project</strong> and also <strong>understand others code</strong> in the future. Working with data and understand and create flows in our applications will be a big part of this course.",
+    "I'll teach you how to use <a href=\"https://code.visualstudio.com/download\" target=\"_blank\"><strong>VSCode</strong></a> as IDE Editor and how to save <strong>your code on <a href=\"https://github.com/\" target=\"_blank\">GitHub</a></strong>. We will use basic <strong>git commands</strong> every programmer should know.",
+    "If you are a Backend developer that wants to learn more about how to create your own <strong>web interfaces</strong>, this course could help you!"
+  ],
+  "keywordsTitle": "Few JavaScript keywords that I'll touch:",
+  "keywords": "Array helpers, JSON, DOM, Events, callback, Promises, pure functions",
+  "whoTitle": "Who this course is for:",
+  "who": [
+    "Take this course if you're willing to become a web developer, but not only web, as we will learn basic programming skills",
+    "If you are not decided if you wish to go to any live courses, or even University this course could help you.",
+    "If you are already a Java/C# developer and wish to learn Web, this course will help you grow."
+  ],
+  "instructorTitle": "Instructor",
+  "instructorBio": "Senior Web Developer & trainer. I teach HTML, CSS, JavaScript and React in a practical, step by step way, so you understand <strong>how</strong> and <strong>why</strong> things work.",
+  "referralLink": "Udemy Referral Code",
+  "js": {
+    "validUntil": "Valid until:",
+    "expired": "Expired:",
+    "stop": "[ Stop ]",
+    "continue": "[ Continue ]",
+    "freeApplied": "🎯 Coupon <strong>{coupon}</strong> successfully applied! ⚡ Limited spots available - secure yours now! 🚀",
+    "active": "🎁 Coupon <strong>{coupon}</strong> is active and ready to use!<br />{validity}<br />Enroll now and start learning today! 🚀",
+    "invalid": "Coupon <strong>{coupon}</strong> is not valid or expired.",
+    "expiredCoupon": "Coupon <strong>{coupon}</strong> expired.",
+    "extended": "🎉 Good news! I've extended the time for your expired coupon. Hurry up and grab it! ⏰",
+    "expireSoon": "⏳ Hurry up, it will expire soon.",
+    "lastDay": "it's the last day",
+    "dayLeft": "only {days} day left",
+    "daysLeft": "only {days} days left",
+    "validity": "⏳ Valid until {date} - {left}."
+  }
+}

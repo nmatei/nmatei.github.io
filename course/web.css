@@ -12,6 +12,9 @@ body {
   position: relative;
   height: 100vh;
   font-size: 1.2em;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.5;
+  color: #2d2f31;
   display: flex;
   flex-direction: column;
 }
@@ -40,9 +43,12 @@ header .top-container h1 {
   margin: 0;
   font-size: 2.4rem;
 }
-header .top-container h2 {
+header .top-container h1 {
+  line-height: 1.2;
+}
+header .top-container .subtitle {
   font-size: 1.4rem;
-  font-weight: normal;
+  margin: 0.8em 0;
 }
 header .top-container p {
   margin: 0;
@@ -54,6 +60,9 @@ header .top-container p {
   width: 415px;
 }
 .sidebar-container img {
+  display: block;
+  width: 100%;
+  height: auto;
   border: 1px solid #d1d7dc;
   box-sizing: border-box;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -288,6 +297,122 @@ footer a:hover {
   display: none;
 }
 
+/* Udemy like rating: [Highest Rated] 4.7 ★★★★⯪ */
+.course-rating {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  margin-bottom: 6px;
+}
+.badge {
+  background-color: #fdebc8;
+  color: #8b4a1c;
+  font-weight: 700;
+  font-size: 0.85em;
+  padding: 3px 10px;
+  border-radius: 6px;
+}
+.rating {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #f3a33a;
+}
+.rating-value {
+  font-weight: 700;
+  font-size: 1.25em;
+}
+.stars {
+  display: inline-flex;
+  gap: 2px;
+}
+.star path {
+  stroke: #f3a33a;
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+}
+.star-full path {
+  fill: #f3a33a;
+}
+.star-empty path,
+.star-half path {
+  fill: none;
+}
+.star-half path.half {
+  fill: #f3a33a;
+  stroke: none;
+  clip-path: inset(0 50% 0 0);
+}
+.rating-stat {
+  color: #c0c4fc;
+  font-size: 0.9em;
+}
+header .top-container .course-rating {
+  margin-bottom: 12px;
+}
+.course-language {
+  color: #d1d7dc;
+  font-size: 0.75em;
+  white-space: nowrap;
+}
+
+/* language switch over the course image */
+.sidebar-container {
+  position: relative;
+}
+header .lang-switch {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 1;
+  background-color: rgba(255, 255, 255, 0.85);
+  color: #2d2f31;
+  font-size: 0.8rem;
+  padding: 3px 8px;
+  border-radius: 6px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+header .lang-switch a {
+  color: #8710d8;
+}
+header .lang-switch strong {
+  color: #2d2f31;
+}
+footer .lang-switch a {
+  padding: 2px 4px;
+}
+
+.cta {
+  display: inline-block;
+  background-color: #a435f0;
+  color: #fff;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.cta:hover {
+  background-color: #8710d8;
+}
+
+main section {
+  margin-bottom: 1.5rem;
+}
+.instructor {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.instructor img {
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.instructor p {
+  margin: 0 0 4px 0;
+}
+
 @media (max-width: 800px) {
   body {
     font-size: 1em;
@@ -299,9 +424,8 @@ footer a:hover {
     margin: 0;
     font-size: 1.6rem;
   }
-  header .top-container h2 {
+  header .top-container .subtitle {
     font-size: 1.2rem;
-    font-weight: normal;
   }
   .sidebar-container {
     flex: 1;

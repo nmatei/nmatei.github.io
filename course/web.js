@@ -7,6 +7,15 @@
 
 var bestDiscountLi;
 
+// texts are injected by js/web-page.js (window.I18N), english fallback
+var I18N = window.I18N || {};
+function t(key, values, fallback) {
+  var text = I18N[key] || fallback;
+  return text.replace(/\{(\w+)\}/g, function (m, name) {
+    return values && name in values ? values[name] : m;
+  });
+}
+
 if (typeof URLSearchParams === "undefined") {
   var script = document.createElement("script");
   script.src = "https://cdn.jsdelivr.net/npm/url-search-params-polyfill@8.2.5/index.min.js";
@@ -43,7 +52,7 @@ function checkExpired() {
     //console.info("date", date);
     if (date.getTime() < now) {
       li.classList.add("expired");
-      li.title = "Expired: " + date.toDateString();
+      li.title = t("expired", null, "Expired:") + " " + date.toLocaleDateString(document.documentElement.lang);
       if (first && (li.classList.contains("custom-price") || li.classList.contains("best-price"))) {
         first = 0;
         li.classList.add("first-expired");
@@ -80,7 +89,7 @@ function handleExtendedCoupon(couponData, currentCoupon) {
       var params = new URLSearchParams(window.location.search);
       params.set("c", decodedCoupon);
       var newUrl = window.location.pathname + "?" + params.toString();
-      addNotification(`🎉 Good news! I've extended the time for your expired coupon. Hurry up and grab it! ⏰`, "info");
+      addNotification(t("extended", null, "🎉 Good news! I've extended the time for your expired coupon. Hurry up and grab it! ⏰"), "info");
       setTimeout(function () {
         window.location.href = newUrl;
       }, 4000);
@@ -93,22 +102,23 @@ function handleExtendedCoupon(couponData, currentCoupon) {
 function getValidityInfo(li) {
   var expire = new Date(li.dataset.expire);
   if (isNaN(expire.getTime())) {
-    return `⏳ Hurry up, it will expire soon.`;
+    return t("expireSoon", null, "⏳ Hurry up, it will expire soon.");
   }
   var hoursLeft = (expire.getTime() - new Date().getTime()) / (60 * 60 * 1000);
   var left;
   if (hoursLeft < 24) {
-    left = "it's the last day";
+    left = t("lastDay", null, "it's the last day");
   } else {
     var days = Math.floor(hoursLeft / 24);
-    left = `only ${days} ${days === 1 ? "day" : "days"} left`;
+    left = days === 1 ? t("dayLeft", { days: days }, "only {days} day left") : t("daysLeft", { days: days }, "only {days} days left");
   }
-  return `⏳ Valid until ${expire.toDateString()} - ${left}.`;
+  var date = expire.toLocaleDateString(document.documentElement.lang);
+  return t("validity", { date: date, left: left }, "⏳ Valid until {date} - {left}.");
 }
 
 function notifyExpiredCoupon(coupon) {
   // Check if this coupon has an extended property
-  fetch("course/coupons.json")
+  fetch("/course/coupons.json")
     .then(response => response.json())
     .then(data => {
       var matchingCoupon = data.coupons.find(function (c) {
@@ -117,11 +127,11 @@ function notifyExpiredCoupon(coupon) {
       });
 
       if (matchingCoupon && !handleExtendedCoupon(matchingCoupon, coupon)) {
-        addNotification(`Coupon <strong>${coupon}</strong> expired.`);
+        addNotification(t("expiredCoupon", { coupon: coupon }, "Coupon <strong>{coupon}</strong> expired."));
       }
     })
     .catch(function () {
-      addNotification(`Coupon <strong>${coupon}</strong> expired.`);
+      addNotification(t("expiredCoupon", { coupon: coupon }, "Coupon <strong>{coupon}</strong> expired."));
     });
 }
 
@@ -152,7 +162,11 @@ function checkFreeCouponParam(coupon, freeElCoupons) {
     notifyExpiredCoupon(coupon);
   } else {
     addNotification(
-      `🎯 Coupon <strong>${coupon}</strong> successfully applied! ⚡ Limited spots available - secure yours now! 🚀`,
+      t(
+        "freeApplied",
+        { coupon: coupon },
+        "🎯 Coupon <strong>{coupon}</strong> successfully applied! ⚡ Limited spots available - secure yours now! 🚀"
+      ),
       "info"
     );
   }
@@ -168,7 +182,7 @@ function checkListedCouponParam(coupon) {
     return code.innerText.trim() === coupon;
   });
   if (!el) {
-    addNotification(`Coupon <strong>${coupon}</strong> is not valid or expired.`);
+    addNotification(t("invalid", { coupon: coupon }, "Coupon <strong>{coupon}</strong> is not valid or expired."));
     return null;
   }
 
@@ -180,8 +194,11 @@ function checkListedCouponParam(coupon) {
     notifyExpiredCoupon(coupon);
   } else {
     addNotification(
-      `🎁 Coupon <strong>${coupon}</strong> is active and ready to use!<br />` +
-        `${getValidityInfo(li)}<br />Enroll now and start learning today! 🚀`,
+      t(
+        "active",
+        { coupon: coupon, validity: getValidityInfo(li) },
+        "🎁 Coupon <strong>{coupon}</strong> is active and ready to use!<br />{validity}<br />Enroll now and start learning today! 🚀"
+      ),
       "info"
     );
   }
@@ -233,6 +250,20 @@ function checkCouponCodeParam() {
   if (bestDiscountLi) {
     bestDiscountLi.classList.add("best-discount");
   }
+  var best = bestDiscountLi && bestDiscountLi.querySelector(".coupon-code");
+  var cta = document.querySelector(".cta-container");
+  if (cta && (coupon || best)) {
+    cta.querySelector("a").href = getCouponUrl(coupon || best.innerText.trim());
+    cta.classList.remove("hidden");
+  }
+
+  // auto redirect only for shared links with a valid coupon (?c=CODE)
+  //   without it, search engines would see this page as a redirect to Udemy
+  if (!coupon) {
+    return;
+  }
+  document.querySelector("#redirect-info").classList.remove("hidden");
+
   var secondsEl = document.querySelector("#redirect-info .seconds");
   var stopEl = document.querySelector("#redirect-info .btn-stop");
 
@@ -247,7 +278,7 @@ function checkCouponCodeParam() {
   }
 
   function toggleTimer(stop) {
-    stopEl.innerText = stop ? "[ Continue ]" : "[ Stop ]";
+    stopEl.innerText = stop ? t("continue", null, "[ Continue ]") : t("stop", null, "[ Stop ]");
     stopEl.dataset.stop = stop ? 1 : 0;
     if (stop) {
       clearInterval(redirectTimer);

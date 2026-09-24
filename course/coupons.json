@@ -297,12 +297,18 @@
     {
       "type": "targeted",
       "code": "202608-S********",
-      "expire": "2026-09-24T16:37:58.884Z"
+      "expire": "2026-09-24T16:37:58.884Z",
+      "extended": "PmD|QmD8OYQXYXU]OXUEZT@@"
     },
     {
       "type": "best",
       "code": "REACT2026AI",
       "expire": "2026-09-26T17:12:34.588Z"
+    },
+    {
+      "type": "open",
+      "code": "202609-S********",
+      "expire": "2026-09-29T16:54:04.770Z"
     }
   ]
 }
