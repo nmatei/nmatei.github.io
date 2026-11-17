@@ -308,7 +308,8 @@
     {
       "type": "targeted",
       "code": "202609-S********",
-      "expire": "2026-10-25T16:58:00.000Z"
+      "expire": "2026-10-25T16:58:00.000Z",
+      "extended": "PmD|QmH{OYQXYXU]OXUEZT@@"
     },
     {
       "type": "custom",
@@ -319,6 +320,11 @@
       "type": "custom",
       "code": "WEB2026NOV",
       "expire": "2026-11-29T12:17:19.202Z"
+    },
+    {
+      "type": "best",
+      "code": "202611-STUDY-DAY",
+      "expire": "2026-11-22T10:30:38.161Z"
     }
   ]
 }
